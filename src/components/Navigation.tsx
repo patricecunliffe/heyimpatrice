@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,14 +16,33 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offsetTop = element.offsetTop - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
+    // If we're not on the home page, navigate to home first
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const offsetTop = element.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offsetTop = element.offsetTop - 80;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
     }
+  };
+
+  const handleContactClick = () => {
+    navigate('/contact');
   };
 
   return (
@@ -33,7 +55,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button 
-            onClick={() => scrollToSection('home')}
+            onClick={() => navigate('/')}
             className="text-xl font-bold text-foreground hover:text-primary transition-colors duration-300"
           >
             heyimpatrice
@@ -60,11 +82,17 @@ const Navigation = () => {
             >
               Services
             </button>
+            <button 
+              onClick={handleContactClick}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
+            >
+              Contact
+            </button>
           </div>
           
           {/* Contact Button */}
           <Button 
-            onClick={() => scrollToSection('contact')}
+            onClick={handleContactClick}
             className="shadow-medium hover:shadow-strong transition-all duration-300 transform hover:scale-105"
             size="sm"
           >
