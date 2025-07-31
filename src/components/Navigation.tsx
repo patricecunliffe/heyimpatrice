@@ -82,12 +82,6 @@ const Navigation = () => {
             >
               Services
             </button>
-            <button 
-              onClick={handleContactClick}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
-            >
-              Contact
-            </button>
           </div>
           
           {/* Contact Button */}
