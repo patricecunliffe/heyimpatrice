@@ -12,13 +12,13 @@ const AboutSection = () => {
               
               <div className="text-lg md:text-xl text-muted-foreground leading-relaxed space-y-6">
                 <p>
-                  I'm <span className="font-semibold text-foreground">Pat Cunliffe</span>, known around here as Patrice (thanks, FIFA). Pastor by day, creative every other waking moment.
-                </p>
+I’m a pastor by day and a creative problem-solver the rest of the time, with a passion for building digital experiences that actually work. When I’m not leading our community in worship, you’ll find me crafting websites that turn curious visitors into loyal customers and transform bold ideas into thriving online ventures.                </p>
                 
                 <p>
-                  I lead a small but mighty family that's passionate about helping others win - in business, in their ventures, and in their areas of ministry.
-                </p>
-                
+I believe every business deserves a website that works as hard as they do. That’s why I specialize in creating clean, conversion-focused designs that cut through the digital noise and get straight to the point. No unnecessary bells and whistles – just smart, strategic web solutions that help people connect with their audience and grow their impact.                </p>
+                <p>
+              I lead a small but mighty family that’s passionate about one thing: helping others win. Whether you’re launching a ministry, growing a business, or bringing a creative venture to life, we’re here to build the digital foundation that supports your biggest dreams.  
+              </p>
                 <p className="text-xl font-medium text-foreground">
                   Let's build something amazing together.
                 </p>
