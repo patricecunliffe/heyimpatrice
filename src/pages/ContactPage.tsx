@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import Navigation from '@/components/Navigation';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -118,9 +119,11 @@ Best regards,
   };
 
   return (
-    <div className="min-h-screen bg-background pt-20">
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      
       {/* Header */}
-      <div className="bg-secondary py-16">
+      <div className="bg-secondary py-16 pt-32">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
             Let's Work Together
