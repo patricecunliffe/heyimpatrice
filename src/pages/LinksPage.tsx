@@ -25,7 +25,7 @@ const LinksPage = () => {
     },
     {
       title: "Get a Quote",
-      url: "/contact",
+      url: "https://kiwi-oatmeal-777.notion.site/23fd5994cd3480b0bcc0cb7be9052fee?pvs=105",
       icon: MessageSquare,
       description: "Start your next creative project"
     }
