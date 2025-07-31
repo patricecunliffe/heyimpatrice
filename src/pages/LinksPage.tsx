@@ -5,12 +5,12 @@ const LinksPage = () => {
     title: "My Website",
     url: "/",
     icon: Home,
-    description: "Explore my creative work and services"
+    description: "Explore my work and services"
   }, {
     title: "Wallpapers",
     url: "https://heyimpatrice.gumroad.com",
     icon: Palette,
-    description: "Creative wallpapers for your devices",
+    description: "Wallpapers for your devices",
     external: true
   }, {
     title: "Notion",
@@ -22,7 +22,7 @@ const LinksPage = () => {
     title: "Get a Quote",
     url: "https://kiwi-oatmeal-777.notion.site/23fd5994cd3480b0bcc0cb7be9052fee?pvs=105",
     icon: MessageSquare,
-    description: "Start your next creative project"
+    description: "Start your next project!"
   }];
   const handleLinkClick = (url: string, external?: boolean) => {
     if (external) {
