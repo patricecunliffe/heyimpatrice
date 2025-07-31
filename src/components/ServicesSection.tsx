@@ -8,20 +8,20 @@ const ServicesSection = () => {
   const services = [
     {
       title: "Quick Launch",
-      description: "Single landing page with clear CTAs and rapid deployment. Perfect for getting your business online fast.",
-      features: ["Single page design", "Clear call-to-actions", "Rapid 3-day deployment", "Mobile responsive", "Basic SEO setup"],
+      description: "Single landing page with clear CTAs and quick deployment. Perfect for getting your business online fast.",
+      features: ["Single page design", "Clear call-to-actions", "Quick build & deployment", "Basic SEO", "From $500 + ($40 p/m)"],
       recommended: false
     },
     {
       title: "Growth Package", 
       description: "Four-page website build with optional Linktree integration. The sweet spot for most businesses.",
-      features: ["4-page website", "Contact forms", "Linktree integration", "SEO optimization", "2-week delivery", "3 rounds of revisions"],
+      features: ["4-page website", "Contact forms", "Custom link in bio", "2-week delivery", "3 rounds of revisions", "From $1500 + ($75 p/m)"],
       recommended: true
     },
     {
       title: "Full Stack Solution",
       description: "Complete SaaS build with authentication, user systems, and database integration for ambitious projects.",
-      features: ["Custom SaaS development", "User authentication", "Database integration", "Admin dashboard", "Ongoing support", "Scalable architecture"],
+      features: ["User authentication", "Database integration", "Admin dashboard", "Ongoing support", "Scalable architecture", "From $3000 + ($200 p/m)"],
       recommended: false
     }
   ];
