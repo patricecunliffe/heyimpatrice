@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -43,6 +45,12 @@ const Navigation = () => {
 
   const handleContactClick = () => {
     navigate('/contact');
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleMobileMenuClick = (sectionId: string) => {
+    scrollToSection(sectionId);
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -61,6 +69,14 @@ const Navigation = () => {
             heyimpatrice
           </button>
           
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-foreground hover:text-primary transition-colors duration-300"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <button 
@@ -96,6 +112,32 @@ const Navigation = () => {
           </Button>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 top-0 bg-background/95 backdrop-blur-md z-40">
+          <div className="flex flex-col items-center justify-center h-full space-y-8">
+            <button 
+              onClick={() => handleMobileMenuClick('about')}
+              className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300"
+            >
+              About
+            </button>
+            <button 
+              onClick={() => handleMobileMenuClick('services')}
+              className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300"
+            >
+              Services
+            </button>
+            <button 
+              onClick={() => handleMobileMenuClick('work')}
+              className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300"
+            >
+              Work
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
