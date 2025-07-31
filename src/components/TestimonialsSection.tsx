@@ -1,45 +1,119 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
   
   const testimonials = [
     {
-      quote: "Patrice delivered exactly what we needed - a simple, effective website that converts visitors into customers.",
+      quote: "Patrice delivered exactly what we needed - a simple, effective website that converts visitors into customers. Our online sales increased 40% in the first month.",
       author: "Sarah Johnson",
-      company: "Tech Startup"
+      company: "Tech Startup CEO",
+      location: "Sydney"
     },
     {
-      quote: "Working with Pat was incredible. The attention to detail and clean design exceeded our expectations.",
+      quote: "Working with Pat was incredible. The attention to detail and clean design exceeded our expectations. He truly understands what businesses need to succeed online.",
       author: "Mike Chen", 
-      company: "Creative Agency"
+      company: "Creative Agency Director",
+      location: "Melbourne"
     },
     {
-      quote: "Our new website has increased conversions by 40%. Pat's strategic approach really works.",
+      quote: "Our new website has transformed our business. Pat's strategic approach and professional execution delivered results we didn't think were possible.",
       author: "Emma Wilson",
-      company: "E-commerce Brand"
+      company: "E-commerce Founder",
+      location: "Brisbane"
+    },
+    {
+      quote: "From concept to completion, Patrice was professional, responsive, and delivered on every promise. The Kingdom Purpose platform has been life-changing for our community.",
+      author: "David Martinez",
+      company: "Ministry Leader",
+      location: "Perth"
+    },
+    {
+      quote: "The website Pat built for us perfectly captures our brand and converts visitors at an impressive rate. His understanding of both design and business is remarkable.",
+      author: "Lisa Thompson",
+      company: "Consulting Firm Partner",
+      location: "Adelaide"
     }
   ];
 
+  // Auto-scroll functionality
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    if (!isPaused && !isUserInteracting) {
+      const timer = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+      }, 5000);
+      
+      return () => clearInterval(timer);
+    }
+  }, [isPaused, isUserInteracting, testimonials.length]);
+
+  // Touch/swipe handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    setIsUserInteracting(true);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
     
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }
+    if (isRightSwipe) {
+      setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    }
+    
+    setIsUserInteracting(false);
+  };
+
+  // Mouse handlers for desktop
+  const handleMouseEnter = () => setIsPaused(true);
+  const handleMouseLeave = () => setIsPaused(false);
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+    setIsUserInteracting(true);
+    setTimeout(() => setIsUserInteracting(false), 1000);
+  };
 
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 animate-fade-in">
-            Testimonials
-          </h2>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Client Stories
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Real feedback from businesses who've transformed their online presence
+            </p>
+          </div>
           
-          <div className="relative overflow-hidden">
+          {/* Carousel Container */}
+          <div 
+            className="relative overflow-hidden"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div 
-              className="flex transition-transform duration-500 ease-in-out"
+              ref={scrollContainerRef}
+              className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {testimonials.map((testimonial, index) => (
@@ -47,28 +121,69 @@ const TestimonialsSection = () => {
                   key={index}
                   className="w-full flex-shrink-0 px-4"
                 >
-                  <div className="bg-card shadow-strong rounded-lg p-8 animate-fade-in">
-                    <blockquote className="text-xl md:text-2xl text-muted-foreground mb-6 italic">
+                  <div className="bg-card shadow-strong rounded-2xl p-8 md:p-12 mx-auto max-w-4xl animate-fade-in border border-border/50">
+                    {/* Quote */}
+                    <blockquote className="text-2xl md:text-3xl lg:text-4xl text-foreground mb-8 leading-relaxed font-medium">
                       "{testimonial.quote}"
                     </blockquote>
-                    <div className="font-semibold">{testimonial.author}</div>
-                    <div className="text-muted-foreground">{testimonial.company}</div>
+                    
+                    {/* Attribution */}
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                      <div>
+                        <div className="font-bold text-lg text-foreground mb-1">
+                          {testimonial.author}
+                        </div>
+                        <div className="text-muted-foreground">
+                          {testimonial.company}
+                        </div>
+                      </div>
+                      <div className="text-sm text-muted-foreground mt-2 md:mt-0">
+                        {testimonial.location}
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
           
-          <div className="flex justify-center space-x-2 mt-8">
+          {/* Navigation dots */}
+          <div className="flex justify-center space-x-3 mt-12">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-primary' : 'bg-muted'
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'bg-primary scale-125 shadow-medium' 
+                    : 'bg-muted hover:bg-muted-foreground/50'
                 }`}
+                aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
+          </div>
+          
+          {/* Navigation arrows for desktop */}
+          <div className="hidden md:block">
+            <button
+              onClick={() => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-card shadow-strong hover:shadow-intense rounded-full p-3 transition-all hover:scale-110"
+              aria-label="Previous testimonial"
+            >
+              <svg className="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <button
+              onClick={() => setCurrentIndex((prev) => (prev + 1) % testimonials.length)}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-card shadow-strong hover:shadow-intense rounded-full p-3 transition-all hover:scale-110"
+              aria-label="Next testimonial"
+            >
+              <svg className="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>

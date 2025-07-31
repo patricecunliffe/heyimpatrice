@@ -1,33 +1,122 @@
+import portfolioKingdomPurpose from '@/assets/portfolio-kingdom-purpose.jpg';
+import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
+import portfolioCorporate from '@/assets/portfolio-corporate.jpg';
+
 const WorkSection = () => {
   const projects = [
-    { title: "Website 1", category: "E-commerce" },
-    { title: "Project 2", category: "Portfolio" },
-    { title: "Site 3", category: "Business" },
-    { title: "Work 4", category: "Creative" },
-    { title: "Project 5", category: "Tech" },
-    { title: "Website 6", category: "Startup" }
+    {
+      title: "Kingdom Purpose",
+      description: "A SaaS platform helping people discover their divine calling and purpose through guided assessments and personalized coaching.",
+      url: "kingdompurpose.au",
+      image: portfolioKingdomPurpose,
+      technologies: ["React", "Node.js", "Supabase", "Stripe"]
+    },
+    {
+      title: "EcoCommerce Store",
+      description: "Sustainable products e-commerce platform with integrated inventory management and customer loyalty program.",
+      url: "ecostore.com",
+      image: portfolioEcommerce,
+      technologies: ["Next.js", "Shopify", "TailwindCSS"]
+    },
+    {
+      title: "Strategic Consulting",
+      description: "Professional services website for business consulting firm specializing in digital transformation strategies.",
+      url: "strategicpartners.com.au",
+      image: portfolioCorporate,
+      technologies: ["React", "TypeScript", "Framer Motion"]
+    }
   ];
+
+  const handleProjectClick = (url: string) => {
+    window.open(`https://${url}`, '_blank');
+  };
 
   return (
     <section id="work" className="py-20 bg-secondary">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in">
-            My Work
-          </h2>
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              My Work
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Real projects that deliver results for businesses ready to make their mark online
+            </p>
+          </div>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="space-y-20">
             {projects.map((project, index) => (
               <div 
                 key={index}
-                className="aspect-square bg-card shadow-medium hover:shadow-strong transition-all duration-300 rounded-lg p-6 flex flex-col justify-between cursor-pointer hover:transform hover:scale-105 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center animate-fade-in`}
+                style={{ animationDelay: `${index * 0.3}s` }}
               >
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
-                  <p className="text-muted-foreground text-sm">{project.category}</p>
+                {/* Project Image */}
+                <div className="flex-1 relative group cursor-pointer" onClick={() => handleProjectClick(project.url)}>
+                  <div className="relative overflow-hidden rounded-2xl shadow-strong hover:shadow-intense transition-all duration-500 transform hover:scale-105">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    {/* Overlay with click hint */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 dark:bg-black/90 px-6 py-3 rounded-full">
+                        <span className="text-sm font-semibold">View Project →</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Device frame decoration */}
+                  <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-primary/20 rounded-full -z-10"></div>
+                  <div className="absolute -top-4 -left-4 w-6 h-6 bg-accent/30 rounded-full -z-10"></div>
                 </div>
-                <div className="w-full h-20 bg-muted rounded-md"></div>
+                
+                {/* Project Content */}
+                <div className="flex-1 space-y-6">
+                  <div>
+                    <h3 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex items-center gap-2 mb-6">
+                      <span className="text-sm text-muted-foreground">Visit:</span>
+                      <button 
+                        onClick={() => handleProjectClick(project.url)}
+                        className="text-primary hover:text-primary/80 font-medium underline decoration-2 underline-offset-4 transition-colors"
+                      >
+                        {project.url}
+                      </button>
+                    </div>
+                    
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-3">
+                      {project.technologies.map((tech, techIndex) => (
+                        <span 
+                          key={techIndex}
+                          className="px-3 py-1 bg-card text-card-foreground text-sm rounded-full shadow-soft border border-border"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* CTA Button */}
+                  <button 
+                    onClick={() => handleProjectClick(project.url)}
+                    className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all shadow-medium hover:shadow-strong transform hover:scale-105"
+                  >
+                    View Project
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             ))}
           </div>
