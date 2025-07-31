@@ -54,7 +54,7 @@ const HeroSection = () => {
           {/* Small header text - slides up from bottom */}
           <div className="mb-6 opacity-0 translate-y-8 animate-slide-up-delayed">
             <p className="text-sm md:text-base text-muted-foreground font-medium tracking-wide uppercase">
-              Hey I'm Patrice
+              heyimpatrice
             </p>
           </div>
           
