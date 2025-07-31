@@ -64,6 +64,9 @@ export default {
 				'slide-up': 'slide-up 0.6s ease-out',
 				'float': 'float 3s ease-in-out infinite',
 				'kinetic': 'kinetic 2s ease-in-out infinite alternate',
+				'slide-up-delayed': 'slide-up 0.6s ease-out 0.3s both',
+				'fade-in-delayed': 'fade-in 0.8s ease-out 0.6s both',
+				'scale-in-delayed': 'scale-in 0.6s ease-out 0.9s both',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
