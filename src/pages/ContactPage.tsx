@@ -4,7 +4,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
-
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -18,38 +17,37 @@ const ContactPage = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
 
   // Email validation regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   const validateForm = () => {
     const newErrors = {
       name: '',
       email: '',
       message: ''
     };
-
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
     }
-
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!emailRegex.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
-
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     }
-
     setErrors(newErrors);
     return Object.values(newErrors).every(error => error === '');
   };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    const {
+      name,
+      value
+    } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -63,28 +61,27 @@ const ContactPage = () => {
       }));
     }
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!validateForm()) {
       return;
     }
-
     setIsSubmitting(true);
-
     try {
       // Simulate form submission - In real implementation, this would integrate with Supabase
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
       setIsSubmitted(true);
       toast({
         title: "Message sent successfully!",
-        description: "Thanks for reaching out. I'll get back to you within 24 hours.",
+        description: "Thanks for reaching out. I'll get back to you within 24 hours."
       });
-      
+
       // Reset form
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
     } catch (error) {
       toast({
         title: "Error sending message",
@@ -95,7 +92,6 @@ const ContactPage = () => {
       setIsSubmitting(false);
     }
   };
-
   const handleEmailClick = () => {
     const subject = encodeURIComponent("Let's work together - Website Project Inquiry");
     const body = encodeURIComponent(`Hi Patrice,
@@ -114,12 +110,9 @@ Looking forward to hearing from you!
 
 Best regards,
 [Your name]`);
-    
     window.location.href = `mailto:patricecunliffe@gmail.com?subject=${subject}&body=${body}`;
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Header */}
@@ -175,11 +168,7 @@ Best regards,
                   </ul>
                 </div>
 
-                <Button 
-                  onClick={handleEmailClick}
-                  size="lg"
-                  className="w-full md:w-auto shadow-strong hover:shadow-intense transition-all transform hover:scale-105 text-lg px-8 py-4"
-                >
+                <Button onClick={handleEmailClick} size="lg" className="w-full md:w-auto shadow-strong hover:shadow-intense transition-all transform hover:scale-105 text-lg px-8 py-4">
                   Send Email Now
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -192,8 +181,7 @@ Best regards,
                 <div className="bg-card rounded-2xl p-8 shadow-strong border border-border/50">
                   <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
                   
-                  {isSubmitted ? (
-                    <div className="text-center py-8">
+                  {isSubmitted ? <div className="text-center py-8">
                       <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -201,68 +189,35 @@ Best regards,
                       </div>
                       <h4 className="text-xl font-semibold mb-2">Message Sent!</h4>
                       <p className="text-muted-foreground">Thanks for reaching out. I'll get back to you within 24 hours.</p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    </div> : <form onSubmit={handleSubmit} className="space-y-6">
                       <div>
                         <label className="block text-sm font-medium mb-2">
                           Name <span className="text-destructive">*</span>
                         </label>
-                        <Input
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          className={`shadow-soft ${errors.name ? 'border-destructive' : ''}`}
-                          placeholder="Your full name"
-                        />
-                        {errors.name && (
-                          <p className="text-destructive text-sm mt-1">{errors.name}</p>
-                        )}
+                        <Input name="name" value={formData.name} onChange={handleInputChange} className={`shadow-soft ${errors.name ? 'border-destructive' : ''}`} placeholder="Your full name" />
+                        {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
                       </div>
                       
                       <div>
                         <label className="block text-sm font-medium mb-2">
                           Email <span className="text-destructive">*</span>
                         </label>
-                        <Input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className={`shadow-soft ${errors.email ? 'border-destructive' : ''}`}
-                          placeholder="your.email@example.com"
-                        />
-                        {errors.email && (
-                          <p className="text-destructive text-sm mt-1">{errors.email}</p>
-                        )}
+                        <Input type="email" name="email" value={formData.email} onChange={handleInputChange} className={`shadow-soft ${errors.email ? 'border-destructive' : ''}`} placeholder="your.email@example.com" />
+                        {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
                       </div>
                       
                       <div>
                         <label className="block text-sm font-medium mb-2">
                           Message <span className="text-destructive">*</span>
                         </label>
-                        <Textarea
-                          name="message"
-                          value={formData.message}
-                          onChange={handleInputChange}
-                          rows={6}
-                          className={`shadow-soft ${errors.message ? 'border-destructive' : ''}`}
-                          placeholder="Tell me about your project..."
-                        />
-                        {errors.message && (
-                          <p className="text-destructive text-sm mt-1">{errors.message}</p>
-                        )}
+                        <Textarea name="message" value={formData.message} onChange={handleInputChange} rows={6} className={`shadow-soft ${errors.message ? 'border-destructive' : ''}`} placeholder="Tell me about your project..." />
+                        {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
                       </div>
                       
-                      <Button 
-                        type="submit" 
-                        disabled={isSubmitting}
-                        className="w-full shadow-medium hover:shadow-strong transition-all"
-                      >
+                      <Button type="submit" disabled={isSubmitting} className="w-full shadow-medium hover:shadow-strong transition-all">
                         {isSubmitting ? 'Sending...' : 'Send Message'}
                       </Button>
-                    </form>
-                  )}
+                    </form>}
                 </div>
               </div>
             </div>
@@ -284,14 +239,7 @@ Best regards,
             <div className="bg-card rounded-2xl shadow-strong p-8 animate-fade-in">
               {/* Calendly Widget */}
               <div className="relative w-full h-96 md:h-[600px] rounded-lg overflow-hidden">
-                <iframe
-                  src="https://calendly.com/patricecunliffe/20-minute-consultation"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  title="Schedule a consultation with Patrice"
-                  className="border-0"
-                ></iframe>
+                <iframe src="https://calendly.com/patricecunliffe/20-minute-consultation" width="100%" height="100%" frameBorder="0" title="Schedule a consultation with Patrice" className="border-0"></iframe>
               </div>
               <p className="text-sm text-muted-foreground mt-4">
                 No pressure, no sales pitch - just a friendly chat about your goals and how I can help.
@@ -305,45 +253,20 @@ Best regards,
       <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">
-              Get a Quote in 3 Days
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 animate-slide-up">
-              Don't want to email, call, or fill out a form? Get a personalized quote 
-              within 3 days via this quick questionnaire.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">Get a Quick Quote Within 3 Days</h2>
+            <p className="text-xl text-muted-foreground mb-8 animate-slide-up">Don't want to email, call, or fill out a form? Get a personalised quote within 3 days via this quick questionnaire.</p>
             
             <div className="bg-card rounded-2xl shadow-strong p-8 animate-fade-in">
               <div className="space-y-6">
-                <div className="text-6xl mb-4">🎯</div>
+                
                 <h3 className="text-2xl font-semibold">
                   5-Minute Project Questionnaire
                 </h3>
-                <p className="text-muted-foreground">
-                  Answer a few fun questions about your project, business goals, and style preferences. 
-                  I'll send you a detailed proposal with pricing within 3 business days.
-                </p>
+                <p className="text-muted-foreground">Answer a few easy questions about your project, business goals, and style preferences. I'll send you a detailed proposal with pricing within 3 business days.</p>
                 
-                <div className="grid md:grid-cols-3 gap-4 text-sm text-muted-foreground my-8">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>Takes 5 minutes</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>No commitment</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>Detailed proposal</span>
-                  </div>
-                </div>
                 
-                <Button 
-                  size="lg"
-                  onClick={() => window.open('https://forms.gle/placeholder-link', '_blank')}
-                  className="shadow-strong hover:shadow-intense transition-all transform hover:scale-105 text-lg px-8 py-4"
-                >
+                
+                <Button size="lg" onClick={() => window.open('https://forms.gle/placeholder-link', '_blank')} className="shadow-strong hover:shadow-intense transition-all transform hover:scale-105 text-lg px-8 py-4">
                   Start Questionnaire
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -354,8 +277,6 @@ Best regards,
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default ContactPage;
