@@ -89,9 +89,6 @@ const LinksPage = () => {
                           {link.description}
                         </p>
                       </div>
-                      {link.external && (
-                        <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
-                      )}
                     </div>
                   </div>
                 </div>
