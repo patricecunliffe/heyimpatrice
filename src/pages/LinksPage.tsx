@@ -11,16 +11,16 @@ const LinksPage = () => {
     },
     {
       title: "Wallpapers",
-      url: "https://example.com/wallpapers",
+      url: "https://heyimpatrice.gumroad.com",
       icon: Palette,
-      description: "Free creative wallpapers for your devices",
+      description: "Creative wallpapers for your devices",
       external: true
     },
     {
       title: "Notion",
-      url: "https://notion.so",
+      url: "https://www.notion.so/@heyimpatrice",
       icon: FileText,
-      description: "My digital workspace and templates",
+      description: "Get my FREE templates",
       external: true
     },
     {
