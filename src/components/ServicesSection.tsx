@@ -1,29 +1,27 @@
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const ServicesSection = () => {
+  const navigate = useNavigate();
+  
   const services = [
     {
       title: "Quick Launch",
       description: "Single landing page with clear CTAs and rapid deployment. Perfect for getting your business online fast.",
       features: ["Single page design", "Clear call-to-actions", "Rapid 3-day deployment", "Mobile responsive", "Basic SEO setup"],
-      price: "Starting at $997",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=250&fit=crop",
       recommended: false
     },
     {
       title: "Growth Package", 
       description: "Four-page website build with optional Linktree integration. The sweet spot for most businesses.",
       features: ["4-page website", "Contact forms", "Linktree integration", "SEO optimization", "2-week delivery", "3 rounds of revisions"],
-      price: "Starting at $2,497",
-      image: "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?w=400&h=250&fit=crop",
       recommended: true
     },
     {
       title: "Full Stack Solution",
       description: "Complete SaaS build with authentication, user systems, and database integration for ambitious projects.",
       features: ["Custom SaaS development", "User authentication", "Database integration", "Admin dashboard", "Ongoing support", "Scalable architecture"],
-      price: "Starting at $7,997",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
       recommended: false
     }
   ];
@@ -41,11 +39,11 @@ const ServicesSection = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
             {services.map((service, index) => (
               <div 
                 key={index}
-                className="relative bg-card rounded-xl shadow-medium hover:shadow-intense transition-all duration-300 transform hover:scale-105 animate-fade-in group overflow-hidden"
+                className="relative bg-card rounded-xl shadow-medium hover:shadow-intense transition-all duration-300 transform hover:scale-105 animate-fade-in group p-8"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Recommended badge */}
@@ -57,48 +55,36 @@ const ServicesSection = () => {
                   </div>
                 )}
                 
-                {/* Service image */}
-                <div className="relative h-48 overflow-hidden rounded-t-xl">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                </div>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">
+                  {service.title}
+                </h3>
                 
-                {/* Content */}
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 text-foreground">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-                  
-                  {/* Features list */}
-                  <ul className="space-y-3 mb-8">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  {/* Price */}
-                  <div className="text-2xl font-bold text-primary mb-6">
-                    {service.price}
-                  </div>
-                  
-                  {/* CTA Button */}
-                  <button className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-lg font-semibold hover:bg-primary/90 transition-colors shadow-medium hover:shadow-strong">
-                    Get Started
-                  </button>
-                </div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+                
+                {/* Features list */}
+                <ul className="space-y-3">
+                  {service.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
+                      <span className="text-muted-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
+          </div>
+          
+          {/* Centered Get Started Button */}
+          <div className="text-center">
+            <Button 
+              onClick={() => navigate('/contact')}
+              size="lg"
+              className="shadow-medium hover:shadow-strong transition-all duration-300 transform hover:scale-105 px-12 py-4 text-lg"
+            >
+              Get Started
+            </Button>
           </div>
         </div>
       </div>
