@@ -9,14 +9,14 @@ const WorkSection = () => {
     image: portfolioKingdomPurpose,
     technologies: ["React", "Node.js", "Supabase", "Stripe"]
   }, {
-    title: "EcoCommerce Store",
-    description: "Sustainable products e-commerce platform with integrated inventory management and customer loyalty program.",
-    url: "ecostore.com",
+    title: "Empower Leader",
+    description: "Coaching services website optimised for generating leads, resourcing pastors with log ins for current clients for quick access to content.",
+    url: "empowerleader.org",
     image: portfolioEcommerce,
     technologies: ["Next.js", "Shopify", "TailwindCSS"]
   }, {
-    title: "Strategic Consulting",
-    description: "Professional services website for business consulting firm specializing in digital transformation strategies.",
+    title: "inherhands",
+    description: "Artist website for managing a portfolio with the ability feature and personally manage ongoing for sale and sold works.",
     url: "strategicpartners.com.au",
     image: portfolioCorporate,
     technologies: ["React", "TypeScript", "Framer Motion"]
