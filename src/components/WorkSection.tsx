@@ -1,38 +1,30 @@
 import portfolioKingdomPurpose from '@/assets/portfolio-kingdom-purpose.jpg';
 import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
 import portfolioCorporate from '@/assets/portfolio-corporate.jpg';
-
 const WorkSection = () => {
-  const projects = [
-    {
-      title: "Kingdom Purpose",
-      description: "A SaaS platform helping people discover their divine calling and purpose through guided assessments and personalized coaching.",
-      url: "kingdompurpose.au",
-      image: portfolioKingdomPurpose,
-      technologies: ["React", "Node.js", "Supabase", "Stripe"]
-    },
-    {
-      title: "EcoCommerce Store",
-      description: "Sustainable products e-commerce platform with integrated inventory management and customer loyalty program.",
-      url: "ecostore.com",
-      image: portfolioEcommerce,
-      technologies: ["Next.js", "Shopify", "TailwindCSS"]
-    },
-    {
-      title: "Strategic Consulting",
-      description: "Professional services website for business consulting firm specializing in digital transformation strategies.",
-      url: "strategicpartners.com.au",
-      image: portfolioCorporate,
-      technologies: ["React", "TypeScript", "Framer Motion"]
-    }
-  ];
-
+  const projects = [{
+    title: "Kingdom Purpose",
+    description: "A SaaS platform helping people discover their divine calling and purpose through guided assessments and personalized coaching.",
+    url: "kingdompurpose.au",
+    image: portfolioKingdomPurpose,
+    technologies: ["React", "Node.js", "Supabase", "Stripe"]
+  }, {
+    title: "EcoCommerce Store",
+    description: "Sustainable products e-commerce platform with integrated inventory management and customer loyalty program.",
+    url: "ecostore.com",
+    image: portfolioEcommerce,
+    technologies: ["Next.js", "Shopify", "TailwindCSS"]
+  }, {
+    title: "Strategic Consulting",
+    description: "Professional services website for business consulting firm specializing in digital transformation strategies.",
+    url: "strategicpartners.com.au",
+    image: portfolioCorporate,
+    technologies: ["React", "TypeScript", "Framer Motion"]
+  }];
   const handleProjectClick = (url: string) => {
     window.open(`https://${url}`, '_blank');
   };
-
-  return (
-    <section id="work" className="py-20 bg-secondary">
+  return <section id="work" className="py-20 bg-secondary">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
@@ -45,20 +37,13 @@ const WorkSection = () => {
           </div>
           
           <div className="space-y-20">
-            {projects.map((project, index) => (
-              <div 
-                key={index}
-                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center animate-fade-in`}
-                style={{ animationDelay: `${index * 0.3}s` }}
-              >
+            {projects.map((project, index) => <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center animate-fade-in`} style={{
+            animationDelay: `${index * 0.3}s`
+          }}>
                 {/* Project Image */}
                 <div className="flex-1 relative group cursor-pointer" onClick={() => handleProjectClick(project.url)}>
                   <div className="relative overflow-hidden rounded-2xl shadow-strong hover:shadow-intense transition-all duration-500 transform hover:scale-105">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
+                    <img src={project.image} alt={project.title} className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" />
                     {/* Overlay with click hint */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                       <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 dark:bg-black/90 px-6 py-3 rounded-full">
@@ -85,45 +70,22 @@ const WorkSection = () => {
                     
                     <div className="flex items-center gap-2 mb-6">
                       <span className="text-sm text-muted-foreground">Visit:</span>
-                      <button 
-                        onClick={() => handleProjectClick(project.url)}
-                        className="text-primary hover:text-primary/80 font-medium underline decoration-2 underline-offset-4 transition-colors"
-                      >
+                      <button onClick={() => handleProjectClick(project.url)} className="text-primary hover:text-primary/80 font-medium underline decoration-2 underline-offset-4 transition-colors">
                         {project.url}
                       </button>
                     </div>
                     
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-3">
-                      {project.technologies.map((tech, techIndex) => (
-                        <span 
-                          key={techIndex}
-                          className="px-3 py-1 bg-card text-card-foreground text-sm rounded-full shadow-soft border border-border"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                    
                   </div>
                   
                   {/* CTA Button */}
-                  <button 
-                    onClick={() => handleProjectClick(project.url)}
-                    className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all shadow-medium hover:shadow-strong transform hover:scale-105"
-                  >
-                    View Project
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </button>
+                  
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default WorkSection;
