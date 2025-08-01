@@ -50,10 +50,7 @@ const HeroSection = () => {
             <h1 className="text-4xl md:text-6xl leading-tight mb-6 font-thin lg:text-7xl">
               Creating simple, effective 
               <br />
-              <span className="relative inline-block">
-                websites
-                <span className="absolute inset-0 animate-kinetic">websites</span>
-              </span> that turn
+              <span className="font-bold">websites</span> that turn
               <br />
               visitors into customers
             </h1>
