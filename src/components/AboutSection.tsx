@@ -30,7 +30,7 @@ I believe every business deserves a website that works as hard as they do. Thatâ
             {/* Right-aligned profile image */}
             <div className="flex justify-center lg:justify-end animate-fade-in">
               <div className="relative">
-                <img src="https://raw.githubusercontent.com/patricecunliffe/spirit-gift-navigator/refs/heads/main/patrice%20(green-transparent).png?token=GHSAT0AAAAAADH5FWHVLDMHZW2M7YVHZ4RA2ENKLHA" alt="Pat Cunliffe - Patrice" className="w-[10rem] h-[10rem] lg:w-[12rem] lg:h-[12rem] object-cover rounded-XL2 shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105 grayscale" />
+                <img src="https://raw.githubusercontent.com/patricecunliffe/spirit-gift-navigator/refs/heads/main/patrice%20(green-transparent).png?token=GHSAT0AAAAAADH5FWHVLDMHZW2M7YVHZ4RA2ENKLHA" alt="Pat Cunliffe - Patrice" className="w-[24rem] h-[24rem] lg:w-[28rem] lg:h-[28rem] object-cover rounded-full shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105 grayscale" />
                 {/* Decorative element */}
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full -z-10"></div>
                 <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent/20 rounded-full -z-10"></div>
