@@ -163,28 +163,6 @@ const TestimonialsSection = () => {
             ))}
           </div>
           
-          {/* Navigation arrows for desktop */}
-          <div className="hidden md:block">
-            <button
-              onClick={() => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-card shadow-strong hover:shadow-intense rounded-full p-3 transition-all hover:scale-110"
-              aria-label="Previous testimonial"
-            >
-              <svg className="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            
-            <button
-              onClick={() => setCurrentIndex((prev) => (prev + 1) % testimonials.length)}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-card shadow-strong hover:shadow-intense rounded-full p-3 transition-all hover:scale-110"
-              aria-label="Next testimonial"
-            >
-              <svg className="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
     </section>
