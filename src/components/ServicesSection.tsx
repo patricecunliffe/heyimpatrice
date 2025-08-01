@@ -62,9 +62,7 @@ const ServicesSection = () => {
           
           {/* Centered Get Started Button */}
           <div className="text-center">
-            <Button onClick={() => navigate('/contact')} size="lg" className="shadow-medium hover:shadow-strong transition-all duration-300 transform hover:scale-105 px-12 py-4 text-lg">
-              Get Started
-            </Button>
+            <Button onClick={() => navigate('/contact')} size="lg" className="shadow-medium hover:shadow-strong transition-all duration-300 transform hover:scale-105 px-12 py-4 text-lg">GET STARTED</Button>
           </div>
         </div>
       </div>
