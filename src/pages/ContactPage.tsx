@@ -229,7 +229,7 @@ Best regards,
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">
+            <h2 className="text-3xl font-bold mb-6 animate-fade-in md:text-5xl">
               Book a 20 Minute Call
             </h2>
             <p className="text-xl text-muted-foreground mb-12 animate-slide-up">
@@ -253,7 +253,7 @@ Best regards,
       <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">Get a Quick Quote Within 3 Days</h2>
+            <h2 className="text-3xl font-bold mb-6 animate-fade-in md:text-5xl">Get a Quick Quote Within 3 Days</h2>
             <p className="text-xl text-muted-foreground mb-8 animate-slide-up">Don't want to email, call, or fill out a form? Get a personalised quote within 3 days via this quick questionnaire.</p>
             
             <div className="bg-card rounded-2xl shadow-strong p-8 animate-fade-in">
