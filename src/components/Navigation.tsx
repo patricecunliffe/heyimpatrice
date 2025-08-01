@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Instagram } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -102,14 +102,27 @@ const Navigation = () => {
             </button>
           </div>
           
-          {/* Contact Button */}
-          <Button 
-            onClick={handleContactClick}
-            className="shadow-medium hover:shadow-strong transition-all duration-300 transform hover:scale-105"
-            size="sm"
-          >
-            Get In Touch
-          </Button>
+          {/* Social Media and Contact */}
+          <div className="flex items-center space-x-4">
+            {/* Social Media Icon */}
+            <a 
+              href="https://instagram.com/heyimpatrice" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-primary transition-colors duration-300"
+            >
+              <Instagram size={20} />
+            </a>
+            
+            {/* Contact Button - Hidden on mobile */}
+            <Button 
+              onClick={handleContactClick}
+              className="hidden md:flex shadow-medium hover:shadow-strong transition-all duration-300 transform hover:scale-105"
+              size="sm"
+            >
+              Get In Touch
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -117,6 +130,15 @@ const Navigation = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-0 bg-background/95 backdrop-blur-md z-40">
           <div className="flex flex-col items-center justify-center h-full space-y-8">
+            <button 
+              onClick={() => {
+                navigate('/');
+                setIsMobileMenuOpen(false);
+              }}
+              className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300"
+            >
+              Home
+            </button>
             <button 
               onClick={() => handleMobileMenuClick('about')}
               className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300"
@@ -134,6 +156,12 @@ const Navigation = () => {
               className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
               Work
+            </button>
+            <button 
+              onClick={handleContactClick}
+              className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300"
+            >
+              Get In Touch
             </button>
           </div>
         </div>
