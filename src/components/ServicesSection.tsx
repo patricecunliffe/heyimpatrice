@@ -43,19 +43,23 @@ const ServicesSection = () => {
             {services.map((service, index) => (
               <div 
                 key={index}
-                className="relative bg-card rounded-xl shadow-medium hover:shadow-intense transition-all duration-300 transform hover:scale-105 animate-fade-in group p-8"
+                className={`relative rounded-xl transition-all duration-300 transform hover:scale-105 animate-fade-in group p-8 ${
+                  service.recommended 
+                    ? 'bg-card border-2 border-primary shadow-strong hover:shadow-intense scale-105 md:scale-110' 
+                    : 'bg-card shadow-medium hover:shadow-intense'
+                }`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                {/* Recommended badge */}
+                {/* Recommended badge - centered at top */}
                 {service.recommended && (
-                  <div className="absolute top-4 right-4 z-10">
-                    <Badge className="bg-primary text-primary-foreground font-semibold px-3 py-1 shadow-medium">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <Badge className="bg-primary text-primary-foreground font-semibold px-4 py-2 shadow-strong text-sm">
                       RECOMMENDED
                     </Badge>
                   </div>
                 )}
                 
-                <h3 className="text-2xl font-bold mb-4 text-foreground">
+                <h3 className={`text-2xl font-bold mb-4 text-foreground ${service.recommended ? 'mt-4' : ''}`}>
                   {service.title}
                 </h3>
                 
