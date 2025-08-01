@@ -40,7 +40,7 @@ const HeroSection = () => {
         <div className="max-w-5xl mx-auto">
           {/* Small header text - slides up from bottom */}
           <div className="mb-6 opacity-0 translate-y-8 animate-slide-up-delayed">
-            <p className="text-sm md:text-base text-muted-foreground font-medium tracking-wide uppercase">
+            <p className="text-sm md:text-base text-muted-foreground tracking-wide uppercase font-semibold">
               hey i'm patrice
             </p>
           </div>
@@ -55,7 +55,7 @@ const HeroSection = () => {
               visitors into customers
             </h1>
             
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed md:text-xl font-thin text-center">Turning ideas into powerful digital experiences</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center md:text-xl font-normal">Turning ideas into powerful digital experiences</p>
           </div>
           
           {/* CTA Buttons - appear with scale effect */}
@@ -72,9 +72,7 @@ const HeroSection = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center">
-          <div className="w-1 h-2 bg-muted-foreground rounded-full mt-2 animate-bounce"></div>
-        </div>
+        
       </div>
     </section>;
 };
