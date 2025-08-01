@@ -239,7 +239,7 @@ Best regards,
             <div className="bg-card rounded-2xl shadow-strong p-8 animate-fade-in">
               {/* Calendly Widget */}
               <div className="relative w-full h-96 md:h-[600px] rounded-lg overflow-hidden">
-                <iframe src="https://calendly.com/patricecunliffe/20-minute-consultation" width="100%" height="100%" frameBorder="0" title="Schedule a consultation with Patrice" className="border-0"></iframe>
+                <iframe src="https://calendly.com/patricecunliffe/30min" width="100%" height="100%" frameBorder="0" title="Schedule a consultation with Patrice" className="border-0"></iframe>
               </div>
               <p className="text-sm text-muted-foreground mt-4">
                 No pressure, no sales pitch - just a friendly chat about your goals and how I can help.
