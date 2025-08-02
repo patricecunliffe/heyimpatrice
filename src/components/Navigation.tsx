@@ -62,8 +62,10 @@ const Navigation = () => {
               <Instagram size={20} />
             </a>
               <a href="https://threads.net/@heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.186 24C5.582 24 0 18.418 0 12 0 5.582 5.582 0 12 0s12 5.582 12 12c0 6.418-5.582 12-12 12zm0-2.2c5.407 0 9.8-4.393 9.8-9.8S17.593 2.2 12 2.2 2.2 6.593 2.2 12s4.393 9.8 9.8 9.8zm-1.677-13.956c1.341-1.075 3.292-1.075 4.633 0 1.341 1.075 1.341 2.816 0 3.891l-2.317 1.856-2.316-1.856c-1.341-1.075-1.341-2.816 0-3.891zm2.317 10.133c-3.139 0-5.685-2.546-5.685-5.685s2.546-5.685 5.685-5.685 5.685 2.546 5.685 5.685-2.546 5.685-5.685 5.685zm0-1.825c2.132 0 3.86-1.728 3.86-3.86s-1.728-3.86-3.86-3.86-3.86 1.728-3.86 3.86 1.728 3.86 3.86 3.86z"/>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 7c0-2.21-1.79-4-4-4S8 4.79 8 7v5c0 2.21 1.79 4 4 4s4-1.79 4-4"/>
+                  <circle cx="12" cy="12" r="8"/>
+                  <path d="M14 9c-.5-1-1.5-1.5-2.5-1.5S9 8 9 9"/>
                 </svg>
               </a>
             
@@ -97,8 +99,10 @@ const Navigation = () => {
                 <Instagram size={20} />
               </a>
               <a href="https://threads.net/@heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.186 24C5.582 24 0 18.418 0 12 0 5.582 5.582 0 12 0s12 5.582 12 12c0 6.418-5.582 12-12 12zm0-2.2c5.407 0 9.8-4.393 9.8-9.8S17.593 2.2 12 2.2 2.2 6.593 2.2 12s4.393 9.8 9.8 9.8zm-1.677-13.956c1.341-1.075 3.292-1.075 4.633 0 1.341 1.075 1.341 2.816 0 3.891l-2.317 1.856-2.316-1.856c-1.341-1.075-1.341-2.816 0-3.891zm2.317 10.133c-3.139 0-5.685-2.546-5.685-5.685s2.546-5.685 5.685-5.685 5.685 2.546 5.685 5.685-2.546 5.685-5.685 5.685zm0-1.825c2.132 0 3.86-1.728 3.86-3.86s-1.728-3.86-3.86-3.86-3.86 1.728-3.86 3.86 1.728 3.86 3.86 3.86z"/>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 7c0-2.21-1.79-4-4-4S8 4.79 8 7v5c0 2.21 1.79 4 4 4s4-1.79 4-4"/>
+                  <circle cx="12" cy="12" r="8"/>
+                  <path d="M14 9c-.5-1-1.5-1.5-2.5-1.5S9 8 9 9"/>
                 </svg>
               </a>
             </div>
