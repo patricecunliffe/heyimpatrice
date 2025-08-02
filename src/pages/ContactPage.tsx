@@ -239,7 +239,7 @@ Best regards,
             <div className="bg-card rounded-2xl shadow-strong p-8 animate-fade-in">
               {/* Calendly Widget */}
               <div className="relative w-full h-96 md:h-[600px] rounded-lg overflow-hidden">
-                <iframe src="https://kiwi-oatmeal-777.notion.site/ebd/23fd5994cd3480b0bcc0cb7be9052fee" width="100%" height="600" frameborder="0" allowfullscreen />
+                <iframe src="https://kiwi-oatmeal-777.notion.site/23fd5994cd3480b0bcc0cb7be9052fee?pvs=105" width="100%" height="100%" frameBorder="0" title="Schedule a consultation with Patrice" className="border-0"></iframe>
               </div>
               <p className="text-sm text-muted-foreground mt-4">
                 No pressure, no sales pitch - just a friendly chat about your goals and how I can help.
