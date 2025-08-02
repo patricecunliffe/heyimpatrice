@@ -106,7 +106,7 @@ const Navigation = () => {
   rel="noopener noreferrer"
   className="text-foreground hover:text-primary transition-colors duration-300"
 >
-  <i className="hgi hgi-solid hgi-threads" style={{ fontSize: 20 }}></i>
+  <i className="hgi hgi-solid hgi-home" style={{ fontSize: 20 }}></i>
 </a>
 
             </div>
