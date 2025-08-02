@@ -47,7 +47,7 @@ const HeroSection = () => {
           
           {/* Main vision statement - fades in */}
           <div className="mb-12 opacity-0 animate-fade-in-delayed">
-            <h1 className="text-4xl md:text-6xl leading-tight mb-6 font-thin lg:text-7xl">
+            <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-semibold">
               Creating simple, effective 
               <br />
               <span className="font-bold">websites</span> that turn
