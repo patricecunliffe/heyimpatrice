@@ -61,13 +61,14 @@ const Navigation = () => {
             <a href="https://instagram.com/heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
               <Instagram size={20} />
             </a>
-              <a href="https://threads.net/@heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M16 7c0-2.21-1.79-4-4-4S8 4.79 8 7v5c0 2.21 1.79 4 4 4s4-1.79 4-4"/>
-                  <circle cx="12" cy="12" r="8"/>
-                  <path d="M14 9c-.5-1-1.5-1.5-2.5-1.5S9 8 9 9"/>
-                </svg>
-              </a>
+                <a
+    href="https://threads.net/@heyimpatrice"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-foreground hover:text-primary transition-colors duration-300"
+  >
+    <i className="hgi hgi-solid hgi-threads" style={{ fontSize: 20 }}></i>
+  </a>
             
             {/* Menu Button */}
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-foreground hover:text-primary transition-colors duration-300">
