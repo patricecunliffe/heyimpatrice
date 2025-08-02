@@ -19,12 +19,12 @@
     --popover-foreground: 0 0% 0%;
     
     /* Primary brand colors */
-    --primary: 31 44% 36%;
+    --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
     
     /* Secondary tones */
-    --secondary: 31 44% 36%;
-    --secondary-foreground: 231 221% 199%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
     
     /* Muted tones */
     --muted: 0 0% 96%;
@@ -32,7 +32,7 @@
     
     /* Accent colors */
     --accent: 0 0% 96%;
-    --accent-foreground: 231 221% 199%;
+    --accent-foreground: 0 0% 10%;
     
     /* System colors */
     --destructive: 0 84% 60%;
