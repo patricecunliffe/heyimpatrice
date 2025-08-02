@@ -19,10 +19,10 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'poppins': ['Poppins', 'sans-serif'],
-				'lora': ['Lora', 'serif'],
-				'sans': ['Lora', 'sans-serif'],
-				'heading': ['Poppins', 'sans-serif']
+				'montserrat': ['Montserrat', 'sans-serif'],
+				'opensans': ['Open Sans', 'sans-serif'],
+				'sans': ['Open Sans', 'sans-serif'],
+				'heading': ['Montserrat', 'sans-serif']
 			},
 			colors: {
 				border: 'hsl(var(--border))',
