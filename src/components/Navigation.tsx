@@ -55,10 +55,23 @@ const Navigation = () => {
             heyimpatrice
           </button>
           
-          {/* Mobile Menu Button */}
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden p-2 text-foreground hover:text-primary transition-colors duration-300">
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Social Icons + Menu Button */}
+          <div className="md:hidden flex items-center space-x-3">
+            {/* Social Media Icons */}
+            <a href="https://instagram.com/heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
+              <Instagram size={20} />
+            </a>
+            <a href="https://threads.net/@heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.155 5.33c-1.147 0-2.025.257-2.636.77-.61.512-.915 1.247-.915 2.205h-1.5c0-1.292.458-2.355 1.375-3.188C9.458 4.313 10.646 3.83 12.155 3.83c1.51 0 2.698.483 3.564 1.45.867.966 1.301 2.253 1.301 3.86 0 .64-.09 1.23-.269 1.77-.18.54-.434 1.026-.762 1.458a5.34 5.34 0 0 1-1.155 1.134c-.44.31-.918.556-1.434.738v.05c.516.182.994.428 1.434.738.44.31.83.681 1.155 1.134.328.432.582.918.762 1.458.179.54.269 1.13.269 1.77 0 1.607-.434 2.894-1.301 3.86-.866.967-2.055 1.45-3.564 1.45-1.509 0-2.697-.483-3.564-1.45-.867-.966-1.301-2.253-1.301-3.86h1.5c0 .958.305 1.693.915 2.205.61.513 1.489.77 2.636.77s2.025-.257 2.636-.77c.61-.512.915-1.247.915-2.205 0-.958-.305-1.693-.915-2.205-.61-.513-1.489-.77-2.636-.77h-.75v-1.5h.75c1.147 0 2.025-.257 2.636-.77.61-.512.915-1.247.915-2.205 0-.958-.305-1.693-.915-2.205-.61-.513-1.489-.77-2.636-.77z"/>
+              </svg>
+            </a>
+            
+            {/* Menu Button */}
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-foreground hover:text-primary transition-colors duration-300">
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -78,10 +91,17 @@ const Navigation = () => {
           
           {/* Social Media and Contact */}
           <div className="flex items-center space-x-4">
-            {/* Social Media Icon */}
-            <a href="https://instagram.com/heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
-              <Instagram size={20} />
-            </a>
+            {/* Social Media Icons */}
+            <div className="hidden md:flex items-center space-x-3">
+              <a href="https://instagram.com/heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
+                <Instagram size={20} />
+              </a>
+              <a href="https://threads.net/@heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.155 5.33c-1.147 0-2.025.257-2.636.77-.61.512-.915 1.247-.915 2.205h-1.5c0-1.292.458-2.355 1.375-3.188C9.458 4.313 10.646 3.83 12.155 3.83c1.51 0 2.698.483 3.564 1.45.867.966 1.301 2.253 1.301 3.86 0 .64-.09 1.23-.269 1.77-.18.54-.434 1.026-.762 1.458a5.34 5.34 0 0 1-1.155 1.134c-.44.31-.918.556-1.434.738v.05c.516.182.994.428 1.434.738.44.31.83.681 1.155 1.134.328.432.582.918.762 1.458.179.54.269 1.13.269 1.77 0 1.607-.434 2.894-1.301 3.86-.866.967-2.055 1.45-3.564 1.45-1.509 0-2.697-.483-3.564-1.45-.867-.966-1.301-2.253-1.301-3.86h1.5c0 .958.305 1.693.915 2.205.61.513 1.489.77 2.636.77s2.025-.257 2.636-.77c.61-.512.915-1.247.915-2.205 0-.958-.305-1.693-.915-2.205-.61-.513-1.489-.77-2.636-.77h-.75v-1.5h.75c1.147 0 2.025-.257 2.636-.77.61-.512.915-1.247.915-2.205 0-.958-.305-1.693-.915-2.205-.61-.513-1.489-.77-2.636-.77z"/>
+                </svg>
+              </a>
+            </div>
             
             {/* Contact Button - Hidden on mobile */}
             <Button onClick={handleContactClick} className="hidden md:flex shadow-medium hover:shadow-strong transition-all duration-300 transform hover:scale-105" size="sm">CONNECT</Button>
