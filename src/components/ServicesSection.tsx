@@ -98,8 +98,8 @@ const ServicesSection = () => {
                     }}
                     onClick={() => setSelectedService(index)}
                   >
-                    <div className="bg-card border border-border rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-80 h-80 flex flex-col text-right">
-                      <div className="flex justify-end mb-6">
+                    <div className="bg-card border border-border rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-80 h-80 flex flex-col text-left">
+                      <div className="flex justify-start mb-6">
                         <Icon className="w-12 h-12 text-accent" />
                       </div>
                       
@@ -121,16 +121,16 @@ const ServicesSection = () => {
 
       {/* Service Details Modal */}
       <Dialog open={selectedService !== null} onOpenChange={() => setSelectedService(null)}>
-        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto p-6">
           {selectedService !== null && (
             <>
-              <DialogHeader>
-                <DialogTitle className="text-3xl font-bold text-center mb-4">
+              <DialogHeader className="text-center mb-6">
+                <DialogTitle className="text-3xl font-bold">
                   {services[selectedService].title}
                 </DialogTitle>
               </DialogHeader>
               
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div className="text-center">
                   <div className="flex items-center justify-center w-20 h-20 mb-4 mx-auto">
                     {(() => {
@@ -144,40 +144,43 @@ const ServicesSection = () => {
                 </div>
                 
                 <div>
-                  <h4 className="text-xl font-bold mb-4">What's Included</h4>
-                  <ul className="grid md:grid-cols-2 gap-3">
+                  <h4 className="text-xl font-bold mb-3">What's Included</h4>
+                  <ul className="grid md:grid-cols-2 gap-2">
                     {services[selectedService].details.includes.map((item, index) => (
                       <li key={index} className="flex items-center">
                         <div className="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></div>
-                        <span className="text-muted-foreground">{item}</span>
+                        <span className="text-muted-foreground text-sm">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="text-xl font-bold mb-4 text-accent">Managed Hosting</h4>
-                    <p className="text-muted-foreground">
+                    <h4 className="text-lg font-bold mb-3 text-accent">Managed Hosting</h4>
+                    <p className="text-muted-foreground text-sm">
                       {services[selectedService].details.hosting.managed}
                     </p>
                   </div>
                   
                   <div>
-                    <h4 className="text-xl font-bold mb-4 text-accent">Code Handover</h4>
-                    <p className="text-muted-foreground">
+                    <h4 className="text-lg font-bold mb-3 text-accent">Code Handover</h4>
+                    <p className="text-muted-foreground text-sm">
                       {services[selectedService].details.hosting.handover}
                     </p>
                   </div>
                 </div>
                 
-                <div className="text-center pt-6 border-t">
-                  <div className="text-2xl font-bold text-accent mb-4">
+                <div className="text-center pt-4 border-t">
+                  <div className="text-2xl font-bold text-accent mb-3">
                     {services[selectedService].price}
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground mb-6">
                     Ready to get started? Let's discuss your project requirements and timeline.
                   </p>
+                  <button className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3 rounded-full font-semibold transition-colors duration-200">
+                    Get a free quote!
+                  </button>
                 </div>
               </div>
             </>
