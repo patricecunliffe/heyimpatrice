@@ -1,71 +1,195 @@
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Rocket, TrendingUp, Layers } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+
 const ServicesSection = () => {
-  const navigate = useNavigate();
+  const [selectedService, setSelectedService] = useState<number | null>(null);
+  
   const services = [{
     title: "Quick Launch",
     description: "Single landing page with clear CTAs and quick deployment. Perfect for getting your business online fast.",
-    features: ["Single page design", "Clear call-to-actions", "Quick build & deployment", "Basic SEO", "From $500 + ($40 p/m)"],
-    recommended: false
+    icon: Rocket,
+    price: "From $500",
+    details: {
+      overview: "Perfect for businesses that need to get online quickly with a professional presence. This package focuses on speed and efficiency while maintaining quality.",
+      includes: [
+        "Single responsive landing page",
+        "Clear call-to-action buttons",
+        "Basic SEO optimization",
+        "Contact form integration",
+        "Mobile-first design",
+        "Fast deployment (2-3 days)"
+      ],
+      hosting: {
+        managed: "Ongoing hosting & management at $40/month includes updates, security monitoring, and technical support.",
+        handover: "Code handover option available with external hosting setup guidance and documentation."
+      }
+    }
   }, {
     title: "Growth Package",
     description: "Four-page website build with optional Linktree integration. The sweet spot for most businesses.",
-    features: ["4-page website", "Contact forms", "Custom link in bio", "2-week delivery", "3 rounds of revisions", "From $1500 + ($75 p/m)"],
-    recommended: true
+    icon: TrendingUp,
+    price: "From $1500",
+    details: {
+      overview: "The most popular choice for established businesses ready to scale their online presence with a comprehensive multi-page website.",
+      includes: [
+        "4-page responsive website",
+        "Advanced contact forms",
+        "Custom link-in-bio page",
+        "2-week development timeline",
+        "3 rounds of revisions",
+        "SEO optimization",
+        "Analytics integration"
+      ],
+      hosting: {
+        managed: "Ongoing hosting & management at $75/month includes content updates, security, performance monitoring, and priority support.",
+        handover: "Complete code handover with hosting setup, documentation, and training session included."
+      }
+    }
   }, {
     title: "Full Stack Solution",
     description: "Complete SaaS build with authentication, user systems, and database integration for ambitious projects.",
-    features: ["User authentication", "Database integration", "Admin dashboard", "Ongoing support", "Scalable architecture", "From $3000 + ($200 p/m)"],
-    recommended: false
+    icon: Layers,
+    price: "From $3000",
+    details: {
+      overview: "Enterprise-level solution for businesses requiring custom functionality, user management, and scalable architecture.",
+      includes: [
+        "Custom user authentication system",
+        "Database design & integration",
+        "Admin dashboard",
+        "API development",
+        "Scalable cloud architecture",
+        "Ongoing technical support",
+        "Performance optimization"
+      ],
+      hosting: {
+        managed: "Comprehensive hosting & management at $200/month includes server management, database optimization, security updates, and dedicated support.",
+        handover: "Full source code delivery with deployment documentation, server setup guidance, and technical handover session."
+      }
+    }
   }];
-  return <section id="services" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-6 md:text-6xl">
-              Services That Deliver
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-xl">
-              Choose the perfect package to bring your vision to life and start converting visitors into customers
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {services.map((service, index) => <div key={index} className={`relative rounded-xl transition-all duration-300 transform hover:scale-105 animate-fade-in group p-8 ${service.recommended ? 'bg-card border-2 border-primary shadow-strong hover:shadow-intense scale-105 md:scale-110' : 'bg-card shadow-medium hover:shadow-intense'}`} style={{
-            animationDelay: `${index * 0.2}s`
-          }}>
-                {/* Recommended badge - centered at top */}
-                {service.recommended && <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <Badge className="bg-primary text-primary-foreground font-semibold px-4 py-2 shadow-strong text-sm">
-                      RECOMMENDED
-                    </Badge>
-                  </div>}
-                
-                <h3 className={`text-2xl font-bold mb-4 text-foreground ${service.recommended ? 'mt-4' : ''}`}>
-                  {service.title}
-                </h3>
-                
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-                
-                {/* Features list */}
-                <ul className="space-y-3">
-                  {service.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-center text-sm">
-                      <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>)}
-                </ul>
-              </div>)}
-          </div>
-          
-          {/* Centered Get Started Button */}
-          <div className="text-center">
-            <Button onClick={() => navigate('/contact')} size="lg" className="shadow-medium hover:shadow-strong transition-all duration-300 transform hover:scale-105 px-12 py-4 text-lg">GET STARTED</Button>
+  return (
+    <>
+      <section id="services" className="py-20 bg-background overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="text-4xl font-bold mb-6 md:text-6xl">
+                Services That Deliver
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-xl">
+                Choose the perfect package to bring your vision to life and start converting visitors into customers
+              </p>
+            </div>
+            
+            <div className="relative flex flex-col md:flex-row items-center justify-center md:space-x-[-80px] space-y-8 md:space-y-0">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <div 
+                    key={index} 
+                    className={`service-card cursor-pointer transition-all duration-500 hover:scale-110 hover:z-30 animate-fade-in ${
+                      index === 1 ? 'md:z-20 md:scale-110' : 'md:z-10'
+                    }`}
+                    style={{ 
+                      animationDelay: `${index * 0.2}s`,
+                      transform: `rotate(${index === 0 ? '-5deg' : index === 2 ? '5deg' : '0deg'})`
+                    }}
+                    onClick={() => setSelectedService(index)}
+                  >
+                    <div className="bg-card border border-border rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-80 h-96 flex flex-col">
+                      <div className="flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-6 mx-auto">
+                        <Icon className="w-8 h-8 text-accent" />
+                      </div>
+                      
+                      <h3 className="text-2xl font-bold mb-4 text-center text-foreground">
+                        {service.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground text-center leading-relaxed flex-grow">
+                        {service.description}
+                      </p>
+                      
+                      <div className="text-center mt-6">
+                        <span className="text-lg font-semibold text-accent">
+                          {service.price}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
-    </section>;
+      </section>
+
+      {/* Service Details Modal */}
+      <Dialog open={selectedService !== null} onOpenChange={() => setSelectedService(null)}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          {selectedService !== null && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-3xl font-bold text-center mb-4">
+                  {services[selectedService].title}
+                </DialogTitle>
+              </DialogHeader>
+              
+              <div className="space-y-8">
+                <div className="text-center">
+                  <div className="flex items-center justify-center w-20 h-20 bg-accent/10 rounded-full mb-4 mx-auto">
+                    {(() => {
+                      const Icon = services[selectedService].icon;
+                      return <Icon className="w-10 h-10 text-accent" />;
+                    })()}
+                  </div>
+                  <p className="text-lg text-muted-foreground">
+                    {services[selectedService].details.overview}
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="text-xl font-bold mb-4">What's Included</h4>
+                  <ul className="grid md:grid-cols-2 gap-3">
+                    {services[selectedService].details.includes.map((item, index) => (
+                      <li key={index} className="flex items-center">
+                        <div className="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></div>
+                        <span className="text-muted-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-xl font-bold mb-4 text-accent">Managed Hosting</h4>
+                    <p className="text-muted-foreground">
+                      {services[selectedService].details.hosting.managed}
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-xl font-bold mb-4 text-accent">Code Handover</h4>
+                    <p className="text-muted-foreground">
+                      {services[selectedService].details.hosting.handover}
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="text-center pt-6 border-t">
+                  <div className="text-2xl font-bold text-accent mb-4">
+                    {services[selectedService].price}
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Ready to get started? Let's discuss your project requirements and timeline.
+                  </p>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
+  );
 };
 export default ServicesSection;
