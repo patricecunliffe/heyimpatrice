@@ -31,7 +31,7 @@
     --muted-foreground: 0 0% 40%;
     
     /* Accent colors */
-    --accent: 84 81% 44%;
+    --accent: 84 81% 35%;
     --accent-foreground: 0 0% 98%;
     
     /* System colors */
@@ -89,7 +89,7 @@
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 60%;
     
-    --accent: 84 81% 44%;
+    --accent: 84 81% 35%;
     --accent-foreground: 0 0% 9%;
     
     --destructive: 0 84% 60%;

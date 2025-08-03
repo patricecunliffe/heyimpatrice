@@ -82,39 +82,34 @@ const ServicesSection = () => {
               </p>
             </div>
             
-            <div className="relative flex flex-col md:flex-row items-center justify-center md:space-x-[-80px] space-y-8 md:space-y-0">
+            <div className="relative flex flex-col md:flex-row items-center justify-center md:space-x-[-40px] space-y-8 md:space-y-0">
               {services.map((service, index) => {
                 const Icon = service.icon;
+                const rotations = ['-8deg', '3deg', '8deg'];
                 return (
                   <div 
                     key={index} 
                     className={`service-card cursor-pointer transition-all duration-500 hover:scale-110 hover:z-30 animate-fade-in ${
-                      index === 1 ? 'md:z-20 md:scale-110' : 'md:z-10'
+                      index === 1 ? 'md:z-20 md:scale-105' : 'md:z-10'
                     }`}
                     style={{ 
                       animationDelay: `${index * 0.2}s`,
-                      transform: `rotate(${index === 0 ? '-5deg' : index === 2 ? '5deg' : '0deg'})`
+                      transform: `rotate(${rotations[index]})`
                     }}
                     onClick={() => setSelectedService(index)}
                   >
-                    <div className="bg-card border border-border rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-80 h-96 flex flex-col">
-                      <div className="flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-6 mx-auto">
-                        <Icon className="w-8 h-8 text-accent" />
+                    <div className="bg-card border border-border rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-80 h-80 flex flex-col text-right">
+                      <div className="flex justify-end mb-6">
+                        <Icon className="w-12 h-12 text-accent" />
                       </div>
                       
-                      <h3 className="text-2xl font-bold mb-4 text-center text-foreground">
+                      <h3 className="text-2xl font-bold mb-4 text-foreground">
                         {service.title}
                       </h3>
                       
-                      <p className="text-muted-foreground text-center leading-relaxed flex-grow">
+                      <p className="text-muted-foreground leading-relaxed flex-grow">
                         {service.description}
                       </p>
-                      
-                      <div className="text-center mt-6">
-                        <span className="text-lg font-semibold text-accent">
-                          {service.price}
-                        </span>
-                      </div>
                     </div>
                   </div>
                 );
@@ -137,10 +132,10 @@ const ServicesSection = () => {
               
               <div className="space-y-8">
                 <div className="text-center">
-                  <div className="flex items-center justify-center w-20 h-20 bg-accent/10 rounded-full mb-4 mx-auto">
+                  <div className="flex items-center justify-center w-20 h-20 mb-4 mx-auto">
                     {(() => {
                       const Icon = services[selectedService].icon;
-                      return <Icon className="w-10 h-10 text-accent" />;
+                      return <Icon className="w-16 h-16 text-accent" />;
                     })()}
                   </div>
                   <p className="text-lg text-muted-foreground">
