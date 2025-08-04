@@ -40,7 +40,7 @@ const AboutSection = () => {
         </div>
 
         {/* Moving Cards Animation */}
-        <div className="relative h-[400px] md:h-[500px]">
+        <div className="relative h-[400px] md:h-[600px] lg:h-[700px]">
           {/* Top Row - Moving Left with Natural Blur */}
           <div className="absolute top-0 left-0 w-full h-1/2 overflow-hidden">
             <div 
