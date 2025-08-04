@@ -19,7 +19,7 @@ const AboutSection = () => {
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Notre%20Dame%20(dark).png?token=GHSAT0AAAAAADISNJ7V5NBIO54NTW2JJ7HU2EQQKNA',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Stonehenge.png?token=GHSAT0AAAAAADISNJ7VE7RK3QZZKWQMILPC2EQQKVQ',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Sydney%20(chinese%20white).png?token=GHSAT0AAAAAADISNJ7ULODDPPLDB5HUZHIQ2EQQK7A',
-    ''
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Tower%20Bridge.png?token=GHSAT0AAAAAADISNJ7VQ43C2OUVVVHI2JRA2EQQYAA',
     // Add your GitHub-hosted images here as you upload them:
     // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-6.png',
     // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-7.png',
