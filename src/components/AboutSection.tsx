@@ -32,7 +32,7 @@ const AboutSection = () => {
         {/* Moving Cards Animation */}
         <div className="relative h-[400px] md:h-[500px]">
           {/* Top Row - Moving Left with Natural Blur */}
-          <div className="absolute top-0 left-0 w-full h-[40%] overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-[45%] overflow-hidden">
             <div 
               className="flex gap-6 animate-scroll-left"
               style={{ width: `${illustrations.length * 280}px` }}
@@ -56,7 +56,7 @@ const AboutSection = () => {
           </div>
 
           {/* Bottom Row - Moving Right with Natural Blur */}
-          <div className="absolute bottom-0 left-0 w-full h-[40%] overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-full h-[45%] overflow-hidden">
             <div 
               className="flex gap-6 animate-scroll-right"
               style={{ width: `${illustrations.length * 280}px` }}
