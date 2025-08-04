@@ -13,6 +13,13 @@ const AboutSection = () => {
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Aeropolis%20of%20Athens%20(midnight%20moss).png?token=GHSAT0AAAAAADISNJ7UXJZL5Y4SLABMHY2Q2EQQHCQ',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Big%20Ben%20(crow%20black).png?token=GHSAT0AAAAAADISNJ7U6O6H5BZUA4C7OVUA2EQQHUA',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Empire%20State%20(snowbelt).png?token=GHSAT0AAAAAADISNJ7VK5WNSPSNGD2UQE5C2EQQH6A',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Golden%20Gate%20(volcano%20glow).png?token=GHSAT0AAAAAADISNJ7UFAB7WPVEQME42Z7Y2EQQI5Q',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Great%20Wall%20(toasted%20barley).png?token=GHSAT0AAAAAADISNJ7US4NALBM6LUKD5GC22EQQJIA',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/London%20Eye%20(cocoa%20bean).png?token=GHSAT0AAAAAADISNJ7U45WSS5TSJEVPVCTK2EQQJ7Q',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Notre%20Dame%20(dark).png?token=GHSAT0AAAAAADISNJ7V5NBIO54NTW2JJ7HU2EQQKNA',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Stonehenge.png?token=GHSAT0AAAAAADISNJ7VE7RK3QZZKWQMILPC2EQQKVQ',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Sydney%20(chinese%20white).png?token=GHSAT0AAAAAADISNJ7ULODDPPLDB5HUZHIQ2EQQK7A',
+    ''
     // Add your GitHub-hosted images here as you upload them:
     // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-6.png',
     // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-7.png',
