@@ -10,6 +10,9 @@ const AboutSection = () => {
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Eiffel%20Tower%20mirror%20(dark).png?token=GHSAT0AAAAAADISNJ7UKALM2Y2ICXT63BJ22EQP6LQ',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Stonehenge.png?token=GHSAT0AAAAAADISNJ7VQ6HTJRZ27R25NJQ22EQP7CA',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Eiffel%20Tower%20mirror%20(dark).png?token=GHSAT0AAAAAADISNJ7VSQNFU7TNSTCJCQIK2EQP7OA',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Aeropolis%20of%20Athens%20(midnight%20moss).png?token=GHSAT0AAAAAADISNJ7UXJZL5Y4SLABMHY2Q2EQQHCQ',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Big%20Ben%20(crow%20black).png?token=GHSAT0AAAAAADISNJ7U6O6H5BZUA4C7OVUA2EQQHUA',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Empire%20State%20(snowbelt).png?token=GHSAT0AAAAAADISNJ7VK5WNSPSNGD2UQE5C2EQQH6A',
     // Add your GitHub-hosted images here as you upload them:
     // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-6.png',
     // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-7.png',
