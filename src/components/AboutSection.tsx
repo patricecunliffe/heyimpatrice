@@ -6,7 +6,7 @@ import illustration5 from '@/assets/illustration-5.png';
 const AboutSection = () => {
   // Base illustrations - easily expandable for 40+ images
   const baseIllustrations = [
-    illustration2,
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Colosseum.png?token=GHSAT0AAAAAADISNJ7UYJ5PDZFQY74QR7MU2EQP2RA',
     illustration3,
     illustration4,
     illustration5,
