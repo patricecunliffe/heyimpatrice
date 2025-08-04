@@ -74,8 +74,8 @@ export default {
 				'slide-up-delayed': 'slide-up 0.6s ease-out 0.3s both',
 				'fade-in-delayed': 'fade-in 0.8s ease-out 0.6s both',
 				'scale-in-delayed': 'scale-in 0.6s ease-out 0.9s both',
-				'scroll-left': 'scroll-left 40s linear infinite',
-				'scroll-right': 'scroll-right 40s linear infinite',
+				'scroll-left': 'scroll-left 80s linear infinite',
+				'scroll-right': 'scroll-right 80s linear infinite',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
