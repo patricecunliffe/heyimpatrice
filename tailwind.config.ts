@@ -22,7 +22,8 @@ export default {
 				'montserrat': ['Montserrat', 'sans-serif'],
 				'opensans': ['Open Sans', 'sans-serif'],
 				'sans': ['Open Sans', 'sans-serif'],
-				'heading': ['Montserrat', 'sans-serif']
+				'heading': ['Montserrat', 'sans-serif'],
+				'anton': ['Anton', 'sans-serif']
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -73,6 +74,8 @@ export default {
 				'slide-up-delayed': 'slide-up 0.6s ease-out 0.3s both',
 				'fade-in-delayed': 'fade-in 0.8s ease-out 0.6s both',
 				'scale-in-delayed': 'scale-in 0.6s ease-out 0.9s both',
+				'scroll-left': 'scroll-left 30s linear infinite',
+				'scroll-right': 'scroll-right 30s linear infinite',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -104,6 +107,14 @@ export default {
 				'kinetic': {
 					'0%': { transform: 'scale(1) rotate(0deg)' },
 					'100%': { transform: 'scale(1.05) rotate(1deg)' }
+				},
+				'scroll-left': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-50%)' }
+				},
+				'scroll-right': {
+					'0%': { transform: 'translateX(-50%)' },
+					'100%': { transform: 'translateX(0)' }
 				}
 			}
 		}

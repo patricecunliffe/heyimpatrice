@@ -1,44 +1,72 @@
+import illustration2 from '@/assets/illustration-2.png';
+import illustration3 from '@/assets/illustration-3.png';
+import illustration4 from '@/assets/illustration-4.png';
+import illustration5 from '@/assets/illustration-5.png';
+
 const AboutSection = () => {
-  return <section id="about" className="py-20 bg-secondary">
+  const illustrations = [
+    'https://images.unsplash.com/photo-1470813740244-df37b8c1cdcb?w=1080&h=1080&fit=crop',
+    illustration2,
+    illustration3,
+    illustration4,
+    illustration5,
+    'https://images.unsplash.com/photo-1470813740244-df37b8c1cdcb?w=1080&h=1080&fit=crop', // Repeat for infinite scroll
+    illustration2,
+    illustration3,
+  ];
+
+  return (
+    <section id="about" className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left-aligned content */}
-            <div className="space-y-6 animate-fade-in">
-              <h2 className="text-4xl font-bold mb-8 md:text-6xl">
-                About Patrice
-              </h2>
-              
-              <div className="text-lg md:text-xl text-muted-foreground leading-relaxed space-y-6">
-                <p className="font-thin text-base">
-I’m a pastor by day and a creative problem-solver the rest of the time, with a passion for building digital experiences that actually work. When I’m not leading our community in worship, you’ll find me crafting websites that turn curious visitors into loyal customers and transform bold ideas into thriving online ventures.                </p>
-                
-                <p className="text-base">
-I believe every business deserves a website that works as hard as they do. That’s why I specialize in creating clean, conversion-focused designs that cut through the digital noise and get straight to the point. No unnecessary bells and whistles – just smart, strategic web solutions that help people connect with their audience and grow their impact.                </p>
-                <p className="text-base">
-              I lead a small but mighty family that’s passionate about one thing: helping others win. Whether you’re launching a ministry, growing a business, or bringing a creative venture to life, we’re here to build the digital foundation that supports your biggest dreams.  
-              </p>
-                <p className="text-foreground text-lg font-medium">
-                  Let's build something amazing together.
-                </p>
-              </div>
-              
-              {/* Professional credentials or quick stats */}
-              
+        {/* Header Text */}
+        <div className="max-w-6xl mx-auto mb-20">
+          <h2 className="font-anton text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
+            I create minimalistic wallpapers, Notion templates and websites to simplify your life and help you grow.
+          </h2>
+        </div>
+
+        {/* Moving Cards Animation */}
+        <div className="relative h-[600px] md:h-[800px]">
+          {/* Top Row - Moving Left */}
+          <div className="absolute top-0 left-0 w-full h-1/2 overflow-hidden">
+            <div className="flex gap-8 animate-scroll-left w-[200%]">
+              {illustrations.map((img, index) => (
+                <div
+                  key={`top-${index}`}
+                  className="flex-shrink-0 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300"
+                >
+                  <img
+                    src={img}
+                    alt={`Illustration ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
             </div>
-            
-            {/* Right-aligned profile image */}
-            <div className="flex justify-center lg:justify-end animate-fade-in">
-              <div className="relative">
-                <img src="https://raw.githubusercontent.com/patricecunliffe/spirit-gift-navigator/refs/heads/main/patrice%20(green).png?token=GHSAT0AAAAAADH5FWHVIUKWVPUIBLREWZMI2ENKS2A" alt="Pat Cunliffe - Patrice" className="w-[24rem] h-[24rem] lg:w-[28rem] lg:h-[28rem] object-contain rounded-full shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105" />
-                {/* Decorative element */}
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full -z-10"></div>
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent/20 rounded-full -z-10"></div>
-              </div>
+          </div>
+
+          {/* Bottom Row - Moving Right */}
+          <div className="absolute bottom-0 left-0 w-full h-1/2 overflow-hidden">
+            <div className="flex gap-8 animate-scroll-right w-[200%]">
+              {illustrations.slice().reverse().map((img, index) => (
+                <div
+                  key={`bottom-${index}`}
+                  className="flex-shrink-0 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300"
+                >
+                  <img
+                    src={img}
+                    alt={`Illustration ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </section>;
+
+    </section>
+  );
 };
+
 export default AboutSection;
