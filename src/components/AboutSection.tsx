@@ -6,12 +6,12 @@ import illustration5 from '@/assets/illustration-5.png';
 const AboutSection = () => {
   // Base illustrations - easily expandable for 40+ images
   const baseIllustrations = [
-    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Colosseum.png?token=GHSAT0AAAAAADISNJ7UYJ5PDZFQY74QR7MU2EQP2RA',
-    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Eiffel%20Tower%20mirror%20(dark).png?token=GHSAT0AAAAAADISNJ7UKALM2Y2ICXT63BJ22EQP6LQ',
-    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Stonehenge.png?token=GHSAT0AAAAAADISNJ7VQ6HTJRZ27R25NJQ22EQP7CA',
-    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Eiffel%20Tower%20mirror%20(dark).png?token=GHSAT0AAAAAADISNJ7VSQNFU7TNSTCJCQIK2EQP7OA',
-    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Aeropolis%20of%20Athens%20(midnight%20moss).png?token=GHSAT0AAAAAADISNJ7UXJZL5Y4SLABMHY2Q2EQQHCQ',
-    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Big%20Ben%20(crow%20black).png?token=GHSAT0AAAAAADISNJ7U6O6H5BZUA4C7OVUA2EQQHUA',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Colosseum.png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Eiffel%20Tower%20mirror%20(dark).png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Stonehenge.png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Eiffel%20Tower%20mirror%20(dark).png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Aeropolis%20of%20Athens%20(midnight%20moss).png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Big%20Ben%20(crow%20black).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Empire%20State%20(snowbelt).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Golden%20Gate%20(volcano%20glow).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Great%20Wall%20(toasted%20barley).png',
@@ -20,6 +20,10 @@ const AboutSection = () => {
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Stonehenge.png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Sydney%20(chinese%20white).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Tower%20Bridge.png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Albert%20(dandelion).png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Ali%20(corn%20silk).png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Augustine%20(malibu%20beige).png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Billy%20Graham%20(pale%20gold).png',
     // Add your GitHub-hosted images here as you upload them:
     // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-6.png',
     // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-7.png',
