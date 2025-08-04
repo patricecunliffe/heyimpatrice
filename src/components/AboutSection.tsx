@@ -7,7 +7,7 @@ const AboutSection = () => {
   // Base illustrations - easily expandable for 40+ images
   const baseIllustrations = [
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Colosseum.png',
-    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Eiffel%20Tower%20mirror%20(dark).png?token=GHSAT0AAAAAADISNJ7UKALM2Y2ICXT63BJ22EQP6LQ',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Eiffel%20Tower%20mirror%20(dark).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Stonehenge.png?token=GHSAT0AAAAAADISNJ7VQ6HTJRZ27R25NJQ22EQP7CA',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Eiffel%20Tower%20mirror%20(dark).png?token=GHSAT0AAAAAADISNJ7VSQNFU7TNSTCJCQIK2EQP7OA',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Aeropolis%20of%20Athens%20(midnight%20moss).png?token=GHSAT0AAAAAADISNJ7UXJZL5Y4SLABMHY2Q2EQQHCQ',
