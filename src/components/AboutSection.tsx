@@ -4,16 +4,20 @@ import illustration4 from '@/assets/illustration-4.png';
 import illustration5 from '@/assets/illustration-5.png';
 
 const AboutSection = () => {
-  const illustrations = [
-    'https://images.unsplash.com/photo-1470813740244-df37b8c1cdcb?w=1080&h=1080&fit=crop',
+  // Base illustrations - easily expandable for 40+ images
+  const baseIllustrations = [
     illustration2,
     illustration3,
     illustration4,
     illustration5,
-    'https://images.unsplash.com/photo-1470813740244-df37b8c1cdcb?w=1080&h=1080&fit=crop', // Repeat for infinite scroll
-    illustration2,
-    illustration3,
+    // Add your GitHub-hosted images here as you upload them:
+    // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-6.png',
+    // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-7.png',
+    // ... up to 40+ images
   ];
+
+  // Duplicate arrays for infinite scrolling
+  const illustrations = [...baseIllustrations, ...baseIllustrations, ...baseIllustrations];
 
   return (
     <section id="about" className="py-20 bg-background overflow-hidden">
@@ -26,14 +30,17 @@ const AboutSection = () => {
         </div>
 
         {/* Moving Cards Animation */}
-        <div className="relative h-[600px] md:h-[800px]">
-          {/* Top Row - Moving Left */}
+        <div className="relative h-[400px] md:h-[500px]">
+          {/* Top Row - Moving Left with Natural Blur */}
           <div className="absolute top-0 left-0 w-full h-1/2 overflow-hidden">
-            <div className="flex gap-8 animate-scroll-left w-[200%]">
+            <div 
+              className="flex gap-6 animate-scroll-left"
+              style={{ width: `${illustrations.length * 280}px` }}
+            >
               {illustrations.map((img, index) => (
                 <div
                   key={`top-${index}`}
-                  className="flex-shrink-0 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300"
+                  className="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300"
                 >
                   <img
                     src={img}
@@ -43,15 +50,21 @@ const AboutSection = () => {
                 </div>
               ))}
             </div>
+            {/* Natural blur gradients */}
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
+            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
           </div>
 
-          {/* Bottom Row - Moving Right */}
+          {/* Bottom Row - Moving Right with Natural Blur */}
           <div className="absolute bottom-0 left-0 w-full h-1/2 overflow-hidden">
-            <div className="flex gap-8 animate-scroll-right w-[200%]">
+            <div 
+              className="flex gap-6 animate-scroll-right"
+              style={{ width: `${illustrations.length * 280}px` }}
+            >
               {illustrations.slice().reverse().map((img, index) => (
                 <div
                   key={`bottom-${index}`}
-                  className="flex-shrink-0 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300"
+                  className="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300"
                 >
                   <img
                     src={img}
@@ -61,6 +74,9 @@ const AboutSection = () => {
                 </div>
               ))}
             </div>
+            {/* Natural blur gradients */}
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
+            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
           </div>
         </div>
       </div>
