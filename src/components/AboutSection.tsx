@@ -6,7 +6,7 @@ import illustration5 from '@/assets/illustration-5.png';
 const AboutSection = () => {
   // Base illustrations - easily expandable for 40+ images
   const baseIllustrations = [
-    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/489677bcfcec242a82b68a69f27bfd37e62d700d/Colosseum.png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Michael%20(beige).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Sydney%20(chinese%20white).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Augustine%20(malibu%20beige).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Da%20Vinci%20(chinese%20white).png',
@@ -21,8 +21,8 @@ const AboutSection = () => {
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Great%20Wall%20(toasted%20barley).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/London%20Eye%20(cocoa%20bean).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Notre%20Dame%20(dark).png',
-    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Stonehenge.png',
-    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Tower%20Bridge.png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Steve%20Irwin%20(off%20white).png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Marilyn%20Monroe%20(light%20cream).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Albert%20(dandelion).png',
     // Add your GitHub-hosted images here as you upload them:
     // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-6.png',
