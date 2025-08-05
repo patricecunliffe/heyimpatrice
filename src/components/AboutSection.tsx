@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import illustration2 from '@/assets/illustration-2.png';
 import illustration3 from '@/assets/illustration-3.png';
 import illustration4 from '@/assets/illustration-4.png';
 import illustration5 from '@/assets/illustration-5.png';
 
 const AboutSection = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   // Base illustrations - easily expandable for 40+ images
   const baseIllustrations = [
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Michael%20(beige).png',
@@ -29,6 +32,14 @@ const AboutSection = () => {
   const topRowIllustrations = [...baseIllustrations, ...baseIllustrations, ...baseIllustrations];
   const bottomRowIllustrations = [...baseIllustrations.slice(8), ...baseIllustrations, ...baseIllustrations.slice(0, 8)];
 
+  const handleMouseMove = (e: React.MouseEvent, cardId: string) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
   return (
     <section id="about" className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-6">
@@ -51,6 +62,9 @@ const AboutSection = () => {
                 <div
                   key={`top-${index}`}
                   className="group relative flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300 cursor-pointer"
+                  onMouseMove={(e) => handleMouseMove(e, `top-${index}`)}
+                  onMouseEnter={() => setHoveredCard(`top-${index}`)}
+                  onMouseLeave={() => setHoveredCard(null)}
                 >
                   <img
                     src={img}
@@ -58,17 +72,23 @@ const AboutSection = () => {
                     className="w-full h-full object-cover"
                   />
                   {/* Hover Purchase Button */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <a
-                      href="https://heyimpatrice.gumroad.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="transform -rotate-12 bg-[#FF90E8] text-white px-6 py-2 rounded-full font-medium text-sm hover:bg-[#ff7de6] transition-colors duration-200"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      purchase
-                    </a>
-                  </div>
+                  {hoveredCard === `top-${index}` && (
+                    <div className="absolute inset-0 bg-black/50 transition-opacity duration-300 pointer-events-none">
+                      <a
+                        href="https://heyimpatrice.gumroad.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute transform -rotate-12 bg-[#FF90E8] text-white px-6 py-2 rounded-full font-medium text-sm hover:bg-[#ff7de6] transition-colors duration-200 pointer-events-auto"
+                        style={{
+                          left: `${mousePosition.x - 40}px`,
+                          top: `${mousePosition.y - 20}px`,
+                        }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        purchase
+                      </a>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -87,6 +107,9 @@ const AboutSection = () => {
                 <div
                   key={`bottom-${index}`}
                   className="group relative flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300 cursor-pointer"
+                  onMouseMove={(e) => handleMouseMove(e, `bottom-${index}`)}
+                  onMouseEnter={() => setHoveredCard(`bottom-${index}`)}
+                  onMouseLeave={() => setHoveredCard(null)}
                 >
                   <img
                     src={img}
@@ -94,17 +117,23 @@ const AboutSection = () => {
                     className="w-full h-full object-cover"
                   />
                   {/* Hover Purchase Button */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <a
-                      href="https://heyimpatrice.gumroad.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="transform -rotate-12 bg-[#FF90E8] text-white px-6 py-2 rounded-full font-medium text-sm hover:bg-[#ff7de6] transition-colors duration-200"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      purchase
-                    </a>
-                  </div>
+                  {hoveredCard === `bottom-${index}` && (
+                    <div className="absolute inset-0 bg-black/50 transition-opacity duration-300 pointer-events-none">
+                      <a
+                        href="https://heyimpatrice.gumroad.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute transform -rotate-12 bg-[#FF90E8] text-white px-6 py-2 rounded-full font-medium text-sm hover:bg-[#ff7de6] transition-colors duration-200 pointer-events-auto"
+                        style={{
+                          left: `${mousePosition.x - 40}px`,
+                          top: `${mousePosition.y - 20}px`,
+                        }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        purchase
+                      </a>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
