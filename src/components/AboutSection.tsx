@@ -61,7 +61,7 @@ const AboutSection = () => {
               {topRowIllustrations.map((img, index) => (
                 <div
                   key={`top-${index}`}
-                  className="group relative flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300 cursor-pointer"
+                  className="group relative flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300 hover:cursor-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI2LjM2MTUgMTQuNjc5MkMyNi4zNjE1IDE4Ljc3MDggMjIuOTYxNSAyMi4xNTQyIDE4LjkzMDggMjIuMTU0MkMxNC45IDIyLjE1NDIgMTEuNSAxOC43NzA4IDExLjUgMTQuNjc5MkMxMS41IDEwLjU4NzUgMTQuOSA3LjIwNDEgMTguOTMwOCA3LjIwNDFDMjIuOTYxNSA3LjIwNDEgMjYuMzYxNSAxMC41ODc1IDI2LjM2MTUgMTQuNjc5MloiIGZpbGw9IiNGRjkwRTgiLz4KPHA+YXRoIGQ9Ik0zNC4xNjkyIDI5LjIyOUMzNC4xNjkyIDI5LjIyOSAzNC43MDc3IDI2LjI3NzEgMzQuNzA3NyAyNi4yNzcxQzM0LjcwNzcgMjYuMjc3MSAzMy42MTU0IDI2LjI3NzEgMzMuNjE1NCAyNi4yNzcxQzMzLjA3NjkgMjYuMjc3MSAzMi41Mzg1IDI2LjI3NzEgMzIgMjYuMjc3MUMzMS40NjE1IDI2LjI3NzEgMzAuOTIzIDI2LjI3NzEgMzAuMzg0NSAyNi4yNzcxQzI4IDI2LjI3NzEgMjUuNjE1NCAyNi4yNzcxIDIzLjIzMDggMjYuMjc3MUMxOS4yIDI2LjI3NzEgMTUuMTY5MiAyNi4yNzcxIDExLjEzODUgMjYuMjc3MUM5LjEyMzA4IDI2LjI3NzEgNy4xMDc2OSAyNi4yNzcxIDUuMDkyMyAyNi4yNzcxQzMuMDc2OTIgMjYuMjc3MSAxLjA2MTU0IDI2LjI3NzEgLTAuOTUzODQ2IDI2LjI3NzFWMjkuMjI5QzEuMDYxNTQgMjkuMjI5IDMuMDc2OTIgMjkuMjI5IDUuMDkyMyAyOS4yMjlDNy4xMDc2OSAyOS4yMjkgOS4xMjMwOCAyOS4yMjkgMTEuMTM4NSAyOS4yMjlDMTUuMTY5MiAyOS4yMjkgMTkuMiAyOS4yMjkgMjMuMjMwOCAyOS4yMjlDMjUuNjE1NCAyOS4yMjkgMjggMjkuMjI5IDMwLjM4NDUgMjkuMjI5QzMwLjkyMyAyOS4yMjkgMzEuNDYxNSAyOS4yMjkgMzIgMjkuMjI5QzMyLjUzODUgMjkuMjI5IDMzLjA3NjkgMjkuMjI5IDMzLjYxNTQgMjkuMjI5QzM0LjE1MzggMjkuMjI5IDM0LjY5MjMgMjkuMjI5IDM0LjIzMDggMjkuMjI5SDM0LjE2OTJaIiBmaWxsPSIjRkY5MEU4Ii8+Cjwvc3ZnPgo='), pointer-events]"
                   onMouseMove={(e) => handleMouseMove(e, `top-${index}`)}
                   onMouseEnter={() => setHoveredCard(`top-${index}`)}
                   onMouseLeave={() => setHoveredCard(null)}
@@ -78,7 +78,7 @@ const AboutSection = () => {
                         href="https://heyimpatrice.gumroad.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="absolute transform -rotate-12 bg-[#FF90E8] text-white px-6 py-2 rounded-full font-medium text-sm hover:bg-[#ff7de6] transition-colors duration-200 pointer-events-auto"
+                        className="absolute transform -rotate-12 bg-[#FF90E8] text-white px-6 py-2 rounded-full font-anton font-bold text-sm uppercase hover:bg-[#ff7de6] transition-colors duration-200 pointer-events-auto"
                         style={{
                           left: `${mousePosition.x - 40}px`,
                           top: `${mousePosition.y - 20}px`,
@@ -106,7 +106,7 @@ const AboutSection = () => {
               {bottomRowIllustrations.map((img, index) => (
                 <div
                   key={`bottom-${index}`}
-                  className="group relative flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300 cursor-pointer"
+                  className="group relative flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300 hover:cursor-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI2LjM2MTUgMTQuNjc5MkMyNi4zNjE1IDE4Ljc3MDggMjIuOTYxNSAyMi4xNTQyIDE4LjkzMDggMjIuMTU0MkMxNC45IDIyLjE1NDIgMTEuNSAxOC43NzA4IDExLjUgMTQuNjc5MkMxMS41IDEwLjU4NzUgMTQuOSA3LjIwNDEgMTguOTMwOCA3LjIwNDFDMjIuOTYxNSA3LjIwNDEgMjYuMzYxNSAxMC41ODc1IDI2LjM2MTUgMTQuNjc5MloiIGZpbGw9IiNGRjkwRTgiLz4KPHA+YXRoIGQ9Ik0zNC4xNjkyIDI5LjIyOUMzNC4xNjkyIDI5LjIyOSAzNC43MDc3IDI2LjI3NzEgMzQuNzA3NyAyNi4yNzcxQzM0LjcwNzcgMjYuMjc3MSAzMy42MTU0IDI2LjI3NzEgMzMuNjE1NCAyNi4yNzcxQzMzLjA3NjkgMjYuMjc3MSAzMi41Mzg1IDI2LjI3NzEgMzIgMjYuMjc3MUMzMS40NjE1IDI2LjI3NzEgMzAuOTIzIDI2LjI3NzEgMzAuMzg0NSAyNi4yNzcxQzI4IDI2LjI3NzEgMjUuNjE1NCAyNi4yNzcxIDIzLjIzMDggMjYuMjc3MUMxOS4yIDI2LjI3NzEgMTUuMTY5MiAyNi4yNzcxIDExLjEzODUgMjYuMjc3MUM5LjEyMzA4IDI2LjI3NzEgNy4xMDc2OSAyNi4yNzcxIDUuMDkyMyAyNi4yNzcxQzMuMDc2OTIgMjYuMjc3MSAxLjA2MTU0IDI2LjI3NzEgLTAuOTUzODQ2IDI2LjI3NzFWMjkuMjI5QzEuMDYxNTQgMjkuMjI5IDMuMDc2OTIgMjkuMjI5IDUuMDkyMyAyOS4yMjlDNy4xMDc2OSAyOS4yMjkgOS4xMjMwOCAyOS4yMjkgMTEuMTM4NSAyOS4yMjlDMTUuMTY5MiAyOS4yMjkgMTkuMiAyOS4yMjkgMjMuMjMwOCAyOS4yMjlDMjUuNjE1NCAyOS4yMjkgMjggMjkuMjI5IDMwLjM4NDUgMjkuMjI5QzMwLjkyMyAyOS4yMjkgMzEuNDYxNSAyOS4yMjkgMzIgMjkuMjI5QzMyLjUzODUgMjkuMjI5IDMzLjA3NjkgMjkuMjI5IDMzLjYxNTQgMjkuMjI5QzM0LjE1MzggMjkuMjI5IDM0LjY5MjMgMjkuMjI5IDM0LjIzMDggMjkuMjI5SDM0LjE2OTJaIiBmaWxsPSIjRkY5MEU4Ii8+Cjwvc3ZnPgo='), pointer-events]"
                   onMouseMove={(e) => handleMouseMove(e, `bottom-${index}`)}
                   onMouseEnter={() => setHoveredCard(`bottom-${index}`)}
                   onMouseLeave={() => setHoveredCard(null)}
@@ -123,7 +123,7 @@ const AboutSection = () => {
                         href="https://heyimpatrice.gumroad.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="absolute transform -rotate-12 bg-[#FF90E8] text-white px-6 py-2 rounded-full font-medium text-sm hover:bg-[#ff7de6] transition-colors duration-200 pointer-events-auto"
+                        className="absolute transform -rotate-12 bg-[#FF90E8] text-white px-6 py-2 rounded-full font-anton font-bold text-sm uppercase hover:bg-[#ff7de6] transition-colors duration-200 pointer-events-auto"
                         style={{
                           left: `${mousePosition.x - 40}px`,
                           top: `${mousePosition.y - 20}px`,
