@@ -11,10 +11,10 @@ const AboutSection = () => {
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Augustine%20(malibu%20beige).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Da%20Vinci%20(chinese%20white).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Mark%20Twain%20(orange%20peel).png',
-      'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Ali%20(corn%20silk).png',
-    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Plato%20(clotted%20cream).png.png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Ali%20(corn%20silk).png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Plato%20(clotted%20cream).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Aeropolis%20of%20Athens%20(midnight%20moss).png',
-      'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Billy%20Graham%20(pale%20gold).png',
+    'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Billy%20Graham%20(pale%20gold).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Big%20Ben%20(crow%20black).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Empire%20State%20(snowbelt).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Golden%20Gate%20(volcano%20glow).png',
@@ -23,14 +23,11 @@ const AboutSection = () => {
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Steve%20Irwin%20(off%20white).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Marilyn%20Monroe%20(light%20cream).png',
     'https://raw.githubusercontent.com/patricecunliffe/heyimpatrice/refs/heads/main/Albert%20(dandelion).png',
-    // Add your GitHub-hosted images here as you upload them:
-    // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-6.png',
-    // 'https://raw.githubusercontent.com/username/repo/main/src/assets/illustration-7.png',
-    // ... up to 40+ images
   ];
 
-  // Duplicate arrays for infinite scrolling
-  const illustrations = [...baseIllustrations, ...baseIllustrations, ...baseIllustrations];
+  // Create separate arrays for top and bottom rows to prevent duplicates
+  const topRowIllustrations = [...baseIllustrations, ...baseIllustrations, ...baseIllustrations];
+  const bottomRowIllustrations = [...baseIllustrations.slice(8), ...baseIllustrations, ...baseIllustrations.slice(0, 8)];
 
   return (
     <section id="about" className="py-20 bg-background overflow-hidden">
@@ -48,18 +45,30 @@ const AboutSection = () => {
           <div className="absolute top-0 left-0 w-full h-1/2 overflow-hidden">
             <div 
               className="flex gap-6 animate-scroll-left"
-              style={{ width: `${illustrations.length * 280}px` }}
+              style={{ width: `${topRowIllustrations.length * 280}px` }}
             >
-              {illustrations.map((img, index) => (
+              {topRowIllustrations.map((img, index) => (
                 <div
                   key={`top-${index}`}
-                  className="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300"
+                  className="group relative flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300 cursor-pointer"
                 >
                   <img
                     src={img}
                     alt={`Illustration ${index + 1}`}
                     className="w-full h-full object-cover"
                   />
+                  {/* Hover Purchase Button */}
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <a
+                      href="https://heyimpatrice.gumroad.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transform -rotate-12 bg-[#FF90E8] text-white px-6 py-2 rounded-full font-medium text-sm hover:bg-[#ff7de6] transition-colors duration-200"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      purchase
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
@@ -72,18 +81,30 @@ const AboutSection = () => {
           <div className="absolute bottom-0 left-0 w-full h-1/2 overflow-hidden">
             <div 
               className="flex gap-6 animate-scroll-right"
-              style={{ width: `${illustrations.length * 280}px` }}
+              style={{ width: `${bottomRowIllustrations.length * 280}px` }}
             >
-              {illustrations.slice().reverse().map((img, index) => (
+              {bottomRowIllustrations.map((img, index) => (
                 <div
                   key={`bottom-${index}`}
-                  className="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300"
+                  className="group relative flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300 cursor-pointer"
                 >
                   <img
                     src={img}
                     alt={`Illustration ${index + 1}`}
                     className="w-full h-full object-cover"
                   />
+                  {/* Hover Purchase Button */}
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <a
+                      href="https://heyimpatrice.gumroad.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transform -rotate-12 bg-[#FF90E8] text-white px-6 py-2 rounded-full font-medium text-sm hover:bg-[#ff7de6] transition-colors duration-200"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      purchase
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
