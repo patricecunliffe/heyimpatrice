@@ -36,36 +36,50 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
-        <div className="max-w-5xl mx-auto">
-          {/* Small header text - slides up from bottom */}
-          <div className="mb-6 opacity-0 translate-y-8 animate-slide-up-delayed">
-            <p className="text-sm md:text-base text-muted-foreground tracking-wide uppercase font-semibold">
-              hey i'm patrice
-            </p>
-          </div>
-          
-          {/* Main vision statement - fades in */}
-          <div className="mb-12 opacity-0 animate-fade-in-delayed">
-            <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-semibold">
-              Creating simple, effective 
-              <br />
-              <span className="font-bold">websites</span> that turn
-              <br />
-              visitors into customers
-            </h1>
+      <div className="relative z-10 container mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+          {/* Left Column - Text Content */}
+          <div className="text-left">
+            {/* Small header text - slides up from bottom */}
+            <div className="mb-6 opacity-0 translate-y-8 animate-slide-up-delayed">
+              <p className="text-sm md:text-base text-muted-foreground tracking-wide uppercase font-anton font-bold">
+                hey i'm patrice
+              </p>
+            </div>
             
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center md:text-xl font-normal">Turning ideas into powerful digital experiences</p>
+            {/* Main vision statement - fades in */}
+            <div className="mb-12 opacity-0 animate-fade-in-delayed">
+              <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
+                Creating simple, effective 
+                <br />
+                <span className="font-bold">websites</span> that turn
+                <br />
+                visitors into customers
+              </h1>
+              
+              <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed md:text-xl font-normal">Turning ideas into powerful digital experiences</p>
+            </div>
+            
+            {/* CTA Buttons - appear with scale effect */}
+            <div className="flex flex-col sm:flex-row gap-6 items-start opacity-0 animate-scale-in-delayed">
+              <Button size="lg" onClick={() => scrollToSection('about')} className="px-8 py-4 text-lg shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105 bg-primary text-primary-foreground">
+                Learn About Me
+              </Button>
+              <Button variant="outline" size="lg" onClick={() => scrollToSection('contact')} className="px-8 py-4 text-lg shadow-medium hover:shadow-strong transition-all duration-300 border-2 hover:bg-primary hover:text-primary-foreground">
+                Start Your Project
+              </Button>
+            </div>
           </div>
-          
-          {/* CTA Buttons - appear with scale effect */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center opacity-0 animate-scale-in-delayed">
-            <Button size="lg" onClick={() => scrollToSection('about')} className="px-8 py-4 text-lg shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105 bg-primary text-primary-foreground">
-              Learn About Me
-            </Button>
-            <Button variant="outline" size="lg" onClick={() => scrollToSection('contact')} className="px-8 py-4 text-lg shadow-medium hover:shadow-strong transition-all duration-300 border-2 hover:bg-primary hover:text-primary-foreground">
-              Start Your Project
-            </Button>
+
+          {/* Right Column - Portrait Image */}
+          <div className="flex justify-center lg:justify-end opacity-0 animate-fade-in-delayed">
+            <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] rounded-3xl overflow-hidden shadow-strong">
+              <img
+                src="/lovable-uploads/cfd0cc45-63ae-4de7-903d-f9a04ddf1ffa.png"
+                alt="Patrice - Portrait illustration"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>

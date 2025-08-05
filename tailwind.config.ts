@@ -23,7 +23,8 @@ export default {
 				'opensans': ['Open Sans', 'sans-serif'],
 				'sans': ['Open Sans', 'sans-serif'],
 				'heading': ['Montserrat', 'sans-serif'],
-				'anton': ['Anton', 'sans-serif']
+				'anton': ['Anton', 'sans-serif'],
+				'instrument': ['Instrument Serif', 'serif']
 			},
 			colors: {
 				border: 'hsl(var(--border))',
