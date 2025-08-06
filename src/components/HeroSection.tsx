@@ -106,18 +106,12 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-2 items-center min-h-[70vh] md:min-h-[80vh]">
           {/* Left Column - Text Content */}
           <div className="text-left">
-            {/* Small header text - slides up from bottom */}
-            <div className="mb-6 opacity-0 translate-y-8 animate-slide-up-delayed">
-              <p className="text-sm md:text-base text-muted-foreground tracking-wide font-dmsans font-medium">
-                hey i'm patrice
-              </p>
-            </div>
             
             {/* Main vision statement - typewriter animation */}
             <div className="mb-8 opacity-0 animate-fade-in-delayed">
               <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
                 {displayText}
-                {showCursor && <span className="animate-pulse">|</span>}
+                {showCursor && <span className="animate-pulse">_</span>}
               </h1>
             </div>
             
