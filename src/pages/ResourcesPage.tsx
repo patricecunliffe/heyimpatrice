@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 const ResourcesPage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [currentTemplateIndex, setCurrentTemplateIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Wallpapers section data (reused from AboutSection)
   const baseIllustrations = [
@@ -38,49 +42,56 @@ const ResourcesPage = () => {
       title: "Project Management Hub",
       description: "Complete project tracking with timelines, tasks, and team collaboration",
       gradient: "from-purple-500 to-pink-500",
-      price: "$15"
+      price: "$15",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
     },
     {
       id: 2,
       title: "Content Creator Kit",
       description: "Manage your content calendar, ideas, and analytics in one place",
       gradient: "from-blue-500 to-cyan-500",
-      price: "$12"
+      price: "$12",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
     },
     {
       id: 3,
       title: "Finance Tracker Pro",
       description: "Budget planning, expense tracking, and financial goal management",
       gradient: "from-green-500 to-emerald-500",
-      price: "$18"
+      price: "$18",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
     },
     {
       id: 4,
       title: "Study Planner",
       description: "Academic organization with class schedules, assignments, and notes",
       gradient: "from-orange-500 to-red-500",
-      price: "$10"
+      price: "$10",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
     },
     {
       id: 5,
       title: "Life OS Dashboard",
       description: "All-in-one life management system for goals, habits, and planning",
       gradient: "from-indigo-500 to-purple-500",
-      price: "$25"
+      price: "$25",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
     },
     {
       id: 6,
       title: "Travel Journal",
       description: "Document your adventures with itineraries, memories, and photos",
       gradient: "from-teal-500 to-blue-500",
-      price: "$8"
+      price: "$8",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
     },
     {
       id: 7,
       title: "Business Starter Kit",
       description: "Launch your business with planning templates and tracking tools",
       gradient: "from-rose-500 to-pink-500",
-      price: "$22"
+      price: "$22",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
     }
   ];
 
@@ -103,7 +114,7 @@ const ResourcesPage = () => {
     }
   ];
 
-  const handleMouseMove = (e: React.MouseEvent, cardId: string) => {
+  const handleWallpaperMouseMove = (e: React.MouseEvent, cardId: string) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setMousePosition({
       x: e.clientX - rect.left,
@@ -117,6 +128,44 @@ const ResourcesPage = () => {
 
   const handleTemplateClick = (templateId: number) => {
     window.open('https://heyimpatrice.gumroad.com/', '_blank');
+  };
+
+  // Touch and drag handlers for template carousel
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  };
+
+  const handleCarouselMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
   };
 
   return (
@@ -143,7 +192,7 @@ const ResourcesPage = () => {
                   <div
                     key={`top-${index}`}
                     className="group relative flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300 hover:cursor-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI2LjM2MTUgMTQuNjc5MkMyNi4zNjE1IDE4Ljc3MDggMjIuOTYxNSAyMi4xNTQyIDE4LjkzMDggMjIuMTU0MkMxNC45IDIyLjE1NDIgMTEuNSAxOC43NzA4IDExLjUgMTQuNjc5MkMxMS41IDEwLjU4NzUgMTQuOSA3LjIwNDEgMTguOTMwOCA3LjIwNDFDMjIuOTYxNSA3LjIwNDEgMjYuMzYxNSAxMC41ODc1IDI2LjM2MTUgMTQuNjc5MloiIGZpbGw9IiNGRjkwRTgiLz4KPHA+YXRoIGQ9Ik0zNC4xNjkyIDI5LjIyOUMzNC4xNjkyIDI5LjIyOSAzNC43MDc3IDI2LjI3NzEgMzQuNzA3NyAyNi4yNzcxQzM0LjcwNzcgMjYuMjc3MSAzMy42MTU0IDI2LjI3NzEgMzMuNjE1NCAyNi4yNzcxQzMzLjA3NjkgMjYuMjc3MSAzMi41Mzg1IDI2LjI3NzEgMzIgMjYuMjc3MUMzMS40NjE1IDI2LjI3NzEgMzAuOTIzIDI2LjI3NzEgMzAuMzg0NSAyNi4yNzcxQzI4IDI2LjI3NzEgMjUuNjE1NCAyNi4yNzcxIDIzLjIzMDggMjYuMjc3MUMxOS4yIDI2LjI3NzEgMTUuMTY5MiAyNi4yNzcxIDExLjEzODUgMjYuMjc3MUM5LjEyMzA4IDI2LjI3NzEgNy4xMDc2OSAyNi4yNzcxIDUuMDkyMyAyNi4yNzcxQzMuMDc2OTIgMjYuMjc3MSAxLjA2MTU0IDI2LjI3NzEgLTAuOTUzODQ2IDI2LjI3NzFWMjkuMjI5QzEuMDYxNTQgMjkuMjI5IDMuMDc2OTIgMjkuMjI5IDUuMDkyMyAyOS4yMjlDNy4xMDc2OSAyOS4yMjkgOS4xMjMwOCAyOS4yMjkgMTEuMTM4NSAyOS4yMjlDMTUuMTY5MiAyOS4yMjkgMTkuMiAyOS4yMjkgMjMuMjMwOCAyOS4yMjlDMjUuNjE1NCAyOS4yMjkgMjggMjkuMjI5IDMwLjM4NDUgMjkuMjI5QzMwLjkyMyAyOS4yMjkgMzEuNDYxNSAyOS4yMjkgMzIgMjkuMjI5QzMyLjUzODUgMjkuMjI5IDMzLjA3NjkgMjkuMjI5IDMzLjYxNTQgMjkuMjI5QzM0LjE1MzggMjkuMjI5IDM0LjY5MjMgMjkuMjI5IDM0LjIzMDggMjkuMjI5SDM0LjE2OTJaIiBmaWxsPSIjRkY5MEU4Ii8+Cjwvc3ZnPgo='), pointer-events]"
-                    onMouseMove={(e) => handleMouseMove(e, `top-${index}`)}
+                    onMouseMove={(e) => handleWallpaperMouseMove(e, `top-${index}`)}
                     onMouseEnter={() => setHoveredCard(`top-${index}`)}
                     onMouseLeave={() => setHoveredCard(null)}
                   >
@@ -186,7 +235,7 @@ const ResourcesPage = () => {
                   <div
                     key={`bottom-${index}`}
                     className="group relative flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-medium hover:shadow-strong transition-all duration-300 hover:cursor-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI2LjM2MTUgMTQuNjc5MkMyNi4zNjE1IDE4Ljc3MDggMjIuOTYxNSAyMi4xNTQyIDE4LjkzMDggMjIuMTU0MkMxNC45IDIyLjE1NDIgMTEuNSAxOC43NzA4IDExLjUgMTQuNjc5MkMxMS41IDEwLjU4NzUgMTQuOSA3LjIwNDEgMTguOTMwOCA3LjIwNDFDMjIuOTYxNSA3LjIwNDEgMjYuMzYxNSAxMC41ODc1IDI2LjM2MTUgMTQuNjc5MloiIGZpbGw9IiNGRjkwRTgiLz4KPHA+YXRoIGQ9Ik0zNC4xNjkyIDI5LjIyOUMzNC4xNjkyIDI5LjIyOSAzNC43MDc3IDI2LjI3NzEgMzQuNzA3NyAyNi4yNzcxQzM0LjcwNzcgMjYuMjc3MSAzMy42MTU0IDI2LjI3NzEgMzMuNjE1NCAyNi4yNzcxQzMzLjA3NjkgMjYuMjc3MSAzMi41Mzg1IDI2LjI3NzEgMzIgMjYuMjc3MUMzMS40NjE1IDI2LjI3NzEgMzAuOTIzIDI2LjI3NzEgMzAuMzg0NSAyNi4yNzcxQzI4IDI2LjI3NzEgMjUuNjE1NCAyNi4yNzcxIDIzLjIzMDggMjYuMjc3MUMxOS4yIDI2LjI3NzEgMTUuMTY5MiAyNi4yNzcxIDExLjEzODUgMjYuMjc3MUM5LjEyMzA4IDI2LjI3NzEgNy4xMDc2OSAyNi4yNzcxIDUuMDkyMyAyNi4yNzcxQzMuMDc2OTIgMjYuMjc3MSAxLjA2MTU0IDI2LjI3NzEgLTAuOTUzODQ2IDI2LjI3NzFWMjkuMjI5QzEuMDYxNTQgMjkuMjI5IDMuMDc2OTIgMjkuMjI5IDUuMDkyMyAyOS4yMjlDNy4xMDc2OSAyOS4yMjkgOS4xMjMwOCAyOS4yMjkgMTEuMTM4NSAyOS4yMjlDMTUuMTY5MiAyOS4yMjkgMTkuMiAyOS4yMjkgMjMuMjMwOCAyOS4yMjlDMjUuNjE1NCAyOS4yMjkgMjggMjkuMjI5IDMwLjM4NDUgMjkuMjI5QzMwLjkyMyAyOS4yMjkgMzEuNDYxNSAyOS4yMjkgMzIgMjkuMjI5QzMyLjUzODUgMjkuMjI5IDMzLjA3NjkgMjkuMjI5IDMzLjYxNTQgMjkuMjI5QzM0LjE1MzggMjkuMjI5IDM0LjY5MjMgMjkuMjI5IDM0LjIzMDggMjkuMjI5SDM0LjE2OTJaIiBmaWxsPSIjRkY5MEU4Ii8+Cjwvc3ZnPgo='), pointer-events]"
-                    onMouseMove={(e) => handleMouseMove(e, `bottom-${index}`)}
+                    onMouseMove={(e) => handleWallpaperMouseMove(e, `bottom-${index}`)}
                     onMouseEnter={() => setHoveredCard(`bottom-${index}`)}
                     onMouseLeave={() => setHoveredCard(null)}
                   >
@@ -231,24 +280,44 @@ const ResourcesPage = () => {
             </h2>
           </div>
 
-          {/* Mobile: Swipe, Desktop: Scroll */}
-          <ScrollArea className="w-full">
-            <div className="flex gap-6 pb-6 md:pb-0">
+          {/* Swipeable Template Cards */}
+          <div className="relative overflow-hidden">
+            <div
+              ref={scrollContainerRef}
+              className="flex gap-6 overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing pb-6 scroll-smooth"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleCarouselMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               {notionTemplates.map((template) => (
                 <Card
                   key={template.id}
-                  className="flex-shrink-0 w-80 md:w-96 cursor-pointer hover:scale-105 transition-all duration-300 overflow-hidden"
-                  onClick={() => handleTemplateClick(template.id)}
+                  className="flex-shrink-0 w-80 md:w-96 cursor-pointer hover:scale-105 transition-all duration-300 overflow-hidden select-none"
+                  onClick={() => !isDragging && handleTemplateClick(template.id)}
                 >
                   <CardContent className="p-0">
-                    <div className={`h-48 bg-gradient-to-br ${template.gradient} p-8 text-white relative overflow-hidden`}>
-                      <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold">
-                        {template.price}
+                    <div className="h-48 relative overflow-hidden">
+                      <img
+                        src={template.image}
+                        alt={template.title}
+                        className="w-full h-full object-cover"
+                        draggable={false}
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-br ${template.gradient} opacity-80`}></div>
+                      <div className="absolute inset-0 p-8 text-white">
+                        <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold">
+                          {template.price}
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mb-16"></div>
+                        <div className="absolute top-0 left-0 w-16 h-16 bg-white/10 rounded-full -ml-8 -mt-8"></div>
+                        <h3 className="text-2xl font-bold mb-3 relative z-10">{template.title}</h3>
+                        <p className="text-white/90 leading-relaxed relative z-10">{template.description}</p>
                       </div>
-                      <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mb-16"></div>
-                      <div className="absolute top-0 left-0 w-16 h-16 bg-white/10 rounded-full -ml-8 -mt-8"></div>
-                      <h3 className="text-2xl font-bold mb-3">{template.title}</h3>
-                      <p className="text-white/90 leading-relaxed">{template.description}</p>
                     </div>
                     <div className="p-6 bg-card">
                       <div className="flex items-center justify-between">
@@ -260,7 +329,11 @@ const ResourcesPage = () => {
                 </Card>
               ))}
             </div>
-          </ScrollArea>
+            
+            {/* Fade edges for visual indication of scrollability */}
+            <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-secondary to-transparent pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-secondary to-transparent pointer-events-none"></div>
+          </div>
         </div>
       </section>
 
