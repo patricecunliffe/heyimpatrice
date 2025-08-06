@@ -107,6 +107,14 @@ const Navigation = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && <div className="md:hidden fixed inset-0 top-0 bg-background/95 backdrop-blur-md z-40">
+          {/* Close button in top right */}
+          <button 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="absolute top-4 right-6 p-2 text-foreground hover:text-primary transition-colors duration-300"
+          >
+            <X size={24} />
+          </button>
+          
           <div className="flex flex-col items-center justify-center h-full space-y-8">
             <button onClick={() => {
           navigate('/');
