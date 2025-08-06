@@ -134,7 +134,7 @@
 
   @media (hover: hover) {
     .hover-word:hover {
-      animation: hover-word 0.3s ease-out;
+      @apply transform -translate-y-1;
     }
   }
 }

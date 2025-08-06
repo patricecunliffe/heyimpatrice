@@ -29,7 +29,7 @@ const HeroSection = () => {
   const backgrounds = [heroBg1, heroBg2, heroBg3];
   
   const titleText = "Creating simple, effective websites that turn visitors into customers";
-  const { displayText, isComplete } = useTypewriter(titleText, 30);
+  const { displayText, isComplete } = useTypewriter(titleText, 80);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg(prev => (prev + 1) % backgrounds.length);
