@@ -109,7 +109,7 @@ const HeroSection = () => {
             
             {/* Main vision statement - typewriter animation */}
             <div className="mb-8 opacity-0 animate-fade-in-delayed">
-              <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
+              <h1 className="text-5xl sm:text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
                 {displayText}
                 {showCursor && <span className="animate-pulse">_</span>}
               </h1>
@@ -133,7 +133,7 @@ const HeroSection = () => {
 
           {/* Right Column - Illustration */}
           <div className="flex justify-center opacity-0 animate-fade-in-delayed mt-4 lg:mt-0">
-            <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
+            <div className="w-96 h-96 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
               <img src="/lovable-uploads/3d156ebe-4687-4964-b218-bf0d36dc8927.png" alt="Patrice - Character illustration" className="w-full h-full object-contain dark:invert" />
             </div>
           </div>
