@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { Rocket, TrendingUp, Layers } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-
 const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
-  
   const services = [{
     title: "Quick Launch",
     description: "Single landing page with clear CTAs and quick deployment. Perfect for getting your business online fast.",
@@ -12,14 +10,7 @@ const ServicesSection = () => {
     price: "From $500",
     details: {
       overview: "Perfect for businesses that need to get online quickly with a professional presence. This package focuses on speed and efficiency while maintaining quality.",
-      includes: [
-        "Single responsive landing page",
-        "Clear call-to-action buttons",
-        "Basic SEO optimization",
-        "Contact form integration",
-        "Mobile-first design",
-        "Fast deployment (2-3 days)"
-      ],
+      includes: ["Single responsive landing page", "Clear call-to-action buttons", "Basic SEO optimization", "Contact form integration", "Mobile-first design", "Fast deployment (2-3 days)"],
       hosting: {
         managed: "Ongoing hosting & management at $40/month includes updates, security monitoring, and technical support.",
         handover: "Code handover option available with external hosting setup guidance and documentation."
@@ -32,15 +23,7 @@ const ServicesSection = () => {
     price: "From $1500",
     details: {
       overview: "The most popular choice for established businesses ready to scale their online presence with a comprehensive multi-page website.",
-      includes: [
-        "4-page responsive website",
-        "Advanced contact forms",
-        "Custom link-in-bio page",
-        "2-week development timeline",
-        "3 rounds of revisions",
-        "SEO optimization",
-        "Analytics integration"
-      ],
+      includes: ["4-page responsive website", "Advanced contact forms", "Custom link-in-bio page", "2-week development timeline", "3 rounds of revisions", "SEO optimization", "Analytics integration"],
       hosting: {
         managed: "Ongoing hosting & management at $75/month includes content updates, security, performance monitoring, and priority support.",
         handover: "Complete code handover with hosting setup, documentation, and training session included."
@@ -53,23 +36,14 @@ const ServicesSection = () => {
     price: "From $3000",
     details: {
       overview: "Enterprise-level solution for businesses requiring custom functionality, user management, and scalable architecture.",
-      includes: [
-        "Custom user authentication system",
-        "Database design & integration",
-        "Admin dashboard",
-        "API development",
-        "Scalable cloud architecture",
-        "Ongoing technical support",
-        "Performance optimization"
-      ],
+      includes: ["Custom user authentication system", "Database design & integration", "Admin dashboard", "API development", "Scalable cloud architecture", "Ongoing technical support", "Performance optimization"],
       hosting: {
         managed: "Comprehensive hosting & management at $200/month includes server management, database optimization, security updates, and dedicated support.",
         handover: "Full source code delivery with deployment documentation, server setup guidance, and technical handover session."
       }
     }
   }];
-  return (
-    <>
+  return <>
       <section id="services" className="py-20 bg-background overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
@@ -82,22 +56,14 @@ const ServicesSection = () => {
               </p>
             </div>
             
-            <div className="relative flex flex-col md:flex-row items-center justify-center md:space-x-[-40px] space-y-8 md:space-y-0">
+            <div className="relative flex flex-col md:flex-row items-center justify-center md:space-x-[-40px] space-y-8 md:space-y-0 py-[60px]">
               {services.map((service, index) => {
-                const Icon = service.icon;
-                const rotations = ['-8deg', '3deg', '8deg'];
-                return (
-                  <div 
-                    key={index} 
-                    className={`service-card cursor-pointer transition-all duration-500 hover:scale-110 hover:z-30 animate-fade-in ${
-                      index === 1 ? 'md:z-20 md:scale-105' : 'md:z-10'
-                    }`}
-                    style={{ 
-                      animationDelay: `${index * 0.2}s`,
-                      transform: `rotate(${rotations[index]})`
-                    }}
-                    onClick={() => setSelectedService(index)}
-                  >
+              const Icon = service.icon;
+              const rotations = ['-8deg', '3deg', '8deg'];
+              return <div key={index} className={`service-card cursor-pointer transition-all duration-500 hover:scale-110 hover:z-30 animate-fade-in ${index === 1 ? 'md:z-20 md:scale-105' : 'md:z-10'}`} style={{
+                animationDelay: `${index * 0.2}s`,
+                transform: `rotate(${rotations[index]})`
+              }} onClick={() => setSelectedService(index)}>
                     <div className="bg-card border border-border rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-80 h-80 flex flex-col text-left">
                       <div className="flex justify-start mb-6">
                         <Icon className="w-12 h-12 text-accent" />
@@ -111,9 +77,8 @@ const ServicesSection = () => {
                         {service.description}
                       </p>
                     </div>
-                  </div>
-                );
-              })}
+                  </div>;
+            })}
             </div>
           </div>
         </div>
@@ -122,8 +87,7 @@ const ServicesSection = () => {
       {/* Service Details Modal */}
       <Dialog open={selectedService !== null} onOpenChange={() => setSelectedService(null)}>
         <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto p-6">
-          {selectedService !== null && (
-            <>
+          {selectedService !== null && <>
               <DialogHeader className="text-center mb-6">
                 <DialogTitle className="text-3xl font-bold">
                   {services[selectedService].title}
@@ -134,9 +98,9 @@ const ServicesSection = () => {
                 <div className="text-center">
                   <div className="flex items-center justify-center w-20 h-20 mb-4 mx-auto">
                     {(() => {
-                      const Icon = services[selectedService].icon;
-                      return <Icon className="w-16 h-16 text-accent" />;
-                    })()}
+                  const Icon = services[selectedService].icon;
+                  return <Icon className="w-16 h-16 text-accent" />;
+                })()}
                   </div>
                   <p className="text-lg text-muted-foreground">
                     {services[selectedService].details.overview}
@@ -146,12 +110,10 @@ const ServicesSection = () => {
                 <div>
                   <h4 className="text-xl font-bold mb-3">What's Included</h4>
                   <ul className="grid md:grid-cols-2 gap-2">
-                    {services[selectedService].details.includes.map((item, index) => (
-                      <li key={index} className="flex items-center">
+                    {services[selectedService].details.includes.map((item, index) => <li key={index} className="flex items-center">
                         <div className="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></div>
                         <span className="text-muted-foreground text-sm">{item}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
                 
@@ -183,11 +145,9 @@ const ServicesSection = () => {
                   </button>
                 </div>
               </div>
-            </>
-          )}
+            </>}
         </DialogContent>
       </Dialog>
-    </>
-  );
+    </>;
 };
 export default ServicesSection;
