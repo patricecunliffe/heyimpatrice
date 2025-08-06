@@ -60,14 +60,7 @@ const HeroSection = () => {
             
             {/* Work with me button - appears after title */}
             <div className="mb-12 opacity-0 animate-fade-in-delayed">
-              <Button 
-                variant="ghost" 
-                size="lg" 
-                onClick={() => scrollToSection('contact')}
-                className="px-8 py-4 text-lg border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-medium"
-              >
-                work with me
-              </Button>
+              <Button variant="ghost" size="lg" onClick={() => scrollToSection('contact')} className="px-8 py-4 border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold text-base">WORK WITH ME</Button>
             </div>
             
             {/* CTA Buttons - appear with scale effect */}
@@ -84,11 +77,7 @@ const HeroSection = () => {
           {/* Right Column - Illustration */}
           <div className="flex justify-center lg:justify-end opacity-0 animate-fade-in-delayed">
             <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
-              <img
-                src="/lovable-uploads/3d156ebe-4687-4964-b218-bf0d36dc8927.png"
-                alt="Patrice - Character illustration"
-                className="w-full h-full object-contain dark:invert"
-              />
+              <img src="/lovable-uploads/3d156ebe-4687-4964-b218-bf0d36dc8927.png" alt="Patrice - Character illustration" className="w-full h-full object-contain dark:invert" />
             </div>
           </div>
         </div>
