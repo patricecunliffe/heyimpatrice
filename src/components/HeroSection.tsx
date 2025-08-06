@@ -64,7 +64,7 @@ const HeroSection = () => {
                 variant="ghost" 
                 size="lg" 
                 onClick={() => scrollToSection('contact')}
-                className="px-8 py-4 text-lg border border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+                className="px-8 py-4 text-lg border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-medium"
               >
                 work with me
               </Button>
