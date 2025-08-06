@@ -100,7 +100,7 @@ const HeroSection = () => {
             </div>
             
             {/* Work with me button - appears after title */}
-            <div className="mb-12 opacity-0 animate-fade-in-delayed">
+            <div className="mb-6 md:mb-12 opacity-0 animate-fade-in-delayed">
               <Button variant="ghost" size="lg" onClick={() => scrollToSection('contact')} className="rounded-none px-8 py-4 border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold text-base">WORK WITH ME</Button>
             </div>
             
@@ -116,7 +116,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column - Illustration */}
-          <div className="flex justify-center opacity-0 animate-fade-in-delayed mt-8 lg:mt-0">
+          <div className="flex justify-center opacity-0 animate-fade-in-delayed mt-4 lg:mt-0">
             <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
               <img src="/lovable-uploads/3d156ebe-4687-4964-b218-bf0d36dc8927.png" alt="Patrice - Character illustration" className="w-full h-full object-contain dark:invert" />
             </div>
