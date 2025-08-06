@@ -68,7 +68,7 @@ const HeroSection = () => {
               <Button size="lg" onClick={() => scrollToSection('about')} className="px-8 py-4 text-lg shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105 bg-primary text-primary-foreground">
                 Learn About Me
               </Button>
-              <Button variant="outline" size="lg" onClick={() => scrollToSection('contact')} className="px-8 py-4 text-lg shadow-medium hover:shadow-strong transition-all duration-300 border-2 hover:bg-primary hover:text-primary-foreground">
+              <Button variant="outline" size="lg" onClick={() => scrollToSection('contact')} className="py-4 text-lg shadow-medium hover:shadow-strong transition-all duration-300 border-2 hover:bg-primary hover:text-primary-foreground px-[16px]">
                 Start Your Project
               </Button>
             </div>
