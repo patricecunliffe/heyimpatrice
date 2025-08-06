@@ -78,6 +78,7 @@ export default {
 				'scale-in-delayed': 'scale-in 0.6s ease-out 0.9s both',
 				'scroll-left': 'scroll-left 90s linear infinite',
 				'scroll-right': 'scroll-right 90s linear infinite',
+				'hover-word': 'hover-word 0.3s ease-out',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -117,6 +118,11 @@ export default {
 				'scroll-right': {
 					'0%': { transform: 'translateX(-50%)' },
 					'100%': { transform: 'translateX(0)' }
+				},
+				'hover-word': {
+					'0%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-2px)' },
+					'100%': { transform: 'translateY(0px)' }
 				}
 			}
 		}

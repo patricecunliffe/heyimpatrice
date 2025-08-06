@@ -3,9 +3,33 @@ import { Button } from '@/components/ui/button';
 import heroBg1 from '@/assets/hero-bg-1.jpg';
 import heroBg2 from '@/assets/hero-bg-2.jpg';
 import heroBg3 from '@/assets/hero-bg-3.jpg';
+
+const useTypewriter = (text: string, speed: number = 50) => {
+  const [displayText, setDisplayText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, speed);
+      return () => clearTimeout(timeout);
+    } else {
+      setIsComplete(true);
+    }
+  }, [currentIndex, text, speed]);
+
+  return { displayText, isComplete };
+};
 const HeroSection = () => {
   const [currentBg, setCurrentBg] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const backgrounds = [heroBg1, heroBg2, heroBg3];
+  
+  const titleText = "Creating simple, effective websites that turn visitors into customers";
+  const { displayText, isComplete } = useTypewriter(titleText, 30);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg(prev => (prev + 1) % backgrounds.length);
@@ -13,6 +37,16 @@ const HeroSection = () => {
 
     return () => clearInterval(interval);
   }, [backgrounds.length]);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -37,7 +71,7 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-6 items-center min-h-[80vh]">
+        <div className="grid lg:grid-cols-2 gap-2 items-center min-h-[80vh]">
           {/* Left Column - Text Content */}
           <div className="text-left">
             {/* Small header text - slides up from bottom */}
@@ -49,18 +83,25 @@ const HeroSection = () => {
             
             {/* Main vision statement - fades in */}
             <div className="mb-8 opacity-0 animate-fade-in-delayed">
-              <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
-                Creating simple, effective 
-                <br />
-                <span className="font-bold">websites</span> that turn
-                <br />
-                visitors into customers
-              </h1>
+              {isMobile ? (
+                <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
+                  {displayText}
+                  {!isComplete && <span className="animate-pulse">|</span>}
+                </h1>
+              ) : (
+                <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
+                  <span className="hover-word">Creating</span> <span className="hover-word">simple,</span> <span className="hover-word">effective</span> 
+                  <br />
+                  <span className="font-bold hover-word">websites</span> <span className="hover-word">that</span> <span className="hover-word">turn</span>
+                  <br />
+                  <span className="hover-word">visitors</span> <span className="hover-word">into</span> <span className="hover-word">customers</span>
+                </h1>
+              )}
             </div>
             
             {/* Work with me button - appears after title */}
             <div className="mb-12 opacity-0 animate-fade-in-delayed">
-              <Button variant="ghost" size="lg" onClick={() => scrollToSection('contact')} className="px-8 py-4 border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold text-base">WORK WITH ME</Button>
+              <Button variant="ghost" size="lg" onClick={() => scrollToSection('contact')} className="rounded-none px-8 py-4 border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold text-base">WORK WITH ME</Button>
             </div>
             
             {/* CTA Buttons - appear with scale effect */}
@@ -75,7 +116,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column - Illustration */}
-          <div className="flex justify-center lg:justify-end opacity-0 animate-fade-in-delayed">
+          <div className="flex justify-center lg:justify-start opacity-0 animate-fade-in-delayed -ml-8 lg:-ml-16">
             <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
               <img src="/lovable-uploads/3d156ebe-4687-4964-b218-bf0d36dc8927.png" alt="Patrice - Character illustration" className="w-full h-full object-contain dark:invert" />
             </div>
