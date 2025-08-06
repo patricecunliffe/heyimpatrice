@@ -4,32 +4,73 @@ import heroBg1 from '@/assets/hero-bg-1.jpg';
 import heroBg2 from '@/assets/hero-bg-2.jpg';
 import heroBg3 from '@/assets/hero-bg-3.jpg';
 
-const useTypewriter = (text: string, speed: number = 50) => {
+const useTypewriter = (baseText: string, cyclingWords: string[], speed: number = 80) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const [phase, setPhase] = useState<'base' | 'typing' | 'deleting' | 'complete'>('base');
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentWord, setCurrentWord] = useState('');
 
   useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
-      }, speed);
-      return () => clearTimeout(timeout);
-    } else {
-      setIsComplete(true);
-    }
-  }, [currentIndex, text, speed]);
+    let timeout: NodeJS.Timeout;
 
-  return { displayText, isComplete };
+    if (phase === 'base') {
+      if (currentIndex < baseText.length) {
+        timeout = setTimeout(() => {
+          setDisplayText(prev => prev + baseText[currentIndex]);
+          setCurrentIndex(prev => prev + 1);
+        }, speed);
+      } else {
+        setPhase('typing');
+        setCurrentIndex(0);
+      }
+    } else if (phase === 'typing') {
+      const word = cyclingWords[currentWordIndex];
+      if (currentIndex < word.length) {
+        timeout = setTimeout(() => {
+          setCurrentWord(prev => prev + word[currentIndex]);
+          setCurrentIndex(prev => prev + 1);
+        }, speed + 20);
+      } else {
+        if (currentWordIndex === cyclingWords.length - 1) {
+          setPhase('complete');
+          setIsComplete(true);
+        } else {
+          timeout = setTimeout(() => {
+            setPhase('deleting');
+            setCurrentIndex(word.length - 1);
+          }, 1000);
+        }
+      }
+    } else if (phase === 'deleting') {
+      if (currentIndex >= 0) {
+        timeout = setTimeout(() => {
+          setCurrentWord(prev => prev.slice(0, -1));
+          setCurrentIndex(prev => prev - 1);
+        }, 50);
+      } else {
+        setCurrentWordIndex(prev => prev + 1);
+        setPhase('typing');
+        setCurrentIndex(0);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [currentIndex, baseText, cyclingWords, speed, phase, currentWordIndex]);
+
+  const fullDisplayText = displayText + currentWord;
+  const showCursor = !isComplete || phase === 'complete';
+
+  return { displayText: fullDisplayText, isComplete, showCursor };
 };
 const HeroSection = () => {
   const [currentBg, setCurrentBg] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const backgrounds = [heroBg1, heroBg2, heroBg3];
   
-  const titleText = "Creating simple, effective websites that turn visitors into customers";
-  const { displayText, isComplete } = useTypewriter(titleText, 80);
+  const baseText = "Creating simple, effective websites that turn visitors into ";
+  const cyclingWords = ["customers", "clients", "contacts"];
+  const { displayText, isComplete, showCursor } = useTypewriter(baseText, cyclingWords, 80);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg(prev => (prev + 1) % backgrounds.length);
@@ -38,15 +79,6 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, [backgrounds.length]);
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -81,22 +113,12 @@ const HeroSection = () => {
               </p>
             </div>
             
-            {/* Main vision statement - fades in */}
+            {/* Main vision statement - typewriter animation */}
             <div className="mb-8 opacity-0 animate-fade-in-delayed">
-              {isMobile ? (
-                <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
-                  {displayText}
-                  {!isComplete && <span className="animate-pulse">|</span>}
-                </h1>
-              ) : (
-                <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
-                  <span className="hover-word">Creating</span> <span className="hover-word">simple,</span> <span className="hover-word">effective</span> 
-                  <br />
-                  <span className="font-bold hover-word">websites</span> <span className="hover-word">that</span> <span className="hover-word">turn</span>
-                  <br />
-                  <span className="hover-word">visitors</span> <span className="hover-word">into</span> <span className="hover-word">customers</span>
-                </h1>
-              )}
+              <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
+                {displayText}
+                {showCursor && <span className="animate-pulse">|</span>}
+              </h1>
             </div>
             
             {/* Work with me button - appears after title */}
