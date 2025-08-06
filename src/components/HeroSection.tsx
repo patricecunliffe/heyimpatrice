@@ -70,8 +70,8 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-2 items-center min-h-[80vh]">
+      <div className="relative z-10 container mx-auto px-6 pt-16 md:pt-0">
+        <div className="grid lg:grid-cols-2 gap-2 items-center min-h-[70vh] md:min-h-[80vh]">
           {/* Left Column - Text Content */}
           <div className="text-left">
             {/* Small header text - slides up from bottom */}
@@ -116,7 +116,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column - Illustration */}
-          <div className="flex justify-center opacity-0 animate-fade-in-delayed">
+          <div className="flex justify-center opacity-0 animate-fade-in-delayed mt-8 lg:mt-0">
             <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
               <img src="/lovable-uploads/3d156ebe-4687-4964-b218-bf0d36dc8927.png" alt="Patrice - Character illustration" className="w-full h-full object-contain dark:invert" />
             </div>
