@@ -116,7 +116,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column - Illustration */}
-          <div className="flex justify-center lg:justify-start opacity-0 animate-fade-in-delayed -ml-8 lg:-ml-16">
+          <div className="flex justify-center opacity-0 animate-fade-in-delayed">
             <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
               <img src="/lovable-uploads/3d156ebe-4687-4964-b218-bf0d36dc8927.png" alt="Patrice - Character illustration" className="w-full h-full object-contain dark:invert" />
             </div>

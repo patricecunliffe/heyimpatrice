@@ -115,7 +115,7 @@ const Navigation = () => {
             <Button 
               variant="ghost" 
               onClick={handleContactClick} 
-              className="hidden md:flex border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-medium" 
+              className="hidden md:flex rounded-none border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-medium" 
               size="sm"
             >
               work with me
