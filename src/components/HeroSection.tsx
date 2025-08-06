@@ -38,7 +38,18 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-          {/* Left Column - Text Content */}
+          {/* Left Column - Illustration */}
+          <div className="flex justify-center lg:justify-start opacity-0 animate-fade-in-delayed">
+            <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
+              <img
+                src="/lovable-uploads/3d156ebe-4687-4964-b218-bf0d36dc8927.png"
+                alt="Patrice - Character illustration"
+                className="w-full h-full object-contain dark:invert"
+              />
+            </div>
+          </div>
+
+          {/* Right Column - Text Content */}
           <div className="text-left">
             {/* Small header text - slides up from bottom */}
             <div className="mb-6 opacity-0 translate-y-8 animate-slide-up-delayed">
@@ -66,17 +77,6 @@ const HeroSection = () => {
               <Button variant="outline" size="lg" onClick={() => scrollToSection('contact')} className="px-8 py-4 text-lg shadow-medium hover:shadow-strong transition-all duration-300 border-2 hover:bg-primary hover:text-primary-foreground">
                 Start Your Project
               </Button>
-            </div>
-          </div>
-
-          {/* Right Column - Illustration */}
-          <div className="flex justify-center lg:justify-end opacity-0 animate-fade-in-delayed">
-            <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
-              <img
-                src="/lovable-uploads/be74fedd-28c8-4019-a7fb-1f8f65eb9a1a.png"
-                alt="Patrice - Character illustration"
-                className="w-full h-full object-contain dark:invert"
-              />
             </div>
           </div>
         </div>
