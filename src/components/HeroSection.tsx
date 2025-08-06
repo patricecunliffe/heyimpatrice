@@ -42,7 +42,7 @@ const HeroSection = () => {
           <div className="text-left">
             {/* Small header text - slides up from bottom */}
             <div className="mb-6 opacity-0 translate-y-8 animate-slide-up-delayed">
-              <p className="text-sm md:text-base text-muted-foreground tracking-wide uppercase font-anton font-bold">
+              <p className="text-sm md:text-base text-muted-foreground tracking-wide font-dmsans font-medium">
                 hey i'm patrice
               </p>
             </div>
@@ -56,8 +56,6 @@ const HeroSection = () => {
                 <br />
                 visitors into customers
               </h1>
-              
-              <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed md:text-xl font-normal">Turning ideas into powerful digital experiences</p>
             </div>
             
             {/* CTA Buttons - appear with scale effect */}
@@ -71,13 +69,13 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Portrait Image */}
+          {/* Right Column - Illustration */}
           <div className="flex justify-center lg:justify-end opacity-0 animate-fade-in-delayed">
-            <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] rounded-3xl overflow-hidden shadow-strong">
+            <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
               <img
-                src="/lovable-uploads/cfd0cc45-63ae-4de7-903d-f9a04ddf1ffa.png"
-                alt="Patrice - Portrait illustration"
-                className="w-full h-full object-cover"
+                src="/lovable-uploads/be74fedd-28c8-4019-a7fb-1f8f65eb9a1a.png"
+                alt="Patrice - Character illustration"
+                className="w-full h-full object-contain dark:invert"
               />
             </div>
           </div>
