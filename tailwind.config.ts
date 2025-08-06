@@ -24,7 +24,8 @@ export default {
 				'sans': ['Open Sans', 'sans-serif'],
 				'heading': ['Montserrat', 'sans-serif'],
 				'anton': ['Anton', 'sans-serif'],
-				'instrument': ['Instrument Serif', 'serif']
+				'instrument': ['Instrument Serif', 'serif'],
+				'dmsans': ['DM Sans', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
