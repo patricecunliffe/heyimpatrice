@@ -39,59 +39,43 @@ const ResourcesPage = () => {
   const notionTemplates = [
     {
       id: 1,
-      title: "Project Management Hub",
-      description: "Complete project tracking with timelines, tasks, and team collaboration",
-      gradient: "from-purple-500 to-pink-500",
+      title: "My Recipes",
+      description: "Organize and manage your favorite recipes with ingredients and cooking instructions",
+      gradient: "from-orange-500 to-red-500",
       price: "$15",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
+      image: "/lovable-uploads/6079ee48-0662-4fde-acaf-708dfb555abd.png"
     },
     {
       id: 2,
-      title: "Content Creator Kit",
-      description: "Manage your content calendar, ideas, and analytics in one place",
+      title: "My Words",
+      description: "Build your vocabulary with this comprehensive word tracking and learning system",
       gradient: "from-blue-500 to-cyan-500",
       price: "$12",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
+      image: "/lovable-uploads/e083bf9b-2d6f-4c8c-a83f-db63759b4e04.png"
     },
     {
       id: 3,
-      title: "Finance Tracker Pro",
-      description: "Budget planning, expense tracking, and financial goal management",
-      gradient: "from-green-500 to-emerald-500",
-      price: "$18",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
+      title: "Tiny Tasks & Notes",
+      description: "Simple and effective task management with detailed notes and organization",
+      gradient: "from-gray-600 to-gray-800",
+      price: "$10",
+      image: "/lovable-uploads/dc445f98-15b4-4bc5-beaf-cad9abfdb33c.png"
     },
     {
       id: 4,
-      title: "Study Planner",
-      description: "Academic organization with class schedules, assignments, and notes",
-      gradient: "from-orange-500 to-red-500",
-      price: "$10",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
+      title: "Content Manager",
+      description: "Complete content planning and management system for creators and marketers",
+      gradient: "from-purple-500 to-pink-500",
+      price: "$22",
+      image: "/lovable-uploads/d28e46d6-18ad-4e28-aa6f-c0e9f2d2af20.png"
     },
     {
       id: 5,
-      title: "Life OS Dashboard",
-      description: "All-in-one life management system for goals, habits, and planning",
-      gradient: "from-indigo-500 to-purple-500",
-      price: "$25",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
-    },
-    {
-      id: 6,
-      title: "Travel Journal",
-      description: "Document your adventures with itineraries, memories, and photos",
-      gradient: "from-teal-500 to-blue-500",
-      price: "$8",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
-    },
-    {
-      id: 7,
-      title: "Business Starter Kit",
-      description: "Launch your business with planning templates and tracking tools",
-      gradient: "from-rose-500 to-pink-500",
-      price: "$22",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center"
+      title: "Content Calendar: Instagram",
+      description: "Strategic Instagram content planning with calendar view and post scheduling",
+      gradient: "from-pink-500 to-rose-500",
+      price: "$18",
+      image: "/lovable-uploads/13fb09d7-0780-42e4-bf29-d771b33cbe17.png"
     }
   ];
 
@@ -297,31 +281,29 @@ const ResourcesPage = () => {
               {notionTemplates.map((template) => (
                 <Card
                   key={template.id}
-                  className="flex-shrink-0 w-80 md:w-96 cursor-pointer hover:scale-105 transition-all duration-300 overflow-hidden select-none"
+                  className="flex-shrink-0 w-72 h-96 cursor-pointer hover:scale-105 transition-all duration-300 overflow-hidden select-none flex flex-col"
                   onClick={() => !isDragging && handleTemplateClick(template.id)}
                 >
-                  <CardContent className="p-0">
-                    <div className="h-48 relative overflow-hidden">
+                  <CardContent className="p-0 h-full flex flex-col">
+                    <div className="h-64 relative overflow-hidden">
                       <img
                         src={template.image}
                         alt={template.title}
                         className="w-full h-full object-cover"
                         draggable={false}
                       />
-                      <div className={`absolute inset-0 bg-gradient-to-br ${template.gradient} opacity-80`}></div>
-                      <div className="absolute inset-0 p-8 text-white">
-                        <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold">
-                          {template.price}
-                        </div>
-                        <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mb-16"></div>
-                        <div className="absolute top-0 left-0 w-16 h-16 bg-white/10 rounded-full -ml-8 -mt-8"></div>
-                        <h3 className="text-2xl font-bold mb-3 relative z-10">{template.title}</h3>
-                        <p className="text-white/90 leading-relaxed relative z-10">{template.description}</p>
+                      <div className={`absolute inset-0 bg-gradient-to-br ${template.gradient} opacity-20`}></div>
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-800">
+                        {template.price}
                       </div>
                     </div>
-                    <div className="p-6 bg-card">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground">Click to view details</span>
+                    <div className="p-6 bg-card flex-1 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-xl font-bold mb-3 text-foreground">{template.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed text-sm">{template.description}</p>
+                      </div>
+                      <div className="flex items-center justify-between mt-4 pt-4 border-t border-border">
+                        <span className="text-xs text-muted-foreground">Click to view details</span>
                         <span className="text-primary font-medium">→</span>
                       </div>
                     </div>
