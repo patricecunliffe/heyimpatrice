@@ -56,7 +56,7 @@ const Navigation = () => {
           </button>
           
           {/* Mobile Social Icons + Menu Button */}
-          <div className="md:hidden flex items-center space-x-3">
+          <div className="md:hidden flex items-center space-x-3 ml-auto">
             {/* Social Media Icons */}
             <a href="https://instagram.com/heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
               <Instagram size={20} />
