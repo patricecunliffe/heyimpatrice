@@ -48,7 +48,7 @@ const HeroSection = () => {
             </div>
             
             {/* Main vision statement - fades in */}
-            <div className="mb-12 opacity-0 animate-fade-in-delayed">
+            <div className="mb-8 opacity-0 animate-fade-in-delayed">
               <h1 className="text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
                 Creating simple, effective 
                 <br />
@@ -56,6 +56,18 @@ const HeroSection = () => {
                 <br />
                 visitors into customers
               </h1>
+            </div>
+            
+            {/* Work with me button - appears after title */}
+            <div className="mb-12 opacity-0 animate-fade-in-delayed">
+              <Button 
+                variant="ghost" 
+                size="lg" 
+                onClick={() => scrollToSection('contact')}
+                className="px-8 py-4 text-lg border border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+              >
+                work with me
+              </Button>
             </div>
             
             {/* CTA Buttons - appear with scale effect */}

@@ -112,7 +112,14 @@ const Navigation = () => {
             </div>
             
             {/* Contact Button - Hidden on mobile */}
-            <Button onClick={handleContactClick} className="hidden md:flex shadow-medium hover:shadow-strong transition-all duration-300 transform hover:scale-105" size="sm">CONNECT</Button>
+            <Button 
+              variant="ghost" 
+              onClick={handleContactClick} 
+              className="hidden md:flex border border-foreground hover:bg-foreground hover:text-background transition-all duration-300" 
+              size="sm"
+            >
+              work with me
+            </Button>
           </div>
         </div>
       </div>
