@@ -56,18 +56,7 @@ const Navigation = () => {
           </button>
           
           {/* Mobile Social Icons + Menu Button */}
-          <div className="md:hidden flex items-center space-x-3">
-            {/* Social Media Icons */}
-            <a href="https://instagram.com/heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
-              <Instagram size={20} />
-            </a>
-               <a href="https://threads.net/@heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">   
-            <i className="hgi hgi-solid hgi-threads" style={{
-              fontSize: 20
-            }}></i>
-            </a>
-
-            
+          <div className="md:hidden flex items-center">
             {/* Menu Button */}
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-foreground hover:text-primary transition-colors duration-300">
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -98,7 +87,7 @@ const Navigation = () => {
                 <Instagram size={20} />
               </a>
                   <a href="https://threads.net/@heyimpatrice" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
-  <i className="hgi hgi-solid hgi-home" style={{
+  <i className="hgi hgi-solid hgi-threads" style={{
                 fontSize: 20
               }}></i>
             </a>
@@ -113,6 +102,13 @@ const Navigation = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && <div className="md:hidden fixed inset-0 top-0 bg-background/95 backdrop-blur-md z-40">
+          {/* Close button */}
+          <div className="absolute top-6 right-6">
+            <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-foreground hover:text-primary transition-colors duration-300">
+              <X size={24} />
+            </button>
+          </div>
+          
           <div className="flex flex-col items-center justify-center h-full space-y-8">
             <button onClick={() => {
           navigate('/');
@@ -132,9 +128,9 @@ const Navigation = () => {
             <button onClick={() => handleMobileMenuClick('work')} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
               Work
             </button>
-            <button onClick={handleContactClick} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
+            <Button variant="ghost" onClick={handleContactClick} className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-medium text-xl px-8 py-4">
               Get In Touch
-            </button>
+            </Button>
           </div>
         </div>}
     </nav>;
