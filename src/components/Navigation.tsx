@@ -92,6 +92,14 @@ const Navigation = () => {
               My Work
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
+            <button onClick={() => scrollToSection('stories')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group">
+              Stories
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </button>
+            <button onClick={() => scrollToSection('get-started')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group">
+              Get Started
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </button>
           </div>
           
           {/* Social Media and Contact */}
@@ -137,6 +145,12 @@ const Navigation = () => {
             </button>
             <button onClick={() => handleMobileMenuClick('work')} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
               Work
+            </button>
+            <button onClick={() => handleMobileMenuClick('stories')} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
+              Stories
+            </button>
+            <button onClick={() => handleMobileMenuClick('get-started')} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
+              Get Started
             </button>
             <button onClick={handleContactClick} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
               Get In Touch
