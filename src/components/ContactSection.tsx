@@ -105,7 +105,7 @@ const ContactSection = () => {
               <div className="flex justify-center">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button size="lg" variant="secondary" className="shadow-strong hover:shadow-intense transition-all transform hover:scale-105">
+                    <Button size="lg" variant="ghost" className="shadow-strong hover:shadow-intense transition-all transform hover:scale-105 border border-border">
                       Get a Free Quote
                     </Button>
                   </DialogTrigger>

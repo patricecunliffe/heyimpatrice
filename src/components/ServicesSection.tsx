@@ -126,7 +126,7 @@ const ServicesSection = () => {
                   <p className="text-sm text-muted-foreground mb-6">
                     Ready to get started? Let's discuss your project requirements and timeline.
                   </p>
-                  <button className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3 rounded-full font-semibold transition-colors duration-200">
+                  <button className="hover:bg-accent hover:text-accent-foreground px-8 py-3 rounded-full font-semibold transition-colors duration-200 border border-border">
                     Get a free quote!
                   </button>
                 </div>
