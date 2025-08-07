@@ -118,10 +118,10 @@ Best regards,
       {/* Header */}
       <div className="bg-secondary py-16 pt-32">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+          <h1 className="text-4xl mb-6 animate-fade-in font-normal md:text-6xl">
             Let's Work Together
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up md:text-lg">
             Ready to transform your online presence? Choose the way that works best for you to get started.
           </p>
         </div>
@@ -135,19 +135,17 @@ Best regards,
               {/* Left Side - Work With Me */}
               <div className="space-y-8 animate-fade-in">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  <h2 className="text-3xl mb-6 font-normal md:text-4xl">
                     Work With Me
                   </h2>
-                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                  <p className="text-muted-foreground mb-8 leading-relaxed text-base">
                     Ready to get started? Drop me an email with your project details, 
                     and I'll get back to you within 24 hours with a personalized proposal.
                   </p>
                 </div>
 
                 <div className="bg-card rounded-2xl p-8 shadow-strong border border-border/50">
-                  <h3 className="text-xl font-semibold mb-4">
-                    What to include in your email:
-                  </h3>
+                  <h3 className="text-xl font-semibold mb-4 font-dmsans ">What to include in your email</h3>
                   <ul className="space-y-3 text-muted-foreground">
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
