@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import heroBg1 from '@/assets/hero-bg-1.jpg';
 import heroBg2 from '@/assets/hero-bg-2.jpg';
 import heroBg3 from '@/assets/hero-bg-3.jpg';
-
 const useTypewriter = (baseText: string, cyclingWords: string[], speed: number = 80) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,10 +10,8 @@ const useTypewriter = (baseText: string, cyclingWords: string[], speed: number =
   const [phase, setPhase] = useState<'base' | 'typing' | 'deleting' | 'complete'>('base');
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentWord, setCurrentWord] = useState('');
-
   useEffect(() => {
     let timeout: NodeJS.Timeout;
-
     if (phase === 'base') {
       if (currentIndex < baseText.length) {
         timeout = setTimeout(() => {
@@ -55,22 +52,26 @@ const useTypewriter = (baseText: string, cyclingWords: string[], speed: number =
         setCurrentIndex(0);
       }
     }
-
     return () => clearTimeout(timeout);
   }, [currentIndex, baseText, cyclingWords, speed, phase, currentWordIndex]);
-
   const fullDisplayText = displayText + currentWord;
   const showCursor = !isComplete || phase === 'complete';
-
-  return { displayText: fullDisplayText, isComplete, showCursor };
+  return {
+    displayText: fullDisplayText,
+    isComplete,
+    showCursor
+  };
 };
 const HeroSection = () => {
   const [currentBg, setCurrentBg] = useState(0);
   const backgrounds = [heroBg1, heroBg2, heroBg3];
-  
   const baseText = "Creating simple, effective websites that turn visitors into ";
   const cyclingWords = ["customers", "clients", "contacts"];
-  const { displayText, isComplete, showCursor } = useTypewriter(baseText, cyclingWords, 80);
+  const {
+    displayText,
+    isComplete,
+    showCursor
+  } = useTypewriter(baseText, cyclingWords, 80);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg(prev => (prev + 1) % backgrounds.length);
@@ -78,7 +79,6 @@ const HeroSection = () => {
 
     return () => clearInterval(interval);
   }, [backgrounds.length]);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -108,8 +108,8 @@ const HeroSection = () => {
           <div className="text-left flex flex-col justify-center">
             
             {/* Main vision statement - typewriter animation */}
-            <div className="mb-4 md:mb-8 opacity-0 animate-fade-in-delayed">
-              <h1 className="text-5xl sm:text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
+            <div className="mb-4 md:mb-8 opacity-0 animate-fade-in-delayed px-0">
+              <h1 className="text-5xl sm:text-4xl md:text-6xl leading-tight mb-6 font-instrument px-0 lg:text-7xl">
                 {displayText}
                 {showCursor && <span className="animate-pulse">_</span>}
               </h1>
@@ -117,7 +117,7 @@ const HeroSection = () => {
             
             {/* Work with me button - appears after title */}
             <div className="mb-3 md:mb-12 opacity-0 animate-fade-in-delayed">
-              <Button variant="ghost" size="lg" onClick={() => scrollToSection('contact')} className="rounded-none px-8 py-4 border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold text-base">WORK WITH ME</Button>
+              <Button variant="ghost" size="lg" onClick={() => scrollToSection('contact')} className="rounded-none border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold text-base px-[32px] py-[16px]">WORK WITH ME</Button>
             </div>
             
             {/* CTA Buttons - appear with scale effect */}
