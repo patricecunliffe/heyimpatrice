@@ -44,8 +44,8 @@ const ContactSection = () => {
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[900px] max-h-[90vh]">
                     <DialogHeader>
-                      <DialogTitle>Book a 20-minute call</DialogTitle>
-                      <DialogDescription>Pick a time that works for you.</DialogDescription>
+                      <DialogTitle className="text-3xl text-center ">Book a 20-minute call</DialogTitle>
+                      <DialogDescription className="text-center ">Pick a time that works for you.</DialogDescription>
                     </DialogHeader>
                     <div className="w-full">
                       <iframe src="https://calendly.com/patricecunliffe/30min?hide_event_type_details=1&hide_gdpr_banner=1" className="w-full h-[600px] rounded-md" frameBorder="0" loading="lazy" title="Calendly scheduling" />
