@@ -3,6 +3,7 @@ import { Rocket, TrendingUp, Layers } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
+  const [showQuoteModal, setShowQuoteModal] = useState(false);
   const services = [{
     title: "Quick Launch",
     description: "Single landing page with clear CTAs and quick deployment. Perfect for getting your business online fast.",
@@ -126,12 +127,34 @@ const ServicesSection = () => {
                   <p className="text-sm text-muted-foreground mb-6">
                     Ready to get started? Let's discuss your project requirements and timeline.
                   </p>
-                  <button className="hover:bg-accent hover:text-accent-foreground px-8 py-3 rounded-full font-semibold transition-colors duration-200 border border-border">
+                  <button 
+                    onClick={() => setShowQuoteModal(true)}
+                    className="hover:bg-accent hover:text-accent-foreground px-8 py-3 rounded-full font-semibold transition-colors duration-200 border border-border"
+                  >
                     Get a free quote!
                   </button>
                 </div>
               </div>
             </>}
+        </DialogContent>
+      </Dialog>
+
+      {/* Quote Modal */}
+      <Dialog open={showQuoteModal} onOpenChange={setShowQuoteModal}>
+        <DialogContent className="sm:max-w-[900px]">
+          <DialogHeader>
+            <DialogTitle className="text-center font-normal text-3xl">Request a Free Quote</DialogTitle>
+            <div className="text-center text-muted-foreground">Complete the form below and I'll follow up within 3 business days.</div>
+          </DialogHeader>
+          <div className="w-full">
+            <iframe 
+              src="https://kiwi-oatmeal-777.notion.site/ebd/23fd5994cd3480b0bcc0cb7be9052fee" 
+              className="w-full h-[600px] rounded-md" 
+              frameBorder="0" 
+              allowFullScreen 
+              title="Free quote form" 
+            />
+          </div>
         </DialogContent>
       </Dialog>
     </>;
