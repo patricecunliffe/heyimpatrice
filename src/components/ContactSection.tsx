@@ -111,7 +111,7 @@ const ContactSection = () => {
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[900px]">
                     <DialogHeader>
-                      <DialogTitle className="text-center font-normal text-2xl">Request a Free Quote</DialogTitle>
+                      <DialogTitle className="text-center font-normal text-3xl">Request a Free Quote</DialogTitle>
                       <DialogDescription className="text-center">Complete the form below and I’ll follow up within 3 business days.</DialogDescription>
                     </DialogHeader>
                     <div className="w-full">
