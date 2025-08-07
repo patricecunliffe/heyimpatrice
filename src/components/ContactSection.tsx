@@ -42,13 +42,13 @@ const ContactSection = () => {
                       Schedule Call
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[800px]">
+                  <DialogContent className="sm:max-w-[900px] max-h-[90vh]">
                     <DialogHeader>
                       <DialogTitle>Book a 20-minute call</DialogTitle>
                       <DialogDescription>Pick a time that works for you.</DialogDescription>
                     </DialogHeader>
-                    <div className="aspect-video w-full">
-                      <iframe src="https://calendly.com/patricecunliffe/30min?hide_event_type_details=1&hide_gdpr_banner=1" className="w-full h-[650px] rounded-md" frameBorder="0" loading="lazy" title="Calendly scheduling" />
+                    <div className="w-full">
+                      <iframe src="https://calendly.com/patricecunliffe/30min?hide_event_type_details=1&hide_gdpr_banner=1" className="w-full h-[600px] rounded-md" frameBorder="0" loading="lazy" title="Calendly scheduling" />
                     </div>
                   </DialogContent>
                 </Dialog>
