@@ -107,34 +107,19 @@ const ServicesSection = () => {
                   </p>
                 </div>
                 
-                <div className="text-center">
-                  <h4 className="text-xl font-instrument text-center mb-3">What's Included</h4>
+                <div>
+                  <h4 className="text-xl font-dm-sans text-left mb-3">What's Included</h4>
                   <ul className="grid md:grid-cols-2 gap-2">
                     {services[selectedService].details.includes.map((item, index) => <li key={index} className="flex items-center">
-                        <div className="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-foreground rounded-full mr-3 flex-shrink-0"></div>
                         <span className="text-muted-foreground text-sm">{item}</span>
                       </li>)}
                   </ul>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-lg font-bold mb-3 text-accent">Managed Hosting</h4>
-                    <p className="text-muted-foreground text-sm">
-                      {services[selectedService].details.hosting.managed}
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-bold mb-3 text-accent">Code Handover</h4>
-                    <p className="text-muted-foreground text-sm">
-                      {services[selectedService].details.hosting.handover}
-                    </p>
-                  </div>
-                </div>
                 
                 <div className="text-center pt-4 border-t">
-                  <div className="text-2xl font-bold text-accent mb-3">
+                  <div className="text-2xl font-bold text-foreground mb-3">
                     {services[selectedService].price}
                   </div>
                   <p className="text-sm text-muted-foreground mb-6">
