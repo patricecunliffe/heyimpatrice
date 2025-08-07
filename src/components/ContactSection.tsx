@@ -4,7 +4,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 const ContactSection = () => {
-  
   const handleEmailClick = () => {
     const subject = encodeURIComponent("Let's work together - Website Project Inquiry");
     window.location.href = `mailto:patricecunliffe@gmail.com?subject=${subject}`;
@@ -26,9 +25,7 @@ const ContactSection = () => {
               <div className="bg-card rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105">
                 <div className="text-4xl mb-4">📧</div>
                 <h3 className="mb-4 font-normal text-2xl">Send an Email</h3>
-                <p className="text-muted-foreground mb-6 text-base">
-                  Drop me a line with your project details and I'll get back to you within 24 hours.
-                </p>
+                <p className="text-muted-foreground mb-6 text-base">Describe your project and I’ll reply in 24 hours with how I can help.</p>
                 <Button onClick={handleEmailClick} variant="secondary" className="w-full shadow-medium hover:shadow-strong">
                   Send Email
                 </Button>
@@ -38,9 +35,7 @@ const ContactSection = () => {
               <div className="bg-card rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105">
                 <div className="text-4xl mb-4">📞</div>
                 <h3 className="mb-4 text-2xl font-normal">Book a Call</h3>
-                <p className="text-muted-foreground mb-6 text-base">
-                  Schedule a 20-minute consultation to discuss your project and see if we're a good fit.
-                </p>
+                <p className="text-muted-foreground mb-6 text-base">Book a 20-minute call to see if we’re a fit.</p>
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button variant="secondary" className="w-full shadow-medium hover:shadow-strong">
@@ -53,13 +48,7 @@ const ContactSection = () => {
                       <DialogDescription>Pick a time that works for you.</DialogDescription>
                     </DialogHeader>
                     <div className="aspect-video w-full">
-                      <iframe
-                        src="https://calendly.com/patricecunliffe/30min?hide_event_type_details=1&hide_gdpr_banner=1"
-                        className="w-full h-[650px] rounded-md"
-                        frameBorder="0"
-                        loading="lazy"
-                        title="Calendly scheduling"
-                      />
+                      <iframe src="https://calendly.com/patricecunliffe/30min?hide_event_type_details=1&hide_gdpr_banner=1" className="w-full h-[650px] rounded-md" frameBorder="0" loading="lazy" title="Calendly scheduling" />
                     </div>
                   </DialogContent>
                 </Dialog>
@@ -83,7 +72,7 @@ const ContactSection = () => {
                       <DialogTitle>Contact Me</DialogTitle>
                       <DialogDescription>Share a few details and I’ll be in touch.</DialogDescription>
                     </DialogHeader>
-                    <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                    <form className="space-y-4" onSubmit={e => e.preventDefault()}>
                       <div className="grid gap-2">
                         <Label htmlFor="name">Name</Label>
                         <Input id="name" placeholder="Your name" required />
@@ -126,13 +115,7 @@ const ContactSection = () => {
                       <DialogDescription>Complete the form below and I’ll follow up within 3 business days.</DialogDescription>
                     </DialogHeader>
                     <div className="w-full">
-                      <iframe
-                        src="https://kiwi-oatmeal-777.notion.site/23fd5994cd3480b0bcc0cb7be9052fee?pvs=105"
-                        className="w-full h-[700px] rounded-md"
-                        frameBorder="0"
-                        loading="lazy"
-                        title="Free quote form"
-                      />
+                      <iframe src="https://kiwi-oatmeal-777.notion.site/23fd5994cd3480b0bcc0cb7be9052fee?pvs=105" className="w-full h-[700px] rounded-md" frameBorder="0" loading="lazy" title="Free quote form" />
                     </div>
                   </DialogContent>
                 </Dialog>
