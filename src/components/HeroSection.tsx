@@ -117,7 +117,7 @@ const HeroSection = () => {
             
             {/* Work with me button - appears after title */}
             <div className="mb-3 md:mb-12 opacity-0 animate-fade-in-delayed">
-              <Button variant="ghost" size="lg" onClick={() => scrollToSection('contact')} className="rounded-none border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold text-base px-[32px] py-[16px]">WORK WITH ME</Button>
+              <Button variant="ghost" size="lg" onClick={() => scrollToSection('contact')} className="rounded-none border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold text-base px-[32px] py-[16px]">Get Started Today</Button>
             </div>
             
             {/* CTA Buttons - appear with scale effect */}

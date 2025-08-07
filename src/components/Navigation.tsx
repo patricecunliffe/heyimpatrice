@@ -39,7 +39,6 @@ const Navigation = () => {
       }
     }
   };
-
   const handleLogoClick = () => {
     if (location.pathname === '/') {
       scrollToSection('home');
@@ -118,7 +117,7 @@ const Navigation = () => {
             </div>
             
             {/* Contact Button - Hidden on mobile */}
-            <Button variant="ghost" onClick={handleContactClick} className="hidden md:flex rounded-none border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold" size="sm">WORK WITH ME</Button>
+            <Button variant="ghost" onClick={handleContactClick} className="hidden md:flex rounded-none border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold" size="sm">Get Started</Button>
           </div>
         </div>
       </div>
@@ -126,10 +125,7 @@ const Navigation = () => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && <div className="md:hidden fixed inset-0 top-0 bg-background/95 backdrop-blur-md z-40">
           {/* Close button in top right */}
-          <button 
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="absolute top-4 right-6 p-2 text-foreground hover:text-primary transition-colors duration-300"
-          >
+          <button onClick={() => setIsMobileMenuOpen(false)} className="absolute top-4 right-6 p-2 text-foreground hover:text-primary transition-colors duration-300">
             <X size={24} />
           </button>
           
