@@ -77,10 +77,10 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl mb-6 md:text-8xl font-instrument ">
+            <h2 className="text-4xl font-bold mb-6 md:text-6xl">
               Client Stories
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-xl font-dmsans">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-xl">
               Real feedback from businesses who've transformed their online presence
             </p>
           </div>
