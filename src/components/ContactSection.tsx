@@ -23,7 +23,7 @@ const ContactSection = () => {
               <div className="bg-card rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105">
                 <div className="text-4xl mb-4">📧</div>
                 <h3 className="mb-4 font-normal text-2xl">Send an Email</h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground mb-6 text-base">
                   Drop me a line with your project details and I'll get back to you within 24 hours.
                 </p>
                 <Button onClick={handleEmailClick} variant="outline" className="w-full shadow-medium hover:shadow-strong">
@@ -35,7 +35,7 @@ const ContactSection = () => {
               <div className="bg-card rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105">
                 <div className="text-4xl mb-4">📞</div>
                 <h3 className="mb-4 text-2xl font-normal">Book a Call</h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground mb-6 text-base">
                   Schedule a 20-minute consultation to discuss your project and see if we're a good fit.
                 </p>
                 <Button onClick={() => navigate('/contact')} variant="outline" className="w-full shadow-medium hover:shadow-strong">
@@ -47,7 +47,7 @@ const ContactSection = () => {
               <div className="bg-card rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105">
                 <div className="text-4xl mb-4">📝</div>
                 <h3 className="mb-4 font-normal text-2xl">Contact Form</h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground mb-6 text-base">
                   Fill out a detailed form or take our quick questionnaire to get a personalized quote.
                 </p>
                 <Button onClick={() => navigate('/contact')} variant="outline" className="w-full shadow-medium hover:shadow-strong">
@@ -61,7 +61,7 @@ const ContactSection = () => {
               <h3 className="mb-4 text-4xl font-normal">
                 Ready to Transform Your Online Presence?
               </h3>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto text-lg">
                 Join the businesses already winning online with websites that convert. 
                 Let's discuss your project and create something amazing together.
               </p>

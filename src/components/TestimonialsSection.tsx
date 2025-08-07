@@ -80,7 +80,7 @@ const TestimonialsSection = () => {
             <h2 className="text-4xl mb-6 font-normal md:text-6xl">
               Client Stories
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-xl">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Real feedback from businesses who've transformed their online presence
             </p>
           </div>
