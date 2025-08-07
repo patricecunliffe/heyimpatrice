@@ -5,7 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 const ContactSection = () => {
   const handleEmailClick = () => {
-    const subject = encodeURIComponent("Let's work together - Website Project Inquiry");
+    const subject = encodeURIComponent("Website build interest");
     window.location.href = `mailto:patricecunliffe@gmail.com?subject=${subject}`;
   };
   return <section id="contact" className="py-20 bg-secondary">
