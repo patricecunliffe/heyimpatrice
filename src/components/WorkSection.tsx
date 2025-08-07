@@ -60,7 +60,7 @@ const WorkSection = () => {
                 {/* Project Content */}
                 <div className="flex-1 space-y-6">
                   <div>
-                    <h3 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                    <h3 className="text-3xl mb-4 text-foreground font-normal md:text-4xl">
                       {project.title}
                     </h3>
                     
