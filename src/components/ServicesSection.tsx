@@ -69,7 +69,7 @@ const ServicesSection = () => {
                         <Icon className="w-12 h-12 text-accent" />
                       </div>
                       
-                      <h3 className="font-bold mb-4 text-foreground text-4xl">
+                      <h3 className="mb-4 text-foreground text-4xl font-normal">
                         {service.title}
                       </h3>
                       
