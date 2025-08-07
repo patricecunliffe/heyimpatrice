@@ -134,7 +134,7 @@ const HeroSection = () => {
           {/* Right Column - Illustration */}
           <div className="hidden lg:flex justify-center opacity-0 animate-fade-in-delayed mt-4">
             <div className="w-96 h-96 lg:w-[500px] lg:h-[500px]">
-              <img src="/lovable-uploads/3d156ebe-4687-4964-b218-bf0d36dc8927.png" alt="Patrice - Character illustration" className="w-full h-full object-contain dark:invert" />
+              <img src="/lovable-uploads/e6aab719-38f4-473e-906f-4bc800c32f06.png" alt="Patrice - Character illustration" className="w-full h-full object-contain dark:invert" />
             </div>
           </div>
         </div>
