@@ -35,7 +35,7 @@ const LinksPage = () => {
       {/* Profile Section */}
       <div className="flex flex-col items-center pt-16 pb-8 px-6">
         <div className="w-24 h-24 mb-6 rounded-full overflow-hidden shadow-strong animate-fade-in">
-          <img src="/lovable-uploads/be74fedd-28c8-4019-a7fb-1f8f65eb9a1a.png" alt="Patrice Profile" className="w-full h-full object-cover" />
+          <img src="/lovable-uploads/e6aab719-38f4-473e-906f-4bc800c32f06.png" alt="Patrice Profile" className="w-full h-full object-cover" />
         </div>
         
         <h1 className="text-2xl font-bold mb-2 animate-fade-in animation-delay-200 font-dmsans ">heyimpatrice</h1>
