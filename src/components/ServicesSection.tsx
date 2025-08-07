@@ -48,7 +48,7 @@ const ServicesSection = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 animate-fade-in">
-              <h2 className="text-4xl font-bold mb-6 md:text-6xl">
+              <h2 className="font-instrument text-6xl mb-6 md:text-6xl">
                 Services That Deliver
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto text-xl">
@@ -69,7 +69,7 @@ const ServicesSection = () => {
                         <Icon className="w-12 h-12 text-accent" />
                       </div>
                       
-                      <h3 className="text-2xl font-bold mb-4 text-foreground">
+                      <h3 className="font-bold mb-4 text-foreground text-4xl">
                         {service.title}
                       </h3>
                       
