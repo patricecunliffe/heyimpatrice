@@ -70,10 +70,6 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => navigate('/resources')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group">
-              Resources
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </button>
             <button onClick={() => scrollToSection('services')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group">
               Services
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -121,12 +117,6 @@ const Navigation = () => {
           setIsMobileMenuOpen(false);
         }} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
               Home
-            </button>
-            <button onClick={() => {
-          navigate('/resources');
-          setIsMobileMenuOpen(false);
-        }} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
-              Resources
             </button>
             <button onClick={() => handleMobileMenuClick('services')} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
               Services
