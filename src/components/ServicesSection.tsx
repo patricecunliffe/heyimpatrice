@@ -89,7 +89,7 @@ const ServicesSection = () => {
         <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto p-6">
           {selectedService !== null && <>
               <DialogHeader className="text-center mb-6">
-                <DialogTitle className="text-3xl font-bold">
+                <DialogTitle className="text-4xl font-instrument text-center">
                   {services[selectedService].title}
                 </DialogTitle>
               </DialogHeader>
@@ -107,8 +107,8 @@ const ServicesSection = () => {
                   </p>
                 </div>
                 
-                <div>
-                  <h4 className="text-xl font-bold mb-3">What's Included</h4>
+                <div className="text-center">
+                  <h4 className="text-xl font-instrument text-center mb-3">What's Included</h4>
                   <ul className="grid md:grid-cols-2 gap-2">
                     {services[selectedService].details.includes.map((item, index) => <li key={index} className="flex items-center">
                         <div className="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></div>
