@@ -13,7 +13,7 @@ const ContactSection = () => {
             <h2 className="text-4xl mb-6 font-normal md:text-6xl">
               Ready to Get Started?
             </h2>
-            <p className="text-muted-foreground mb-12 max-w-3xl mx-auto text-xl">
+            <p className="text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
               Let's bring your vision to life with a website that not only looks amazing 
               but converts visitors into customers.
             </p>

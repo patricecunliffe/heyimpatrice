@@ -31,7 +31,7 @@ const WorkSection = () => {
             <h2 className="text-4xl mb-6 font-normal md:text-6xl">
               My Work
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-xl">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Real projects that deliver results for businesses ready to make their mark online
             </p>
           </div>

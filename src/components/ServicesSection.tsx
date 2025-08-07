@@ -51,7 +51,7 @@ const ServicesSection = () => {
               <h2 className="font-instrument text-6xl mb-6 md:text-6xl">
                 Services That Deliver
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-xl">
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
                 Choose the perfect package to bring your vision to life and start converting visitors into customers
               </p>
             </div>
@@ -73,7 +73,7 @@ const ServicesSection = () => {
                         {service.title}
                       </h3>
                       
-                      <p className="text-muted-foreground leading-relaxed flex-grow">
+                      <p className="text-muted-foreground leading-relaxed flex-grow text-base">
                         {service.description}
                       </p>
                     </div>
