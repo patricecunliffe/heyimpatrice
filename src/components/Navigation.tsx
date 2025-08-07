@@ -49,6 +49,12 @@ const Navigation = () => {
   };
   const handleContactClick = () => {
     navigate('/contact');
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
     setIsMobileMenuOpen(false);
   };
   const handleMobileMenuClick = (sectionId: string) => {
