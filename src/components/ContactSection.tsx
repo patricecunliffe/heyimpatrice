@@ -69,8 +69,8 @@ const ContactSection = () => {
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[600px]">
                     <DialogHeader>
-                      <DialogTitle>Contact Me</DialogTitle>
-                      <DialogDescription>Share a few details and I’ll be in touch.</DialogDescription>
+                      <DialogTitle className="text-3xl text-center">Contact Me</DialogTitle>
+                      <DialogDescription className="text-center">Share a few details and I’ll be in touch.</DialogDescription>
                     </DialogHeader>
                     <form className="space-y-4" onSubmit={e => e.preventDefault()}>
                       <div className="grid gap-2">
