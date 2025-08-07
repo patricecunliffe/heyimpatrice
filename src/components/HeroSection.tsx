@@ -109,7 +109,7 @@ const HeroSection = () => {
             
             {/* Main vision statement - typewriter animation */}
             <div className="mb-4 md:mb-8 opacity-0 animate-fade-in-delayed">
-              <h1 className="text-5xl sm:text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-instrument">
+              <h1 className="text-5xl sm:text-4xl md:text-6xl leading-tight mb-6 lg:text-7xl font-smsans">
                 {displayText}
                 {showCursor && <span className="animate-pulse">_</span>}
               </h1>
