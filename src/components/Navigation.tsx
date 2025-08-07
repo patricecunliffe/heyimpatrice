@@ -39,6 +39,14 @@ const Navigation = () => {
       }
     }
   };
+
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      scrollToSection('home');
+    } else {
+      navigate('/');
+    }
+  };
   const handleContactClick = () => {
     navigate('/contact');
     setIsMobileMenuOpen(false);
@@ -51,7 +59,7 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <button onClick={() => navigate('/')} className="text-xl font-bold text-foreground hover:text-primary transition-colors duration-300">
+          <button onClick={handleLogoClick} className="text-xl font-bold text-foreground hover:text-primary transition-colors duration-300">
             heyimpatrice
           </button>
           
@@ -96,7 +104,7 @@ const Navigation = () => {
             </div>
             
             {/* Contact Button - Hidden on mobile */}
-            <Button variant="ghost" onClick={handleContactClick} className="hidden md:flex border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-medium" size="sm">WORK WITH ME</Button>
+            <Button variant="ghost" onClick={handleContactClick} className="hidden md:flex rounded-none border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold" size="sm">WORK WITH ME</Button>
           </div>
         </div>
       </div>
