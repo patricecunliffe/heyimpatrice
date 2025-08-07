@@ -111,8 +111,8 @@ const ContactSection = () => {
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[900px]">
                     <DialogHeader>
-                      <DialogTitle>Request a Free Quote</DialogTitle>
-                      <DialogDescription>Complete the form below and I’ll follow up within 3 business days.</DialogDescription>
+                      <DialogTitle className="text-center font-normal text-2xl">Request a Free Quote</DialogTitle>
+                      <DialogDescription className="text-center">Complete the form below and I’ll follow up within 3 business days.</DialogDescription>
                     </DialogHeader>
                     <div className="w-full">
                       <iframe src="https://kiwi-oatmeal-777.notion.site/ebd/23fd5994cd3480b0bcc0cb7be9052fee" className="w-full h-[600px] rounded-md" frameBorder="0" allowFullScreen title="Free quote form" />
