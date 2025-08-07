@@ -38,11 +38,9 @@ const LinksPage = () => {
           <img src="/lovable-uploads/be74fedd-28c8-4019-a7fb-1f8f65eb9a1a.png" alt="Patrice Profile" className="w-full h-full object-cover" />
         </div>
         
-        <h1 className="text-2xl font-bold mb-2 animate-fade-in animation-delay-200">
-          Hey I'm Patrice
-        </h1>
+        <h1 className="text-2xl font-bold mb-2 animate-fade-in animation-delay-200 font-dmsans ">heyimpatrice</h1>
         
-        <p className="text-muted-foreground text-center max-w-xs animate-fade-in animation-delay-300">
+        <p className="text-muted-foreground text-center max-w-xs animate-fade-in animation-delay-300 text-xs">
           Pastor by day, creative every other waking moment. Let's build something amazing together.
         </p>
       </div>
@@ -56,16 +54,14 @@ const LinksPage = () => {
             animationDelay: `${(index + 4) * 100}ms`
           }} className="w-full h-16 justify-start text-left p-6 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-card hover:bg-accent border-border py-[40px]">
                 <div className="flex items-center space-x-4 w-full">
-                  <div className="flex-shrink-0">
-                    <Icon className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-200" />
-                  </div>
+                  
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between py-0">
                       <div>
-                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                        <h3 className="text-foreground group-hover:text-primary transition-colors font-dmsans font-bold text-lg">
                           {link.title}
                         </h3>
-                        <p className="text-sm text-muted-foreground mt-0.5 py-0">
+                        <p className="text-muted-foreground mt-0.5 py-0 text-xs font-thin">
                           {link.description}
                         </p>
                       </div>
