@@ -89,7 +89,7 @@ const ServicesSection = () => {
         <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto p-6">
           {selectedService !== null && <>
               <DialogHeader className="text-center mb-6">
-                <DialogTitle className="text-3xl font-bold">
+                <DialogTitle className="text-center text-5xl font-normal">
                   {services[selectedService].title}
                 </DialogTitle>
               </DialogHeader>
