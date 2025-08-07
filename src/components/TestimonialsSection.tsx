@@ -77,7 +77,7 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-6 md:text-6xl">
+            <h2 className="text-4xl mb-6 font-normal md:text-6xl">
               Client Stories
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-xl">
