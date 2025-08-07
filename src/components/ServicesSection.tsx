@@ -117,21 +117,7 @@ const ServicesSection = () => {
                   </ul>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-lg font-bold mb-3 text-accent">Managed Hosting</h4>
-                    <p className="text-muted-foreground text-sm">
-                      {services[selectedService].details.hosting.managed}
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-bold mb-3 text-accent">Code Handover</h4>
-                    <p className="text-muted-foreground text-sm">
-                      {services[selectedService].details.hosting.handover}
-                    </p>
-                  </div>
-                </div>
+                
                 
                 <div className="text-center pt-4 border-t">
                   <div className="text-2xl font-bold text-accent mb-3">
