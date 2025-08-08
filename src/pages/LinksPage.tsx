@@ -60,7 +60,7 @@ const LinksPage = () => {
                     <h3 className="transition-colors font-dmsans font-bold text-lg group-hover:text-foreground">
                       Contact Me
                     </h3>
-                    <p className="mt-0.5 py-0 text-xs font-thin opacity-80 group-hover:opacity-100">
+                    <p className="mt-0.5 py-0 text-xs font-thin opacity-80 group-hover:opacity-100 group-hover:text-foreground">
                       Reach out directly via the form
                     </p>
                   </div>
@@ -85,7 +85,7 @@ const LinksPage = () => {
                       <h3 className="text-foreground group-hover:text-primary transition-colors font-dmsans font-bold text-lg">
                         {link.title}
                       </h3>
-                      <p className="text-muted-foreground mt-0.5 py-0 text-xs font-thin group-hover:text-accent-foreground">
+                      <p className="text-muted-foreground mt-0.5 py-0 text-xs font-thin group-hover:text-foreground transition-colors">
                         {link.description}
                       </p>
                     </div>
