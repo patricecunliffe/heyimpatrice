@@ -124,7 +124,7 @@ const LinksPage = () => {
 
       {/* Footer */}
       <div className="text-center pb-8 px-6">
-        <div className="flex items-center justify-center gap-6 my-6">
+        <div className="flex items-center justify-center gap-6 mt-3 mb-6">
           <a href="https://instagram.com/heyimpatrice" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram">
             <Instagram className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground hover:text-foreground transition-colors" />
           </a>
