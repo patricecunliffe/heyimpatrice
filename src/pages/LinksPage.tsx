@@ -52,7 +52,7 @@ const LinksPage = () => {
       <div className="max-w-md mx-auto px-6 pb-16">
         <div className="space-y-4">
           {/* Contact Me - inverted style */}
-          <Button onClick={() => setContactOpen(true)} className="w-full h-16 justify-start text-left p-6 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-foreground text-background hover:bg-background hover:text-foreground border border-border">
+          <Button onClick={() => setContactOpen(true)} className="w-full h-16 justify-start text-left p-6 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-foreground text-background hover:bg-[#F4F4F4] hover:text-foreground border border-border">
             <div className="flex items-center space-x-4 w-full">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between py-0">
@@ -77,7 +77,7 @@ const LinksPage = () => {
           handleLinkClick(link.url, link.external);
         }} variant="outline" style={{
           animationDelay: `${(index + 4) * 100}ms`
-        }} className="w-full h-16 justify-start text-left p-6 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-card hover:bg-accent border-border py-[40px]">
+        }} className="w-full h-16 justify-start text-left p-6 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-card hover:bg-[#F4F4F4] border-border py-[40px]">
               <div className="flex items-center space-x-4 w-full">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between py-0">
