@@ -101,7 +101,7 @@ const LinksPage = () => {
         <DrawerContent>
           <DrawerHeader>
             <DrawerTitle className="text-center text-3xl">Contact Me</DrawerTitle>
-            <DrawerDescription>Send me a quick message</DrawerDescription>
+            <DrawerDescription className="text-center">Send me a quick message</DrawerDescription>
           </DrawerHeader>
           <div className="px-6 pb-8">
             <ContactForm onSubmitted={() => setContactOpen(false)} />
