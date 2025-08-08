@@ -116,8 +116,8 @@ const LinksPage = () => {
             <DrawerTitle className="text-center text-3xl">Get a Free Quote</DrawerTitle>
             <DrawerDescription className="text-center">Tell me about your project</DrawerDescription>
           </DrawerHeader>
-          <div className="px-4 pb-8">
-            <iframe src="https://kiwi-oatmeal-777.notion.site/23fd5994cd3480b0bcc0cb7be9052fee?pvs=105" title="Get a Free Quote form" className="w-full h-[70vh] rounded-md border border-border" loading="lazy" />
+          <div className="px-6 pb-8">
+            <ContactForm onSubmitted={() => setQuoteOpen(false)} />
           </div>
         </DrawerContent>
       </Drawer>
