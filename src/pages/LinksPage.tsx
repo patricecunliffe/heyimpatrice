@@ -52,7 +52,7 @@ const LinksPage = () => {
       <div className="max-w-md mx-auto px-6 pb-16">
         <div className="space-y-4">
           {/* Contact Me - inverted style */}
-          <Button onClick={() => setContactOpen(true)} className="w-full h-16 justify-start text-left p-6 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-foreground text-background hover:bg-[#F4F4F4] hover:text-foreground border border-border">
+          <Button onClick={() => setContactOpen(true)} className="w-full h-16 rounded-2xl justify-start text-left p-6 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-foreground text-background hover:bg-[#F4F4F4] hover:text-foreground border border-border">
             <div className="flex items-center space-x-4 w-full">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between py-0">
@@ -77,7 +77,7 @@ const LinksPage = () => {
           handleLinkClick(link.url, link.external);
         }} variant="outline" style={{
           animationDelay: `${(index + 4) * 100}ms`
-        }} className="w-full h-16 justify-start text-left p-6 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-card hover:bg-[#F4F4F4] border-border py-[40px]">
+        }} className="w-full h-16 rounded-2xl justify-start text-left p-6 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-card hover:bg-[#F4F4F4] border-border py-[40px]">
               <div className="flex items-center space-x-4 w-full">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between py-0">
@@ -124,12 +124,12 @@ const LinksPage = () => {
 
       {/* Footer */}
       <div className="text-center pb-8 px-6">
-        <div className="flex items-center justify-center gap-6 mb-3">
+        <div className="flex items-center justify-center gap-6 my-6">
           <a href="https://instagram.com/heyimpatrice" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram">
-            <Instagram className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors" />
+            <Instagram className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground hover:text-foreground transition-colors" />
           </a>
           <a href="https://www.threads.net/@heyimpatrice" target="_blank" rel="noopener noreferrer" aria-label="Visit Threads">
-            <AtSign className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors" />
+            <AtSign className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground hover:text-foreground transition-colors" />
           </a>
         </div>
         <p className="text-xs text-muted-foreground">Built with love in Australia 🇦🇺</p>
