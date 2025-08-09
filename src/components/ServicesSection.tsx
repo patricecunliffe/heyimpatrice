@@ -60,13 +60,15 @@ const ServicesSection = () => {
             
             <div className="relative flex flex-col md:flex-row items-center justify-center md:space-x-[-40px] space-y-8 md:space-y-0 py-[60px]">
               {services.map((service, index) => {
-              const Icon = service.icon;
-              const rotations = ['-8deg', '3deg', '8deg'];
-              return <div key={index} className={`service-card cursor-pointer transition-all duration-500 hover:scale-110 hover:z-30 animate-fade-in ${index === 1 ? 'md:z-20 md:scale-105' : 'md:z-10'}`} style={{
-                animationDelay: `${index * 0.2}s`,
-                transform: `rotate(${rotations[index]})`
-              }} onClick={() => setSelectedService(index)}>
-                    <div className="bg-card border border-border rounded-xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-80 h-80 flex flex-col text-left">
+                const Icon = service.icon;
+                return (
+                  <div
+                    key={index}
+                    className={`service-card cursor-pointer transition-all duration-500 hover:scale-110 hover:z-30 animate-fade-in ${index === 1 ? 'md:z-20 md:scale-105' : 'md:z-10'} ${index === 0 ? 'md:-rotate-8' : index === 1 ? 'md:rotate-3' : 'md:rotate-8'} w-full`}
+                    style={{ animationDelay: `${index * 0.2}s` }}
+                    onClick={() => setSelectedService(index)}
+                  >
+                    <div className="bg-card border border-border rounded-2xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-full max-w-sm mx-auto min-h-[18rem] md:w-80 md:h-80 flex flex-col text-left">
                       <div className="flex justify-start mb-6">
                         <Icon className="w-12 h-12 text-accent" />
                       </div>
@@ -79,10 +81,14 @@ const ServicesSection = () => {
                         {service.description}
                       </p>
                     </div>
-                  </div>;
-            })}
+                  </div>
+                );
+              })}
             </div>
 
+            <div className="text-center -mt-2 mb-2">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">our process</p>
+            </div>
             <ProcessTimeline />
           </div>
         </div>
