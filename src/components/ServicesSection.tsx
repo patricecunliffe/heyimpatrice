@@ -5,6 +5,7 @@ import ProcessTimeline from '@/components/ProcessTimeline';
 const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
   const [showQuoteModal, setShowQuoteModal] = useState(false);
+  const [activeCardMobile, setActiveCardMobile] = useState(1); // Middle card active by default
   const services = [{
     title: "Quick Launch",
     description: "Single landing page with clear CTAs and quick deployment. Perfect for getting your business online fast.",
@@ -58,18 +59,19 @@ const ServicesSection = () => {
               </p>
             </div>
             
-            <div className="relative flex flex-col md:flex-row items-center justify-center md:space-x-[-40px] lg:space-x-[-80px] space-y-8 md:space-y-0 py-[60px]">
+            {/* Desktop Layout */}
+            <div className="hidden lg:flex relative items-center justify-center space-x-[-80px] py-[60px]">
               {services.map((service, index) => {
                 const Icon = service.icon;
-                const rotationClasses = ['lg:-rotate-12', 'lg:rotate-3', 'lg:rotate-12'];
+                const rotationClasses = ['-rotate-12', 'rotate-3', 'rotate-12'];
                 return (
                   <div
                     key={index}
-                    className={`service-card cursor-pointer transition-all duration-500 hover:scale-110 hover:z-50 animate-fade-in ${index === 1 ? 'md:z-20 md:scale-105' : 'md:z-10'} ${rotationClasses[index]} w-full`}
+                    className={`service-card cursor-pointer transition-all duration-500 hover:scale-110 hover:z-50 animate-fade-in ${index === 1 ? 'z-20 scale-105' : 'z-10'} ${rotationClasses[index]} w-full`}
                     style={{ animationDelay: `${index * 0.2}s` }}
                     onClick={() => setSelectedService(index)}
                   >
-                    <div className="bg-card border border-border rounded-2xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-full max-w-sm mx-auto min-h-[18rem] md:w-80 md:h-80 flex flex-col text-left">
+                    <div className="bg-card border border-border rounded-2xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-full max-w-sm mx-auto min-h-[18rem] w-80 h-80 flex flex-col text-left">
                       <div className="flex justify-start mb-6">
                         <Icon className="w-12 h-12 text-accent" />
                       </div>
@@ -85,6 +87,64 @@ const ServicesSection = () => {
                   </div>
                 );
               })}
+            </div>
+
+            {/* Mobile/Tablet Layout */}
+            <div className="lg:hidden relative h-[320px] w-full max-w-sm mx-auto py-[60px]">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                const isActive = activeCardMobile === index;
+                const zIndex = isActive ? 30 : 20 - Math.abs(index - activeCardMobile);
+                const translateY = isActive ? 0 : (index - activeCardMobile) * 15;
+                const scale = isActive ? 1 : 0.95;
+                
+                return (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 service-card cursor-pointer transition-all duration-300 animate-fade-in`}
+                    style={{ 
+                      animationDelay: `${index * 0.2}s`,
+                      zIndex,
+                      transform: `translateY(${translateY}px) scale(${scale})`
+                    }}
+                    onClick={() => {
+                      if (isActive) {
+                        setSelectedService(index);
+                      } else {
+                        setActiveCardMobile(index);
+                      }
+                    }}
+                  >
+                    <div className="bg-card border border-border rounded-2xl p-6 shadow-strong transition-all duration-300 w-full h-[280px] flex flex-col text-left">
+                      <div className="flex justify-start mb-4">
+                        <Icon className="w-10 h-10 text-accent" />
+                      </div>
+                      
+                      <h3 className="mb-3 text-foreground text-3xl font-normal">
+                        {service.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground leading-relaxed flex-grow text-sm">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+              
+              {/* Navigation dots */}
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                {services.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveCardMobile(index)}
+                    className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                      activeCardMobile === index ? 'bg-accent' : 'bg-muted-foreground/30'
+                    }`}
+                    aria-label={`View ${services[index].title} card`}
+                  />
+                ))}
+              </div>
             </div>
 
             <div className="text-center mt-8 mb-2">
