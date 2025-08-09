@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Rocket, TrendingUp, Layers } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import ProcessSection from '@/components/ProcessSection';
 const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
   const [showQuoteModal, setShowQuoteModal] = useState(false);
@@ -81,6 +82,8 @@ const ServicesSection = () => {
                   </div>;
             })}
             </div>
+
+            <ProcessSection />
           </div>
         </div>
       </section>
