@@ -87,7 +87,7 @@ const ServicesSection = () => {
               })}
             </div>
 
-            <div className="text-center -mt-2 mb-2">
+            <div className="text-center mt-8 mb-2">
               <p className="text-xs uppercase tracking-widest text-muted-foreground">our process</p>
             </div>
             <ProcessTimeline />
