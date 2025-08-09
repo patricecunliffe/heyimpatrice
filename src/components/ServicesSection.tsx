@@ -95,17 +95,20 @@ const ServicesSection = () => {
                 const Icon = service.icon;
                 const isActive = activeCardMobile === index;
                 const zIndex = isActive ? 30 : 20 - Math.abs(index - activeCardMobile);
-                const translateY = isActive ? 0 : (index - activeCardMobile) * 15;
+                
+                // Tablet spacing (more spread) and mobile with rotation
+                const translateY = isActive ? 0 : (index - activeCardMobile) * (typeof window !== 'undefined' && window.innerWidth >= 640 ? 25 : 15);
+                const rotation = isActive ? 0 : (typeof window !== 'undefined' && window.innerWidth < 640 ? (index - activeCardMobile) * 3 : 0);
                 const scale = isActive ? 1 : 0.95;
                 
                 return (
                   <div
                     key={index}
-                    className={`absolute inset-0 service-card cursor-pointer transition-all duration-300 animate-fade-in`}
+                    className={`absolute inset-0 service-card cursor-pointer transition-all duration-300 animate-fade-in sm:rotate-0 ${!isActive && index !== activeCardMobile ? 'rotate-1 sm:rotate-0' : ''}`}
                     style={{ 
                       animationDelay: `${index * 0.2}s`,
                       zIndex,
-                      transform: `translateY(${translateY}px) scale(${scale})`
+                      transform: `translateY(${translateY}px) scale(${scale}) ${rotation !== 0 ? `rotate(${rotation}deg)` : ''}`
                     }}
                     onClick={() => {
                       if (isActive) {
