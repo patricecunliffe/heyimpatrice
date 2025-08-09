@@ -58,10 +58,10 @@ const ServicesSection = () => {
               </p>
             </div>
             
-            <div className="relative flex flex-col md:flex-row items-center justify-center md:space-x-[-80px] space-y-8 md:space-y-0 py-[60px]">
+            <div className="relative flex flex-col md:flex-row items-center justify-center md:space-x-[-40px] lg:space-x-[-80px] space-y-8 md:space-y-0 py-[60px]">
               {services.map((service, index) => {
                 const Icon = service.icon;
-                const rotationClasses = ['md:-rotate-12', 'md:rotate-3', 'md:rotate-12'];
+                const rotationClasses = ['lg:-rotate-12', 'lg:rotate-3', 'lg:rotate-12'];
                 return (
                   <div
                     key={index}
