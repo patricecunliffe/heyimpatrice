@@ -58,14 +58,14 @@ const ServicesSection = () => {
               </p>
             </div>
             
-            <div className="relative flex flex-col md:flex-row items-center justify-center md:space-x-[-40px] space-y-8 md:space-y-0 py-[60px]">
+            <div className="relative flex flex-col md:flex-row items-center justify-center md:space-x-[-80px] space-y-8 md:space-y-0 py-[60px]">
               {services.map((service, index) => {
                 const Icon = service.icon;
                 const rotationClasses = ['md:-rotate-12', 'md:rotate-3', 'md:rotate-12'];
                 return (
                   <div
                     key={index}
-                    className={`service-card cursor-pointer transition-all duration-500 hover:scale-110 hover:z-30 animate-fade-in ${index === 1 ? 'md:z-20 md:scale-105' : 'md:z-10'} ${rotationClasses[index]} w-full`}
+                    className={`service-card cursor-pointer transition-all duration-500 hover:scale-110 hover:z-50 animate-fade-in ${index === 1 ? 'md:z-20 md:scale-105' : 'md:z-10'} ${rotationClasses[index]} w-full`}
                     style={{ animationDelay: `${index * 0.2}s` }}
                     onClick={() => setSelectedService(index)}
                   >
