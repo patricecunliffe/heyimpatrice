@@ -167,10 +167,7 @@ const ProcessTimeline = () => {
           className="mt-5 flex justify-center"
         >
           <article className="bg-card border border-border rounded-2xl shadow-sm px-5 py-4 max-w-2xl w-full animate-enter mx-auto">
-            <header className="flex items-center gap-3 mb-2">
-              <div className="h-7 w-7 rounded-full border border-border bg-background text-foreground text-xs font-medium flex items-center justify-center">
-                {activeStep + 1}
-              </div>
+            <header className="mb-2">
               <h4 className="text-base font-medium leading-none font-dmsans" dangerouslySetInnerHTML={{
                 __html: stepTitles[activeStep].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
               }} />
