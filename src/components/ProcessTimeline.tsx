@@ -17,10 +17,10 @@ const details: string[] = [
 ];
 
 const stepTitles: string[] = [
-  "Get a Free Quote & Share Your Vision",
-  "Explore Options & Website Strategy", 
-  "Develop: Build Page by Page",
-  "Launch & Handover",
+  "Get a Free **Quote** & Share Your Vision",
+  "Explore Options & Website **Strategy**", 
+  "Develop: **Build** Page by Page",
+  "**Launch** & Handover",
 ];
 
 const ProcessTimeline = () => {
@@ -166,12 +166,14 @@ const ProcessTimeline = () => {
           aria-live="polite"
           className="mt-5 flex justify-center"
         >
-          <article className="bg-card border border-border rounded-2xl shadow-sm px-5 py-4 max-w-sm w-full animate-enter mx-auto">
+          <article className="bg-card border border-border rounded-2xl shadow-sm px-5 py-4 w-full animate-enter mx-auto">
             <header className="flex items-center gap-3 mb-2">
               <div className="h-7 w-7 rounded-full border border-border bg-background text-foreground text-xs font-medium flex items-center justify-center">
                 {activeStep + 1}
               </div>
-              <h4 className="text-sm font-medium leading-none font-dmsans">{stepTitles[activeStep]}</h4>
+              <h4 className="text-base font-medium leading-none font-dmsans" dangerouslySetInnerHTML={{
+                __html: stepTitles[activeStep].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+              }} />
             </header>
             <div className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{
               __html: details[activeStep].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
