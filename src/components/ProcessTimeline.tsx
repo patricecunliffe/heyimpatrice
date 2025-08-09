@@ -111,21 +111,21 @@ const ProcessTimeline = () => {
         })}
       </div>
 
-      {/* Mobile: centered pills with arrows */}
+      {/* Mobile: full width pills with arrows */}
       <div className="md:hidden">
-        <ul className="space-y-2 flex flex-col items-center">
+        <ul className="space-y-2 flex flex-col items-center max-w-sm mx-auto w-full">
           {steps.map((step, idx) => {
             const Icon = step.Icon;
             const isActive = activeStep === idx;
             return (
-              <li key={step.title} className="flex flex-col items-center">
+              <li key={step.title} className="flex flex-col items-center w-full">
                 <button
                   type="button"
                   onClick={() => handleToggle(idx)}
                   aria-expanded={isActive}
                   aria-controls="process-details"
                   className={cn(
-                    "flex items-center gap-2 bg-card border border-border rounded-full px-4 py-2 shadow-sm will-change-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40",
+                    "flex items-center gap-2 bg-card border border-border rounded-full px-4 py-2 shadow-sm will-change-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 w-full justify-start",
                     isActive ? "bg-accent text-accent-foreground" : "text-foreground",
                     inView
                       ? "opacity-100 translate-y-0 motion-safe:animate-[bounce_1.1s_cubic-bezier(0.34,1.56,0.64,1)_infinite]"
@@ -135,13 +135,13 @@ const ProcessTimeline = () => {
                 >
                   <div
                     className={cn(
-                      "h-7 w-7 rounded-full border border-border bg-background text-foreground text-xs font-medium flex items-center justify-center",
+                      "h-7 w-7 rounded-full border border-border bg-background text-foreground text-xs font-medium flex items-center justify-center flex-shrink-0",
                       isActive && "bg-accent-foreground text-accent"
                     )}
                   >
                     {idx + 1}
                   </div>
-                  <Icon className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+                  <Icon className="h-4 w-4 text-muted-foreground flex-shrink-0" aria-hidden="true" />
                   <span className="text-sm font-medium leading-none">{step.title}</span>
                 </button>
                 {idx < steps.length - 1 && (
