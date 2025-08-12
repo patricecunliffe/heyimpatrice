@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
+import WebsitePackages from '@/components/WebsitePackages';
 
 const ResourcesPage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -354,6 +355,19 @@ const ResourcesPage = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Website Packages Section */}
+      <section id="website-packages" className="py-20 bg-secondary">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto mb-12">
+            <h2 className="font-anton text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              Website Packages
+            </h2>
+            <p className="text-muted-foreground mt-2">Choose a package that fits your goals and budget.</p>
+          </div>
+          <WebsitePackages />
         </div>
       </section>
     </div>
