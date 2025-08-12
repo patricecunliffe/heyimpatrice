@@ -8,43 +8,59 @@ const ServicesSection = () => {
   const [activeCardMobile, setActiveCardMobile] = useState(1); // Middle card active by default
   const services = [{
     title: "Quick Launch",
+    headline: "Launch Fast, Look Great",
     description: "Single landing page with clear CTAs and quick deployment. Perfect for getting your business online fast.",
     icon: Rocket,
-    price: "From $500",
+    price: "From $900 (once-off) + $59/month for ongoing care*",
+    careNote: "Includes hosting, security updates, performance monitoring, small monthly edits, and support.",
     details: {
-      overview: "Perfect for businesses that need to get online quickly with a professional presence. This package focuses on speed and efficiency while maintaining quality.",
-      includes: ["Single responsive landing page", "Clear call-to-action buttons", "Basic SEO optimization", "Contact form integration", "Mobile-first design", "Fast deployment (2-3 days)"],
-      hosting: {
-        managed: "Ongoing hosting & management at $40/month includes updates, security monitoring, and technical support.",
-        handover: "Code handover option available with external hosting setup guidance and documentation."
-      }
-    }
+      overview: "A professional, mobile-ready website built to get you online in record time — without compromising on style or function. Perfect for new businesses, events, or personal projects that need a strong online presence fast.",
+      includes: [
+        "Up to 3 custom-designed pages",
+        "Fully responsive (mobile, tablet, desktop)",
+        "Contact form & basic integrations",
+        "Starter blog/news page option",
+        "Hosting & security setup",
+        "Easy-to-manage backend",
+      ],
+    },
   }, {
     title: "Growth Package",
+    headline: "Built to Grow With You",
     description: "Four-page website build with optional Linktree integration. The sweet spot for most businesses.",
     icon: TrendingUp,
-    price: "From $1500",
+    price: "From $1,800 (once-off) + $129/month for ongoing care*",
+    careNote: "Includes hosting, security updates, performance monitoring, small monthly edits, and support.",
     details: {
-      overview: "The most popular choice for established businesses ready to scale their online presence with a comprehensive multi-page website.",
-      includes: ["4-page responsive website", "Advanced contact forms", "Custom link-in-bio page", "2-week development timeline", "3 rounds of revisions", "SEO optimization", "Analytics integration"],
-      hosting: {
-        managed: "Ongoing hosting & management at $75/month includes content updates, security, performance monitoring, and priority support.",
-        handover: "Complete code handover with hosting setup, documentation, and training session included."
-      }
-    }
+      overview: "A feature-rich website designed to evolve as your business expands. From integrated booking and e-commerce to advanced analytics, this package sets you up for growth without the tech headaches.",
+      includes: [
+        "4–6 custom-designed pages",
+        "Fully responsive (mobile, tablet, desktop)",
+        "Booking systems, e-commerce, or lead capture",
+        "Blog/news section with categories",
+        "Integrated email marketing",
+        "Performance & analytics setup",
+      ],
+    },
   }, {
-    title: "Full Stack Solution",
+    title: "Complete Build",
+    headline: "Your Complete Website, Done Right",
     description: "Complete SaaS build with authentication, user systems, and database integration for ambitious projects.",
     icon: Layers,
-    price: "From $3000",
+    price: "From $2,500 (once-off) + $219/month for ongoing care*",
+    careNote: "Includes hosting, security updates, performance monitoring, small monthly edits, and support.",
     details: {
-      overview: "Enterprise-level solution for businesses requiring custom functionality, user management, and scalable architecture.",
-      includes: ["Custom user authentication system", "Database design & integration", "Admin dashboard", "API development", "Scalable cloud architecture", "Ongoing technical support", "Performance optimization"],
-      hosting: {
-        managed: "Comprehensive hosting & management at $200/month includes server management, database optimization, security updates, and dedicated support.",
-        handover: "Full source code delivery with deployment documentation, server setup guidance, and technical handover session."
-      }
-    }
+      overview: "A fully customised, high-performance website with all the features you need to launch, grow, and manage your online presence. Designed to scale with you — whether you’re selling, showcasing, or building community.",
+      includes: [
+        "5+ custom-designed pages",
+        "Fully responsive (mobile, tablet, desktop)",
+        "Integrated forms, booking, and email capture",
+        "Supabase backend for data + automation",
+        "Blog/news section ready to go",
+        "Analytics dashboard",
+        "Fast, secure hosting included",
+      ],
+    },
   }];
   return <>
       <section id="services" className="py-20 bg-background overflow-hidden">
@@ -166,6 +182,9 @@ const ServicesSection = () => {
                 <DialogTitle className="text-center text-5xl font-normal">
                   {services[selectedService].title}
                 </DialogTitle>
+                {services[selectedService].headline && (
+                  <p className="text-muted-foreground mt-2">{services[selectedService].headline}</p>
+                )}
               </DialogHeader>
               
               <div className="space-y-6">
@@ -194,9 +213,14 @@ const ServicesSection = () => {
                 
                 
                 <div className="text-center pt-4 border-t">
-                  <div className="text-2xl font-bold text-accent mb-3">
+                  <div className="text-2xl font-bold text-accent mb-2">
                     {services[selectedService].price}
                   </div>
+                  {services[selectedService].careNote && (
+                    <p className="text-xs text-muted-foreground mb-4">
+                      {services[selectedService].careNote}
+                    </p>
+                  )}
                   <p className="text-sm text-muted-foreground mb-6">
                     Ready to get started? Let's discuss your project requirements and timeline.
                   </p>
