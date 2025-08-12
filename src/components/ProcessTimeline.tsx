@@ -10,17 +10,17 @@ const steps = [
 ];
 
 const details: string[] = [
-  "Start by reaching out for a **complimentary quote** and sharing your **vision** with us. In this step, we'll have a thoughtful conversation about your **goals, ideas**, and what you want your website to achieve. This is where we get to the heart of your project and truly understand your **aspirations**, so we can lay **strong foundations** and ensure everything we build aligns with your vision from the very beginning.",
-  "We'll present a variety of **tailored site options** and **strategies**, guiding you through each possibility to help you find the **best fit** for your business. This step is all about gaining **clarity** on what we want to build together and defining the **strategy** that will lead to the best outcome for everyone involved. By exploring your needs and goals in depth, we ensure that every decision supports your **vision** and sets your project up for **success** from the outset.",
-  "I'll develop your website **one page at a time**, carefully crafting content and designing layouts that reflect the **original vision** we established together. Throughout this process, I'll keep you **updated** and invite your **feedback** at every stage, ensuring each page truly represents your goals and ideas. By building page by page, we can thoughtfully outwork your vision and make **adjustments** as needed, so the final result is a website that's both **cohesive** and **uniquely yours**.",
-  "Once the build is complete, we'll go through a **thorough review process** together to confirm that every page, link, piece of language, and image is exactly as you envisioned. After your **final approval**, your site **goes live**! At this stage, you can choose **ongoing management** with me for future updates and support, or opt for a **full code handover** with resources and training to manage things independently. This ensures a **seamless transition** and gives you confidence that your website is ready for **success**, no matter which path you choose.",
+  "Tell us what you want your website to achieve. We’ll dig into your goals, audience, and ideas so we can plan a site that delivers real results — not just good looks.",
+  "We’ll guide you through tailored options, from fast-turnaround launches to fully custom builds. You’ll know exactly what you’re getting, how long it will take, and the investment required.",
+  "We design, develop, and test your site with precision. You’ll see progress, give feedback, and watch your vision take shape — polished, functional, and ready to perform.",
+  "Your site goes live, backed by our ongoing hosting, security, updates, and priority support. We don’t just launch and leave — we keep your website running at its best.",
 ];
 
 const stepTitles: string[] = [
-  "Get a Free **Quote** & Share Your Vision",
-  "Explore Options & Website **Strategy**", 
-  "Develop: **Build** Page by Page",
-  "**Launch** & Handover",
+  "Step 1 — Share Your Vision",
+  "Step 2 — Select Your Package",
+  "Step 3 — Build & Refine",
+  "Step 4 — Launch & Care",
 ];
 
 const ProcessTimeline = () => {
