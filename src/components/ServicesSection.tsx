@@ -102,6 +102,17 @@ const ServicesSection = () => {
                       <p className="text-muted-foreground leading-relaxed flex-grow text-base">
                         {service.description}
                       </p>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedService(index);
+                        }}
+                        className="story-link text-xs text-accent mt-2 self-start"
+                        aria-label={`Learn more about ${service.title}`}
+                      >
+                        Learn more
+                      </button>
                     </div>
                   </div>;
             })}
