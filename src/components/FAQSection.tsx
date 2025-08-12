@@ -85,11 +85,11 @@ const FAQSection: React.FC = () => {
       }
     }))
   };
-  return <section id="faq" className="py-16 md:py-24 bg-background">
-      <div className="mx-auto max-w-5xl px-4 md:px-6">
-        <header className="mb-8 md:mb-12 text-center">
-          <h2 className="text-3xl tracking-tight font-normal md:text-6xl">Frequently Asked Questions</h2>
-          <p className="mt-3 text-sm text-muted-foreground md:text-lg">
+  return <section id="faq" className="py-20 bg-background">
+      <div className="container mx-auto px-6">
+        <header className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl mb-6 font-normal md:text-6xl">Frequently Asked Questions</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Clear answers about hosting, timelines, support, and more.
           </p>
         </header>
