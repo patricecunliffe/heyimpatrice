@@ -59,10 +59,10 @@ const ServicesSection = () => {
     if (touchStartX !== null && touchCurrentX !== null) {
       const deltaX = touchCurrentX - touchStartX;
       if (Math.abs(deltaX) > TOUCH_THRESHOLD) {
-        if (deltaX < 0 && activeCardMobile < services.length - 1) {
-          setActiveCardMobile(activeCardMobile + 1);
-        } else if (deltaX > 0 && activeCardMobile > 0) {
-          setActiveCardMobile(activeCardMobile - 1);
+        if (deltaX < 0) {
+          setActiveCardMobile((prev) => (prev + 1) % services.length);
+        } else if (deltaX > 0) {
+          setActiveCardMobile((prev) => (prev - 1 + services.length) % services.length);
         }
       }
     }
@@ -141,6 +141,17 @@ const ServicesSection = () => {
                       <p className="text-muted-foreground leading-relaxed flex-grow text-sm">
                         {service.description}
                       </p>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedService(index);
+                        }}
+                        className="story-link text-xs text-accent mt-2 self-start"
+                        aria-label={`Learn more about ${service.title}`}
+                      >
+                        Learn more
+                      </button>
                     </div>
                   </div>;
             })}
