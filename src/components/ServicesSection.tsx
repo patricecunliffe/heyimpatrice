@@ -6,6 +6,9 @@ const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
   const [showQuoteModal, setShowQuoteModal] = useState(false);
   const [activeCardMobile, setActiveCardMobile] = useState(1); // Middle card active by default
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchCurrentX, setTouchCurrentX] = useState<number | null>(null);
+  const TOUCH_THRESHOLD = 40;
   const services = [{
     title: "Quick Launch",
     headline: "Launch Fast, Look Great",
@@ -40,6 +43,32 @@ const ServicesSection = () => {
       includes: ["5+ custom-designed pages", "Fully responsive (mobile, tablet, desktop)", "Integrated forms, booking, and email capture", "Supabase backend for data + automation", "Blog/news section ready to go", "Analytics dashboard", "Fast, secure hosting included"]
     }
   }];
+  const handleTouchStart = (e: any) => {
+    if (e.touches && e.touches[0]) {
+      const x = e.touches[0].clientX;
+      setTouchStartX(x);
+      setTouchCurrentX(x);
+    }
+  };
+  const handleTouchMove = (e: any) => {
+    if (e.touches && e.touches[0]) {
+      setTouchCurrentX(e.touches[0].clientX);
+    }
+  };
+  const handleTouchEnd = () => {
+    if (touchStartX !== null && touchCurrentX !== null) {
+      const deltaX = touchCurrentX - touchStartX;
+      if (Math.abs(deltaX) > TOUCH_THRESHOLD) {
+        if (deltaX < 0 && activeCardMobile < services.length - 1) {
+          setActiveCardMobile(activeCardMobile + 1);
+        } else if (deltaX > 0 && activeCardMobile > 0) {
+          setActiveCardMobile(activeCardMobile - 1);
+        }
+      }
+    }
+    setTouchStartX(null);
+    setTouchCurrentX(null);
+  };
   return <>
       <section id="services" className="py-20 bg-background overflow-hidden">
         <div className="container mx-auto px-6">
@@ -79,7 +108,7 @@ const ServicesSection = () => {
             </div>
 
             {/* Mobile/Tablet Layout */}
-            <div className="lg:hidden relative h-[320px] w-full max-w-sm mx-auto py-[60px]">
+            <div className="lg:hidden relative h-[320px] w-full max-w-sm mx-auto py-[60px]" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
               {services.map((service, index) => {
               const Icon = service.icon;
               const isActive = activeCardMobile === index;
