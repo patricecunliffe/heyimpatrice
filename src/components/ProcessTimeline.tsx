@@ -123,7 +123,7 @@ const ProcessTimeline = () => {
                   type="button"
                   onClick={() => handleToggle(idx)}
                   aria-expanded={isActive}
-                  aria-controls="process-details"
+                  aria-controls={`process-details-${idx}`}
                   className={cn(
                     "flex items-center gap-2 bg-card border border-border rounded-full px-4 py-2 shadow-sm will-change-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 w-full justify-start",
                     isActive ? "bg-accent text-accent-foreground" : "text-foreground",
@@ -144,6 +144,27 @@ const ProcessTimeline = () => {
                   <Icon className="h-4 w-4 text-muted-foreground flex-shrink-0" aria-hidden="true" />
                   <span className="text-sm font-medium leading-none">{step.title}</span>
                 </button>
+                {isActive && (
+                  <article
+                    id={`process-details-${idx}`}
+                    className="mt-2 bg-card border border-border rounded-2xl shadow-sm px-5 py-4 w-full animate-enter"
+                  >
+                    <header className="mb-2">
+                      <h4
+                        className="text-base font-medium leading-none font-dmsans"
+                        dangerouslySetInnerHTML={{
+                          __html: stepTitles[idx].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'),
+                        }}
+                      />
+                    </header>
+                    <div
+                      className="text-sm text-muted-foreground"
+                      dangerouslySetInnerHTML={{
+                        __html: details[idx].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'),
+                      }}
+                    />
+                  </article>
+                )}
                 {idx < steps.length - 1 && (
                   <span
                     className="my-1 text-muted-foreground select-none"
@@ -164,7 +185,7 @@ const ProcessTimeline = () => {
           id="process-details"
           role="region"
           aria-live="polite"
-          className="mt-5 flex justify-center"
+          className="mt-5 hidden md:flex justify-center"
         >
           <article className="bg-card border border-border rounded-2xl shadow-sm px-5 py-4 max-w-2xl w-full animate-enter mx-auto">
             <header className="mb-2">
