@@ -173,8 +173,9 @@ const ServicesSection = () => {
                   const parts = price.split("+");
                   const before = parts[0]?.trim() || price;
                   const after = parts.slice(1).join("+").trim();
+                  const sanitizedBefore = before.replace(/\s*\(once-off\)/i, "");
                   return <>
-                          <span className="text-xl">{before}</span>
+                          <span className="text-xl">{sanitizedBefore}</span>
                           {after && <span className="block text-sm font-medium">+ {after}</span>}
                         </>;
                 })()}
