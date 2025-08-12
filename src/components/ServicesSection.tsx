@@ -169,17 +169,15 @@ const ServicesSection = () => {
                 <div className="text-center pt-4 border-t">
                   <div className="text-xl font-bold text-accent mb-2">
                     {(() => {
-                      const price = services[selectedService].price;
-                      const parts = price.split("+");
-                      const before = parts[0]?.trim() || price;
-                      const after = parts.slice(1).join("+").trim();
-                      return (
-                        <>
-                          <span>{before}</span>
-                          {after && <span className="block text-sm">+ {after}</span>}
-                        </>
-                      );
-                    })()}
+                  const price = services[selectedService].price;
+                  const parts = price.split("+");
+                  const before = parts[0]?.trim() || price;
+                  const after = parts.slice(1).join("+").trim();
+                  return <>
+                          <span className="text-xl">{before}</span>
+                          {after && <span className="block text-sm font-medium">+ {after}</span>}
+                        </>;
+                })()}
                   </div>
                   {services[selectedService].careNote && <p className="text-muted-foreground mb-4 text-xs">
                       {services[selectedService].careNote}
