@@ -5,6 +5,7 @@ import WorkSection from '@/components/WorkSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import ThemeToggle from '@/components/ThemeToggle';
+import FAQSection from '@/components/FAQSection';
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <WorkSection />
       <TestimonialsSection />
       <ContactSection />
+      <FAQSection />
       <ThemeToggle />
     </div>
   );
