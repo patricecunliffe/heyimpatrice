@@ -167,10 +167,10 @@ const ServicesSection = () => {
                 
                 
                 <div className="text-center pt-4 border-t">
-                  <div className="text-2xl font-bold text-accent mb-2">
+                  <div className="text-xl font-bold text-accent mb-2">
                     {services[selectedService].price}
                   </div>
-                  {services[selectedService].careNote && <p className="text-xs text-muted-foreground mb-4">
+                  {services[selectedService].careNote && <p className="text-muted-foreground mb-4 text-xs">
                       {services[selectedService].careNote}
                     </p>}
                   <p className="text-sm text-muted-foreground mb-6">
