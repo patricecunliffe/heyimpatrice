@@ -8,6 +8,8 @@ const ServicesSection = () => {
   const [activeCardMobile, setActiveCardMobile] = useState(1); // Middle card active by default
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchCurrentX, setTouchCurrentX] = useState<number | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragX, setDragX] = useState(0);
   const TOUCH_THRESHOLD = 40;
   const services = [{
     title: "Quick Launch",
@@ -48,16 +50,20 @@ const ServicesSection = () => {
       const x = e.touches[0].clientX;
       setTouchStartX(x);
       setTouchCurrentX(x);
+      setIsDragging(true);
+      setDragX(0);
     }
   };
   const handleTouchMove = (e: any) => {
-    if (e.touches && e.touches[0]) {
-      setTouchCurrentX(e.touches[0].clientX);
+    if (e.touches && e.touches[0] && touchStartX !== null) {
+      const currentX = e.touches[0].clientX;
+      setTouchCurrentX(currentX);
+      setDragX(currentX - touchStartX);
     }
   };
   const handleTouchEnd = () => {
     if (touchStartX !== null && touchCurrentX !== null) {
-      const deltaX = touchCurrentX - touchStartX;
+      const deltaX = dragX;
       if (Math.abs(deltaX) > TOUCH_THRESHOLD) {
         if (deltaX < 0) {
           setActiveCardMobile((prev) => (prev + 1) % services.length);
@@ -66,6 +72,8 @@ const ServicesSection = () => {
         }
       }
     }
+    setIsDragging(false);
+    setDragX(0);
     setTouchStartX(null);
     setTouchCurrentX(null);
   };
@@ -119,36 +127,68 @@ const ServicesSection = () => {
             </div>
 
             {/* Mobile/Tablet Layout */}
-            <div className="lg:hidden relative h-[320px] w-full max-w-sm mx-auto py-[60px]" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+            <div
+              className="lg:hidden relative h-[320px] w-full max-w-sm mx-auto py-[60px]"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               {services.map((service, index) => {
-              const Icon = service.icon;
-              const isActive = activeCardMobile === index;
-              const zIndex = isActive ? 30 : 20 - Math.abs(index - activeCardMobile);
+                const Icon = service.icon;
 
-              // Tablet spacing (more spread) and mobile with rotation
-              const translateY = isActive ? 0 : (index - activeCardMobile) * (typeof window !== 'undefined' && window.innerWidth >= 640 ? 25 : 15);
-              const rotation = isActive ? 0 : typeof window !== 'undefined' && window.innerWidth < 640 ? (index - activeCardMobile) * 3 : 0;
-              const scale = isActive ? 1 : 0.95;
-              return <div key={index} className={`absolute inset-0 service-card cursor-pointer transition-all duration-300 animate-fade-in sm:rotate-0 ${!isActive && index !== activeCardMobile ? 'rotate-1 sm:rotate-0' : ''}`} style={{
-                animationDelay: `${index * 0.2}s`,
-                zIndex,
-                transform: `translateY(${translateY}px) scale(${scale}) ${rotation !== 0 ? `rotate(${rotation}deg)` : ''}`
-              }} onClick={() => {
-                if (isActive) {
-                  setSelectedService(index);
-                } else {
-                  setActiveCardMobile(index);
-                }
-              }}>
+                // Relative position to active index (-1, 0, 1) with wrap-around
+                const raw = (index - activeCardMobile + services.length) % services.length;
+                const rel = raw === services.length - 1 ? -1 : raw; // -1, 0, 1 for 3 cards
+                const isActive = rel === 0;
+                const zIndex = isActive ? 30 : 20 - Math.abs(rel);
+
+                // Base stacking and subtle rotation when not active
+                const baseTranslateY = isActive
+                  ? 0
+                  : rel * (typeof window !== 'undefined' && window.innerWidth >= 640 ? 25 : 15);
+                const rotationStatic = isActive
+                  ? 0
+                  : typeof window !== 'undefined' && window.innerWidth < 640
+                  ? rel * 3
+                  : 0;
+
+                // Drag-driven dynamics
+                const horizShift = isDragging
+                  ? (rel === 0 ? dragX : rel * Math.min(Math.abs(dragX) * 0.2, 60))
+                  : 0;
+                const activeScaleDelta = isDragging ? Math.min(Math.abs(dragX) / 600, 0.05) : 0;
+                const scale = isActive
+                  ? 1 - activeScaleDelta
+                  : 0.95 + (isDragging && rel === (dragX > 0 ? -1 : 1) ? Math.min(Math.abs(dragX) / 1200, 0.03) : 0);
+                const tilt = isActive ? Math.max(Math.min(dragX * 0.02, 4), -4) : rotationStatic;
+
+                return (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 service-card cursor-pointer transition-all duration-300 animate-fade-in sm:rotate-0`}
+                    style={{
+                      animationDelay: `${index * 0.2}s`,
+                      zIndex,
+                      transform: `translateX(${horizShift}px) translateY(${baseTranslateY}px) scale(${scale}) ${tilt ? `rotate(${tilt}deg)` : ''}`,
+                      transition: isDragging ? 'none' : undefined,
+                    }}
+                    onClick={() => {
+                      if (isActive) {
+                        setSelectedService(index);
+                      } else {
+                        setActiveCardMobile(index);
+                      }
+                    }}
+                  >
                     <div className="bg-card border border-border rounded-2xl p-6 shadow-strong transition-all duration-300 w-full h-[280px] flex flex-col text-left">
                       <div className="flex justify-start mb-4">
                         <Icon className="w-10 h-10 text-accent" />
                       </div>
-                      
+
                       <h3 className="mb-3 text-foreground text-3xl font-normal">
                         {service.title}
                       </h3>
-                      
+
                       <p className="text-muted-foreground leading-relaxed flex-grow text-sm">
                         {service.description}
                       </p>
@@ -164,9 +204,10 @@ const ServicesSection = () => {
                         Learn more
                       </button>
                     </div>
-                  </div>;
-            })}
-              
+                  </div>
+                );
+              })}
+
               {/* Navigation dots */}
               <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                 {services.map((_, index) => <button key={index} onClick={() => setActiveCardMobile(index)} className={`w-2 h-2 rounded-full transition-colors duration-200 ${activeCardMobile === index ? 'bg-accent' : 'bg-muted-foreground/30'}`} aria-label={`View ${services[index].title} card`} />)}
