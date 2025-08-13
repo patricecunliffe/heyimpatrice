@@ -278,7 +278,16 @@ const ServicesSection = () => {
                   <p className="text-sm text-muted-foreground mb-6">
                     Ready to get started? Let's discuss your project requirements and timeline.
                   </p>
-                  <button onClick={() => setShowQuoteModal(true)} className="hover:bg-accent hover:text-accent-foreground px-8 py-3 rounded-full font-semibold transition-colors duration-200 border border-border">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setShowQuoteModal(true);
+                    }}
+                    className="bg-foreground text-background hover:bg-foreground/90 hover:text-background px-8 py-3 rounded-full font-semibold transition-colors duration-200 border border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    aria-label="Open free quote form modal"
+                  >
                     Get a free quote!
                   </button>
                 </div>
