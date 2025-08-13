@@ -103,7 +103,7 @@ const ContactSection = () => {
               <div className="w-full">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button size="lg" variant="outline" className="w-full rounded-full border border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background shadow-medium hover:shadow-strong">
+                    <Button size="lg" variant="outline" className="w-full md:w-80 mx-auto rounded-full border border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background shadow-medium hover:shadow-strong">
                       Get a Free Quote
                     </Button>
                   </DialogTrigger>
