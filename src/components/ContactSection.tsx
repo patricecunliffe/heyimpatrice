@@ -4,10 +4,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 const ContactSection = () => {
-  const handleEmailClick = () => {
-    const subject = encodeURIComponent("Website build interest");
-    window.location.href = `mailto:patricecunliffe@gmail.com?subject=${subject}`;
-  };
   return <section id="contact" className="py-20 bg-secondary">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto text-center">
@@ -26,8 +22,10 @@ const ContactSection = () => {
                 <div className="text-4xl mb-4">📧</div>
                 <h3 className="mb-4 font-normal text-2xl">Send an Email</h3>
                 <p className="text-muted-foreground mb-6 text-base">Describe your project and I’ll reply in 24 hours with how I can help.</p>
-                <Button onClick={handleEmailClick} variant="outline" className="w-full rounded-full border border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background shadow-medium hover:shadow-strong">
-                  Send Email
+                <Button asChild variant="outline" className="w-full rounded-full border border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background shadow-medium hover:shadow-strong">
+                  <a href="mailto:patricecunliffe@gmail.com?subject=Website%20build%20interest" aria-label="Send email to Patrice">
+                    Send Email
+                  </a>
                 </Button>
               </div>
 
