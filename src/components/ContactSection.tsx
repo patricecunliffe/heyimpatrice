@@ -26,7 +26,7 @@ const ContactSection = () => {
                 <div className="text-4xl mb-4">📧</div>
                 <h3 className="mb-4 font-normal text-2xl">Send an Email</h3>
                 <p className="text-muted-foreground mb-6 text-base">Describe your project and I’ll reply in 24 hours with how I can help.</p>
-                <Button onClick={handleEmailClick} variant="secondary" className="w-full shadow-medium hover:shadow-strong">
+                <Button onClick={handleEmailClick} variant="outline" className="w-full rounded-full border border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background shadow-medium hover:shadow-strong">
                   Send Email
                 </Button>
               </div>
@@ -38,7 +38,7 @@ const ContactSection = () => {
                 <p className="text-muted-foreground mb-6 text-base">Book a 20-minute call to see if we’re a fit.</p>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="secondary" className="w-full shadow-medium hover:shadow-strong">
+                    <Button variant="outline" className="w-full rounded-full border border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background shadow-medium hover:shadow-strong">
                       Schedule Call
                     </Button>
                   </DialogTrigger>
@@ -63,7 +63,7 @@ const ContactSection = () => {
                 </p>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="secondary" className="w-full shadow-medium hover:shadow-strong">
+                    <Button variant="outline" className="w-full rounded-full border border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background shadow-medium hover:shadow-strong">
                       Open Contact Form
                     </Button>
                   </DialogTrigger>
@@ -95,17 +95,17 @@ const ContactSection = () => {
             </div>
             
             {/* Main CTA */}
-            <div className="bg-card rounded-2xl p-8 shadow-intense">
+            <div className="bg-card rounded-2xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 transform hover:scale-105">
               <h3 className="mb-4 text-4xl font-normal">
                 Get Your Free Quote in 3 Days
               </h3>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto text-lg">
                 Share your goals and receive a tailored project quote within 3 business days—no obligation.
               </p>
-              <div className="flex justify-center">
+              <div className="w-full">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button size="lg" variant="ghost" className="shadow-strong hover:shadow-intense transition-all transform hover:scale-105 border border-border">
+                    <Button size="lg" variant="outline" className="w-full rounded-full border border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background shadow-medium hover:shadow-strong">
                       Get a Free Quote
                     </Button>
                   </DialogTrigger>
