@@ -94,20 +94,24 @@ const FAQSection: React.FC = () => {
           </p>
         </header>
 
-        <article className="rounded-2xl border bg-card text-card-foreground shadow-sm overflow-hidden">
-          <Accordion type="single" collapsible className="divide-y">
-            {faqs.map((item, i) => <AccordionItem key={i} value={`item-${i + 1}`} className="border-b last:border-b-0">
-                <AccordionTrigger className="px-4 md:px-6 text-base md:text-lg font-medium hover:bg-muted/50 data-[state=open]:bg-muted/50 transition-colors">
-                  {item.q}
-                </AccordionTrigger>
-                <AccordionContent className="px-4 md:px-6 text-muted-foreground">
-                  <div className="prose prose-sm md:prose-base max-w-none">
-                    {item.a}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>)}
-          </Accordion>
-        </article>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {faqs.map((item, i) => (
+            <article key={i} className="bg-card border border-border rounded-xl p-6 shadow-soft hover:shadow-medium transition-all duration-300">
+              <Accordion type="single" collapsible>
+                <AccordionItem value={`item-${i + 1}`} className="border-none">
+                  <AccordionTrigger className="p-0 text-left font-dmsans text-lg font-semibold hover:no-underline [&[data-state=open]>svg]:rotate-180">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="p-0 pt-4 text-muted-foreground">
+                    <div className="prose prose-sm max-w-none">
+                      {item.a}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </article>
+          ))}
+        </div>
 
         <script type="application/ld+json"
       // eslint-disable-next-line react/no-danger
