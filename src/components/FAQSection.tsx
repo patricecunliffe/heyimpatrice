@@ -19,9 +19,9 @@ const faqs: {
 }, {
   q: "What’s included in the monthly cost?",
   a: <p>
-        Your monthly plan covers hosting, security monitoring, software updates, backups, and basic performance optimisation. You can add extra services (like custom development, content updates, advanced SEO, forms, or email marketing) at an additional cost.
+        Your monthly plan covers hosting, security monitoring, software updates, backups, and basic performance optimisation. You can add extra services (like custom development, content updates, advanced SEO, or email marketing) at an additional cost.
       </p>,
-  aPlain: "Your monthly plan covers hosting, security monitoring, software updates, backups, and basic performance optimisation. You can add extra services (like custom development, content updates, advanced SEO, forms, or email marketing) at an additional cost."
+  aPlain: "Your monthly plan covers hosting, security monitoring, software updates, backups, and basic performance optimisation. You can add extra services (like custom development, content updates, advanced SEO, or email marketing) at an additional cost."
 }, {
   q: "Do you offer a handover so I can manage my own site?",
   a: <p>
@@ -29,7 +29,7 @@ const faqs: {
       </p>,
   aPlain: "No — I specialise in managed websites so you get consistent performance and professional support without the learning curve."
 }, {
-  q: "What if I want changes after launch?",
+  q: "What if I want big changes after launch?",
   a: <p>
         No problem. You can request one-off changes at an hourly rate, or choose a monthly add-on for a set number of hours each month for ongoing tweaks, updates, and improvements.
       </p>,
@@ -37,9 +37,9 @@ const faqs: {
 }, {
   q: "Do you offer payment plans?",
   a: <p>
-        Yes — you can choose to pay every 6 months or annually (with a small discount for annual payments). This keeps billing simple and predictable.
+        Yes — you can choose to pay monthly, every 6 months or annually (with a small discount for annual payments). This keeps billing simple and predictable.
       </p>,
-  aPlain: "Yes — you can choose to pay every 6 months or annually (with a small discount for annual payments). This keeps billing simple and predictable."
+  aPlain: "Yes — you can choose to pay monthly, every 6 months or annually (with a small discount for annual payments). This keeps billing simple and predictable."
 }, {
   q: "What if my business grows and I need more features?",
   a: <p>
