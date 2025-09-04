@@ -16,8 +16,8 @@ const ServicesSection = () => {
     headline: "Launch Fast, Look Great",
     description: "Single landing page with clear CTAs and quick deployment. Perfect for getting your business online fast.",
     icon: Rocket,
-    price: "From $900 (once-off) + $59/month for ongoing care*",
-    careNote: "Includes hosting, security updates, performance monitoring, small monthly edits, and support.",
+    price: "From $200 (once-off) + $89/month for ongoing care*",
+    careNote: "Includes hosting, analytic updates, performance monitoring, small monthly edits, and support.",
     details: {
       overview: "A professional, mobile-ready website built to get you online in record time — without compromising on style or function. Perfect for new businesses, events, or personal projects that need a strong online presence fast.",
       includes: ["Up to 3 custom-designed pages", "Fully responsive (mobile, tablet, desktop)", "Contact form & basic integrations", "Starter blog/news page option", "Hosting & security setup", "Easy-to-manage backend"]
@@ -27,8 +27,8 @@ const ServicesSection = () => {
     headline: "Built to Grow With You",
     description: "Four-page website build with optional Linktree integration. The sweet spot for most businesses.",
     icon: TrendingUp,
-    price: "From $1,800 (once-off) + $129/month for ongoing care*",
-    careNote: "Includes hosting, security updates, performance monitoring, small monthly edits, and support.",
+    price: "From $800 (once-off) + $149/month for ongoing care*",
+    careNote: "Includes hosting, security & analytic updates, performance monitoring, small monthly edits, and support.",
     details: {
       overview: "A feature-rich website designed to evolve as your business expands. From integrated booking and e-commerce to advanced analytics, this package sets you up for growth without the tech headaches.",
       includes: ["4–6 custom-designed pages", "Fully responsive (mobile, tablet, desktop)", "Booking systems, e-commerce, or lead capture", "Blog/news section with categories", "Integrated email marketing", "Performance & analytics setup"]
@@ -36,13 +36,13 @@ const ServicesSection = () => {
   }, {
     title: "Complete Build",
     headline: "Your Complete Website, Done Right",
-    description: "Complete SaaS build with authentication, user systems, and database integration for ambitious projects.",
+    description: "Complete website build with blog, forms, automation and a few hours of monthly edits.",
     icon: Layers,
-    price: "From $2,500 (once-off) + $219/month for ongoing care*",
-    careNote: "Includes hosting, security updates, performance monitoring, small monthly edits, and support.",
+    price: "From $1,250 (once-off) + $299/month for ongoing care*",
+    careNote: "Includes hosting, security & analytic updates, performance monitoring, monthly edits, and quick support.",
     details: {
       overview: "A fully customised, high-performance website with all the features you need to launch, grow, and manage your online presence. Designed to scale with you — whether you’re selling, showcasing, or building community.",
-      includes: ["5+ custom-designed pages", "Fully responsive (mobile, tablet, desktop)", "Integrated forms, booking, and email capture", "Supabase backend for data + automation", "Blog/news section ready to go", "Analytics dashboard", "Fast, secure hosting included"]
+      includes: ["5+ custom-designed pages", "Fully responsive (mobile, tablet, desktop)", "Integrated forms, booking, and email capture", "Supabase backend for data + automation", "Blog/news section ready to go", "Fast, secure hosting included"]
     }
   }];
   const handleTouchStart = (e: any) => {
