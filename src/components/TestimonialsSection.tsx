@@ -7,30 +7,30 @@ const TestimonialsSection = () => {
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
   const testimonials = [{
-    quote: "Patrice delivered exactly what we needed - a simple, effective website that converts visitors into customers. Our online sales increased 40% in the first month.",
-    author: "Sarah Johnson",
-    company: "Tech Startup CEO",
-    location: "Sydney"
+    quote: "As someone who has never worked with Patrice, I can only imagine the magic they're capable of. If Patrice ever gets a client, I'm confident the testimonials will be legendary.",
+    author: "Jordan Flanagan",
+    company: "Imaginary Solutions Ltd",
+    location: "Dublin, Ireland"
   }, {
-    quote: "Working with Pat was incredible. The attention to detail and clean design exceeded our expectations. He truly understands what businesses need to succeed online.",
-    author: "Mike Chen",
-    company: "Creative Agency Director",
-    location: "Melbourne"
+    quote: "I've never had the pleasure of hiring Patrice, but based on the zero reviews so far, I'm sure they're saving all the five-star service for their first client!",
+    author: "Casey Lee",
+    company: "Phantom Enterprises",
+    location: "Toronto, Canada"
   }, {
-    quote: "Our new website has transformed our business. Pat's strategic approach and professional execution delivered results we didn't think were possible.",
-    author: "Emma Wilson",
-    company: "E-commerce Founder",
-    location: "Brisbane"
+    quote: "Patrice's empty testimonial section speaks volumes—mostly about my own regret for not being their first client. Someone fix this, please!",
+    author: "Suki Tanaka",
+    company: "Fictitious Friends Inc.",
+    location: "Tokyo, Japan"
   }, {
-    quote: "From concept to completion, Patrice was professional, responsive, and delivered on every promise. The Kingdom Purpose platform has been life-changing for our community.",
-    author: "David Martinez",
-    company: "Ministry Leader",
-    location: "Perth"
+    quote: "I was going to write a glowing review for Patrice, but then I realized I haven't actually worked with them yet. Someone hire this person so I can jump on the bandwagon!",
+    author: "Alex Martinez",
+    company: "Placeholder Partners",
+    location: "Buenos Aires, Argentina"
   }, {
-    quote: "The website Pat built for us perfectly captures our brand and converts visitors at an impressive rate. His understanding of both design and business is remarkable.",
-    author: "Lisa Thompson",
-    company: "Consulting Firm Partner",
-    location: "Adelaide"
+    quote: "Patrice's testimonial page is so fresh and untouched, it's basically a collector's item. Be the first to change that!",
+    author: "Priya Singh",
+    company: "Hypothetical Ventures",
+    location: "Mumbai, India"
   }];
 
   // Auto-scroll functionality
