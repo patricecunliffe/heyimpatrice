@@ -10,7 +10,7 @@ const LinksPage = () => {
     title: "My Website",
     url: "/",
     icon: Home,
-    description: "Explore my work and services"
+    description: "Explore my web design work and services"
   }, {
     title: "Wallpapers",
     url: "https://heyimpatrice.gumroad.com",
@@ -21,13 +21,13 @@ const LinksPage = () => {
     title: "Notion",
     url: "https://www.notion.so/@heyimpatrice",
     icon: FileText,
-    description: "Get my FREE templates",
+    description: "Get all my templates",
     external: true
   }, {
     title: "Get a Free Quote",
     url: "#",
     icon: MessageSquare,
-    description: "Start your next project!"
+    description: "Start your next web design project!"
   }];
   const handleLinkClick = (url: string, external?: boolean) => {
     if (external) {
