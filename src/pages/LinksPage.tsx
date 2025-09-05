@@ -45,7 +45,7 @@ const LinksPage = () => {
 
         <h1 className="text-2xl font-bold mb-2 animate-fade-in animation-delay-200 font-dmsans ">heyimpatrice</h1>
 
-        <p className="text-muted-foreground text-center max-w-xs animate-fade-in animation-delay-300 text-xs">Web designer, Notion connoisseur and digital minimalist ready to build incredible things</p>
+        <p className="text-muted-foreground text-center max-w-xs animate-fade-in animation-delay-300 text-base font-medium">Web designer, Notion connoisseur and digital minimalist</p>
       </div>
 
       {/* Links Section */}
