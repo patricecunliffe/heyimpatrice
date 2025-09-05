@@ -96,7 +96,7 @@ const ContactSection = () => {
                       <DialogDescription className="text-center">Complete the form below and I'll follow up within 3 business days.</DialogDescription>
                     </DialogHeader>
                     <div className="w-full">
-                      <iframe src="https://kiwi-oatmeal-777.notion.site/ebd/23fd5994cd3480b0bcc0cb7be9052fee" className="w-full h-[600px] rounded-md" frameBorder="0" allowFullScreen title="Free quote form" />
+                      <iframe src="https://tally.so/embed/woqqZN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" className="w-full h-[600px] rounded-md" frameBorder="0" loading="lazy" title="Free quote form" />
                     </div>
                   </DialogContent>
                 </Dialog>
