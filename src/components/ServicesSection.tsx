@@ -251,10 +251,10 @@ const ServicesSection = () => {
                 
                 {/* Collapsible What's Included Section */}
                 <Accordion type="single" collapsible className="w-full">
-                  <AccordionItem value="whats-included" className="border-b border-border">
-                    <AccordionTrigger className="flex items-center justify-between py-4 font-medium text-left hover:no-underline [&[data-state=open]>svg]:rotate-45">
+                  <AccordionItem value="whats-included" className="border-none">
+                    <AccordionTrigger className="flex items-center justify-between py-4 font-medium text-left hover:no-underline [&>svg:last-child]:hidden">
                       <span className="text-xl font-bold font-dmsans">What's Included</span>
-                      <Plus className="h-4 w-4 shrink-0 transition-transform duration-200" />
+                      <Plus className="h-4 w-4 shrink-0 transition-transform duration-200 [&[data-state=open]]:rotate-45" />
                     </AccordionTrigger>
                     <AccordionContent className="pb-4 pt-0">
                       <ul className="space-y-2">
@@ -270,7 +270,7 @@ const ServicesSection = () => {
                 </Accordion>
                 
                 {/* Pricing Section - Left Aligned */}
-                <div className="text-left pt-4 border-t">
+                <div className="text-left pt-4">
                   <div className="text-xl font-bold text-accent mb-2">
                     {(() => {
                       const price = services[selectedService].price;
