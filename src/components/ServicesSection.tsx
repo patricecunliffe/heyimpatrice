@@ -252,7 +252,7 @@ const ServicesSection = () => {
                 {/* Collapsible What's Included Section */}
                 <Accordion type="single" collapsible className="w-full">
                   <AccordionItem value="whats-included" className="border-none">
-                    <AccordionTrigger className="flex items-center justify-between py-4 font-medium text-left hover:no-underline [&>svg:last-child]:hidden">
+                    <AccordionTrigger className="flex items-center justify-between py-4 font-medium text-left hover:no-underline [&>svg:last-child]:hidden focus:outline-none focus-visible:outline-none">
                       <span className="text-xl font-bold font-dmsans">What's Included</span>
                       <Plus className="h-4 w-4 shrink-0 transition-transform duration-200 [&[data-state=open]]:rotate-45" />
                     </AccordionTrigger>
