@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Rocket, TrendingUp, Layers } from 'lucide-react';
+import { Rocket, TrendingUp, Layers, Plus } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import ProcessTimeline from '@/components/ProcessTimeline';
 const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
@@ -226,55 +227,66 @@ const ServicesSection = () => {
       <Dialog open={selectedService !== null} onOpenChange={() => setSelectedService(null)}>
         <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto p-6">
           {selectedService !== null && <>
-              <DialogHeader className="text-center mb-6">
-                <DialogTitle className="text-center text-5xl font-normal">
-                  {services[selectedService].title}
-                </DialogTitle>
-                {services[selectedService].headline && <p className="text-muted-foreground mt-2 text-center">{services[selectedService].headline}</p>}
-              </DialogHeader>
-              
               <div className="space-y-6">
-                <div className="text-center">
-                  <div className="flex items-center justify-center w-20 h-20 mb-4 mx-auto">
+                {/* Icon and Title Section - Left Aligned */}
+                <div className="text-left">
+                  <div className="flex items-center justify-start w-16 h-16 mb-4">
                     {(() => {
-                  const Icon = services[selectedService].icon;
-                  return <Icon className="w-16 h-16 text-accent" />;
-                })()}
+                      const Icon = services[selectedService].icon;
+                      return <Icon className="w-16 h-16 text-accent" />;
+                    })()}
                   </div>
-                  <p className="text-lg text-muted-foreground text-center">
+                  <h2 className="text-left text-5xl font-normal mb-2">
+                    {services[selectedService].title}
+                  </h2>
+                  {services[selectedService].headline && <p className="text-muted-foreground mt-2 text-left text-lg">{services[selectedService].headline}</p>}
+                </div>
+
+                {/* Overview Section - Left Aligned */}
+                <div className="text-left">
+                  <p className="text-lg text-muted-foreground">
                     {services[selectedService].details.overview}
                   </p>
                 </div>
                 
-                <div>
-                  <h4 className="text-xl font-bold mb-3 font-dmsans">What's Included</h4>
-                  <ul className="grid md:grid-cols-2 gap-2">
-                    {services[selectedService].details.includes.map((item, index) => <li key={index} className="flex items-center">
-                        <div className="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0"></div>
-                        <span className="text-muted-foreground text-sm">{item}</span>
-                      </li>)}
-                  </ul>
-                </div>
+                {/* Collapsible What's Included Section */}
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="whats-included" className="border-b border-border">
+                    <AccordionTrigger className="flex items-center justify-between py-4 font-medium text-left hover:no-underline [&[data-state=open]>svg]:rotate-45">
+                      <span className="text-xl font-bold font-dmsans">What's Included</span>
+                      <Plus className="h-4 w-4 shrink-0 transition-transform duration-200" />
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-4 pt-0">
+                      <ul className="space-y-2">
+                        {services[selectedService].details.includes.map((item, index) => 
+                          <li key={index} className="flex items-start">
+                            <div className="w-2 h-2 bg-accent rounded-full mr-3 flex-shrink-0 mt-2"></div>
+                            <span className="text-muted-foreground text-sm">{item}</span>
+                          </li>
+                        )}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
                 
-                
-                
-                <div className="text-center pt-4 border-t">
+                {/* Pricing Section - Left Aligned */}
+                <div className="text-left pt-4 border-t">
                   <div className="text-xl font-bold text-accent mb-2">
                     {(() => {
-                  const price = services[selectedService].price;
-                  const parts = price.split("+");
-                  const before = parts[0]?.trim() || price;
-                  const after = parts.slice(1).join("+").trim();
-                  const sanitizedBefore = before.replace(/\s*\(once-off\)/i, "");
-                  return <>
-                          <span className="text-xl">{sanitizedBefore}</span>
-                          {after && <span className="block text-sm font-medium">+ {after}</span>}
-                        </>;
-                })()}
+                      const price = services[selectedService].price;
+                      const parts = price.split("+");
+                      const before = parts[0]?.trim() || price;
+                      const after = parts.slice(1).join("+").trim();
+                      const sanitizedBefore = before.replace(/\s*\(once-off\)/i, "");
+                      return <>
+                        <span className="text-xl">{sanitizedBefore}</span>
+                        {after && <span className="block text-sm font-medium">+ {after}</span>}
+                      </>;
+                    })()}
                   </div>
                   {services[selectedService].careNote && <p className="text-muted-foreground mb-4 text-xs">
-                      {services[selectedService].careNote}
-                    </p>}
+                    {services[selectedService].careNote}
+                  </p>}
                   <p className="text-sm text-muted-foreground mb-6">
                     Ready to get started? Let's discuss your project requirements and timeline.
                   </p>
