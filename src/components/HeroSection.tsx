@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import heroBg1 from '@/assets/hero-bg-1.jpg';
 import heroBg2 from '@/assets/hero-bg-2.jpg';
 import heroBg3 from '@/assets/hero-bg-3.jpg';
@@ -117,7 +118,20 @@ const HeroSection = () => {
             
             {/* Work with me button - appears after title */}
             <div className="mb-3 md:mb-12 opacity-0 animate-fade-in-delayed">
-              <Button variant="ghost" size="lg" onClick={() => scrollToSection('contact')} className="rounded-none border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold text-base px-[32px] py-[16px]">Get a FREE Quote</Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="ghost" size="lg" className="rounded-none border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-semibold text-base px-[32px] py-[16px]">Get a FREE Quote</Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[900px]">
+                  <DialogHeader>
+                    <DialogTitle className="text-center font-normal text-3xl">Request a Free Quote</DialogTitle>
+                    <DialogDescription className="text-center">Complete the form below and I'll follow up within 3 business days.</DialogDescription>
+                  </DialogHeader>
+                  <div className="w-full">
+                    <iframe src="https://tally.so/embed/woqqZN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" className="w-full h-[600px] rounded-md" frameBorder="0" loading="lazy" title="Free quote form" />
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
             
             {/* CTA Buttons - appear with scale effect */}
