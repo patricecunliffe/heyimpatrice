@@ -1,77 +1,55 @@
 import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Plus } from "lucide-react";
+
 const faqs: {
   q: string;
   a: React.ReactNode;
   aPlain: string;
 }[] = [{
-  q: "Do I own my website?",
+  q: "How long is the onboarding process?",
   a: <p>
-        Yes. The website is built for you, and you own the content, branding, and assets. I handle all hosting and management so you can focus on running your business, not your tech stack.
+        Our onboarding process typically takes 1-2 weeks. We'll gather all your requirements, brand assets, and preferences to ensure we create exactly what you need for your business.
       </p>,
-  aPlain: "Yes. The website is built for you, and you own the content, branding, and assets. I handle all hosting and management so you can focus on running your business, not your tech stack."
+  aPlain: "Our onboarding process typically takes 1-2 weeks. We'll gather all your requirements, brand assets, and preferences to ensure we create exactly what you need for your business."
 }, {
-  q: "Can I take the site and host it somewhere else?",
+  q: "Why choose our service over a full-time designer?",
   a: <p>
-        No — all websites are hosted and managed by me. This ensures top performance, security, and compatibility with the tools I’ve set up. It also means you never have to worry about updates, backups, or bugs.
+        We offer the expertise of a full design team at a fraction of the cost. You get professional results without the overhead of hiring, training, or managing an in-house designer.
       </p>,
-  aPlain: "No — all websites are hosted and managed by me. This ensures top performance, security, and compatibility with the tools I’ve set up. It also means you never have to worry about updates, backups, or bugs."
+  aPlain: "We offer the expertise of a full design team at a fraction of the cost. You get professional results without the overhead of hiring, training, or managing an in-house designer."
 }, {
-  q: "What’s included in the monthly cost?",
+  q: "Who will be working on my designs?",
   a: <p>
-        Your monthly plan covers hosting, security monitoring, software updates, backups, and basic performance optimisation. You can add extra services (like custom development, content updates, advanced SEO, or email marketing) at an additional cost.
+        Your project will be handled by our experienced design team, led by a senior designer who will be your main point of contact throughout the entire process.
       </p>,
-  aPlain: "Your monthly plan covers hosting, security monitoring, software updates, backups, and basic performance optimisation. You can add extra services (like custom development, content updates, advanced SEO, or email marketing) at an additional cost."
+  aPlain: "Your project will be handled by our experienced design team, led by a senior designer who will be your main point of contact throughout the entire process."
 }, {
-  q: "Do you offer a handover so I can manage my own site?",
+  q: "What programs do you design in?",
   a: <p>
-        No — I specialise in managed websites so you get consistent performance and professional support without the learning curve.
+        We use industry-standard tools including Figma, Adobe Creative Suite, Sketch, and other professional design software to deliver high-quality, scalable designs.
       </p>,
-  aPlain: "No — I specialise in managed websites so you get consistent performance and professional support without the learning curve."
+  aPlain: "We use industry-standard tools including Figma, Adobe Creative Suite, Sketch, and other professional design software to deliver high-quality, scalable designs."
 }, {
-  q: "What if I want big changes after launch?",
+  q: "How will we communicate?",
   a: <p>
-        No problem. You can request one-off changes at an hourly rate, or choose a monthly add-on for a set number of hours each month for ongoing tweaks, updates, and improvements.
+        We'll set up regular check-ins via your preferred communication method - whether that's email, Slack, or video calls. You'll always know the status of your project.
       </p>,
-  aPlain: "No problem. You can request one-off changes at an hourly rate, or choose a monthly add-on for a set number of hours each month for ongoing tweaks, updates, and improvements."
+  aPlain: "We'll set up regular check-ins via your preferred communication method - whether that's email, Slack, or video calls. You'll always know the status of your project."
 }, {
-  q: "Do you offer payment plans?",
+  q: "When will I receive my designs?",
   a: <p>
-        Yes — you can choose to pay monthly, every 6 months or annually (with a small discount for annual payments). This keeps billing simple and predictable.
+        Project timelines vary based on scope, but most projects are completed within 2-6 weeks. We'll provide you with a detailed timeline during the onboarding process.
       </p>,
-  aPlain: "Yes — you can choose to pay monthly, every 6 months or annually (with a small discount for annual payments). This keeps billing simple and predictable."
+  aPlain: "Project timelines vary based on scope, but most projects are completed within 2-6 weeks. We'll provide you with a detailed timeline during the onboarding process."
 }, {
-  q: "What if my business grows and I need more features?",
+  q: "What if I'm not happy with the design?",
   a: <p>
-        That’s exactly why I offer scalable packages. You can start small and add more capabilities as your needs evolve — without rebuilding from scratch.
+        We include unlimited revisions until you're completely satisfied. Your success is our priority, and we'll work together until we get it exactly right.
       </p>,
-  aPlain: "That’s exactly why I offer scalable packages. You can start small and add more capabilities as your needs evolve — without rebuilding from scratch."
-}, {
-  q: "Do you provide SEO?",
-  a: <p>
-        I provide basic on-page SEO with every site to ensure search engines can find you. More advanced SEO work can be added as a separate service when you’re ready to invest in growth.
-      </p>,
-  aPlain: "I provide basic on-page SEO with every site to ensure search engines can find you. More advanced SEO work can be added as a separate service when you’re ready to invest in growth."
-}, {
-  q: "How long will my website take to build?",
-  a: <div className="space-y-2">
-        <ul className="list-disc pl-6">
-          <li>Quick Launch: Typically 1–2 weeks</li>
-          <li>Growth Package: 3–5 weeks</li>
-          <li>The Complete Build: 6–8 weeks</li>
-        </ul>
-        <p className="text-muted-foreground">
-          Timelines depend on complexity, feedback speed, and content readiness.
-        </p>
-      </div>,
-  aPlain: "Quick Launch: Typically 1–2 weeks; Growth Package: 3–5 weeks; The Complete Build: 6–8 weeks. Timelines depend on complexity, feedback speed, and content readiness."
-}, {
-  q: "Do you work with all industries?",
-  a: <p>
-        Yes. I’ve built websites for a variety of industries — service providers, creatives, educators, and more. The process is tailored to your goals, not your industry.
-      </p>,
-  aPlain: "Yes. I’ve built websites for a variety of industries — service providers, creatives, educators, and more. The process is tailored to your goals, not your industry."
+  aPlain: "We include unlimited revisions until you're completely satisfied. Your success is our priority, and we'll work together until we get it exactly right."
 }];
+
 const FAQSection: React.FC = () => {
   const faqLd = {
     "@context": "https://schema.org",
@@ -85,40 +63,54 @@ const FAQSection: React.FC = () => {
       }
     }))
   };
-  return <section id="faq" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <header className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl mb-6 font-normal md:text-6xl">Frequently Asked Questions</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Clear answers about hosting, timelines, support, and more.
-          </p>
-        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {faqs.map((item, i) => (
-            <article key={i} className="bg-card border border-border rounded-xl p-6 shadow-soft hover:shadow-medium transition-all duration-300">
-              <Accordion type="single" collapsible>
-                <AccordionItem value={`item-${i + 1}`} className="border-none">
-                  <AccordionTrigger className="p-0 text-left font-dmsans text-lg font-semibold hover:no-underline [&[data-state=open]>svg]:rotate-180">
-                    {item.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="p-0 pt-4 text-muted-foreground">
-                    <div className="prose prose-sm max-w-none">
-                      {item.a}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </article>
-          ))}
+  return (
+    <section id="faq" className="py-20 bg-background">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Left side - Title and Description */}
+          <div className="lg:pr-8">
+            <div className="animate-fade-in">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal mb-6">FAQ</h2>
+              <p className="text-muted-foreground text-lg lg:text-xl leading-relaxed">
+                We're here to support you from the start and make the process smooth.
+              </p>
+            </div>
+          </div>
+
+          {/* Right side - FAQ Items */}
+          <div className="space-y-4">
+            {faqs.map((item, i) => (
+              <article key={i} className="bg-card border border-border rounded-lg overflow-hidden">
+                <Accordion type="single" collapsible>
+                  <AccordionItem value={`item-${i + 1}`} className="border-none">
+                    <AccordionTrigger className="px-6 py-5 text-left font-medium text-lg hover:no-underline hover:bg-muted/50 transition-colors duration-200 [&[data-state=open]]:bg-muted/50 [&>svg]:hidden">
+                      <div className="flex items-center justify-between w-full">
+                        <span className="pr-4">{item.q}</span>
+                        <Plus className="h-5 w-5 shrink-0 transition-transform duration-200 [&[data-state=open]]:rotate-45" />
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-5 pt-0 text-muted-foreground">
+                      <div className="prose prose-sm max-w-none">
+                        {item.a}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </article>
+            ))}
+          </div>
         </div>
 
-        <script type="application/ld+json"
-      // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(faqLd)
-      }} />
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqLd)
+          }}
+        />
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default FAQSection;
