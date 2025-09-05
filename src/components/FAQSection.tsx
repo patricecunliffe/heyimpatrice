@@ -7,47 +7,65 @@ const faqs: {
   a: React.ReactNode;
   aPlain: string;
 }[] = [{
-  q: "How long is the onboarding process?",
+  q: "Do I own my website?",
   a: <p>
-        Our onboarding process typically takes 1-2 weeks. We'll gather all your requirements, brand assets, and preferences to ensure we create exactly what you need for your business.
+        Yes. The website is built for you, and you own the content, branding, and assets. I handle all hosting and management so you can focus on running your business, not your tech stack.
       </p>,
-  aPlain: "Our onboarding process typically takes 1-2 weeks. We'll gather all your requirements, brand assets, and preferences to ensure we create exactly what you need for your business."
+  aPlain: "Yes. The website is built for you, and you own the content, branding, and assets. I handle all hosting and management so you can focus on running your business, not your tech stack."
 }, {
-  q: "Why choose our service over a full-time designer?",
+  q: "Can I take the site and host it somewhere else?",
   a: <p>
-        We offer the expertise of a full design team at a fraction of the cost. You get professional results without the overhead of hiring, training, or managing an in-house designer.
+        No — all websites are hosted and managed by me. This ensures top performance, security, and compatibility with the tools I've set up. It also means you never have to worry about updates, backups, or bugs.
       </p>,
-  aPlain: "We offer the expertise of a full design team at a fraction of the cost. You get professional results without the overhead of hiring, training, or managing an in-house designer."
+  aPlain: "No — all websites are hosted and managed by me. This ensures top performance, security, and compatibility with the tools I've set up. It also means you never have to worry about updates, backups, or bugs."
 }, {
-  q: "Who will be working on my designs?",
+  q: "What's included in the monthly cost?",
   a: <p>
-        Your project will be handled by our experienced design team, led by a senior designer who will be your main point of contact throughout the entire process.
+        Your monthly plan covers hosting, security monitoring, software updates, backups, and basic performance optimisation. You can add extra services (like custom development, content updates, advanced SEO, or email marketing) at an additional cost.
       </p>,
-  aPlain: "Your project will be handled by our experienced design team, led by a senior designer who will be your main point of contact throughout the entire process."
+  aPlain: "Your monthly plan covers hosting, security monitoring, software updates, backups, and basic performance optimisation. You can add extra services (like custom development, content updates, advanced SEO, or email marketing) at an additional cost."
 }, {
-  q: "What programs do you design in?",
+  q: "Do you offer a handover so I can manage my own site?",
   a: <p>
-        We use industry-standard tools including Figma, Adobe Creative Suite, Sketch, and other professional design software to deliver high-quality, scalable designs.
+        Not really — I specialise in managed websites so you get consistent performance and professional support without the learning curve. I can look into a handover on special request but the website build cost would need to increase.
       </p>,
-  aPlain: "We use industry-standard tools including Figma, Adobe Creative Suite, Sketch, and other professional design software to deliver high-quality, scalable designs."
+  aPlain: "Not really — I specialise in managed websites so you get consistent performance and professional support without the learning curve. I can look into a handover on special request but the website build cost would need to increase."
 }, {
-  q: "How will we communicate?",
+  q: "What if I want big changes after launch?",
   a: <p>
-        We'll set up regular check-ins via your preferred communication method - whether that's email, Slack, or video calls. You'll always know the status of your project.
+        No problem. You can request one-off changes at an hourly rate, or choose a monthly add-on for a set number of hours each month for ongoing tweaks, updates, and improvements.
       </p>,
-  aPlain: "We'll set up regular check-ins via your preferred communication method - whether that's email, Slack, or video calls. You'll always know the status of your project."
+  aPlain: "No problem. You can request one-off changes at an hourly rate, or choose a monthly add-on for a set number of hours each month for ongoing tweaks, updates, and improvements."
 }, {
-  q: "When will I receive my designs?",
+  q: "Do you offer payment plans?",
   a: <p>
-        Project timelines vary based on scope, but most projects are completed within 2-6 weeks. We'll provide you with a detailed timeline during the onboarding process.
+        Yes — you can choose to pay monthly, every 6 months or annually (with a small discount for annual payments). This keeps billing simple and predictable.
       </p>,
-  aPlain: "Project timelines vary based on scope, but most projects are completed within 2-6 weeks. We'll provide you with a detailed timeline during the onboarding process."
+  aPlain: "Yes — you can choose to pay monthly, every 6 months or annually (with a small discount for annual payments). This keeps billing simple and predictable."
 }, {
-  q: "What if I'm not happy with the design?",
+  q: "What if my business grows and I need more features?",
   a: <p>
-        We include unlimited revisions until you're completely satisfied. Your success is our priority, and we'll work together until we get it exactly right.
+        That's exactly why I offer scalable packages. You can start small and add more capabilities as your needs evolve — without rebuilding from scratch.
       </p>,
-  aPlain: "We include unlimited revisions until you're completely satisfied. Your success is our priority, and we'll work together until we get it exactly right."
+  aPlain: "That's exactly why I offer scalable packages. You can start small and add more capabilities as your needs evolve — without rebuilding from scratch."
+}, {
+  q: "Do you provide SEO?",
+  a: <p>
+        I provide basic on-page SEO with every site to ensure search engines can find you. More advanced SEO work can be added as a separate service when you're ready to invest in growth.
+      </p>,
+  aPlain: "I provide basic on-page SEO with every site to ensure search engines can find you. More advanced SEO work can be added as a separate service when you're ready to invest in growth."
+}, {
+  q: "How long will my website take to build?",
+  a: <p>
+        Quick Launch: Typically 1–2 weeks; Growth Package: 3–5 weeks; The Complete Build: 6–8 weeks. Timelines depend on complexity, feedback speed, and content readiness.
+      </p>,
+  aPlain: "Quick Launch: Typically 1–2 weeks; Growth Package: 3–5 weeks; The Complete Build: 6–8 weeks. Timelines depend on complexity, feedback speed, and content readiness."
+}, {
+  q: "Do you work with all industries?",
+  a: <p>
+        Yes. I've built websites for a variety of industries — service providers, creatives, educators, and more. The process is tailored to your goals, not your industry.
+      </p>,
+  aPlain: "Yes. I've built websites for a variety of industries — service providers, creatives, educators, and more. The process is tailored to your goals, not your industry."
 }];
 
 const FAQSection: React.FC = () => {
@@ -73,7 +91,7 @@ const FAQSection: React.FC = () => {
             <div className="animate-fade-in">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal mb-6">FAQ</h2>
               <p className="text-muted-foreground text-lg lg:text-xl leading-relaxed">
-                We're here to support you from the start and make the process smooth.
+                Clear answers about hosting, timelines, support, and more.
               </p>
             </div>
           </div>
