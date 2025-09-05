@@ -25,7 +25,7 @@ const LinksPage = () => {
     external: true
   }, {
     title: "Get a Free Quote",
-    url: "https://kiwi-oatmeal-777.notion.site/23fd5994cd3480b0bcc0cb7be9052fee?pvs=105",
+    url: "#",
     icon: MessageSquare,
     description: "Start your next project!"
   }];
@@ -117,7 +117,7 @@ const LinksPage = () => {
             <DrawerDescription className="text-center">Tell me about your project</DrawerDescription>
           </DrawerHeader>
           <div className="px-4 pb-8">
-            <iframe src="https://kiwi-oatmeal-777.notion.site/ebd/23fd5994cd3480b0bcc0cb7be9052fee" className="w-full h-[70vh] rounded-md border border-border" frameBorder="0" allowFullScreen title="Free quote form" />
+            <iframe src="https://tally.so/embed/woqqZN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" className="w-full h-[70vh] rounded-md border border-border" frameBorder="0" loading="lazy" title="Free quote form" />
           </div>
         </DrawerContent>
       </Drawer>
