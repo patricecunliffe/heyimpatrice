@@ -66,10 +66,10 @@ const FAQSection: React.FC = () => {
 
   return (
     <section id="faq" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr,2fr] gap-12 lg:gap-20">
           {/* Left side - Title and Description */}
-          <div className="lg:pr-8">
+          <div className="lg:pr-4">
             <div className="animate-fade-in">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal mb-6">FAQ</h2>
               <p className="text-muted-foreground text-lg lg:text-xl leading-relaxed">
