@@ -1,19 +1,24 @@
-import WebsiteScreenshot from './WebsiteScreenshot';
+import portfolioKingdomPurpose from '@/assets/portfolio-kingdom-purpose.jpg';
+import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
+import portfolioCorporate from '@/assets/portfolio-corporate.jpg';
 const WorkSection = () => {
   const projects = [{
     title: "Kingdom Purpose",
     description: "A SaaS platform helping people discover their divine calling and purpose through guided assessments and personalized coaching.",
     url: "kingdompurpose.au",
+    image: portfolioKingdomPurpose,
     technologies: ["React", "Node.js", "Supabase", "Stripe"]
   }, {
     title: "Empower Leader",
     description: "Coaching services website optimised for generating leads, resourcing pastors with log ins for current clients for quick access to content.",
     url: "empowerleader.org",
+    image: portfolioEcommerce,
     technologies: ["Next.js", "Shopify", "TailwindCSS"]
   }, {
     title: "inherhands",
     description: "Artist website for managing a portfolio with the ability feature and personally manage ongoing for sale and sold works.",
     url: "strategicpartners.com.au",
+    image: portfolioCorporate,
     technologies: ["React", "TypeScript", "Framer Motion"]
   }];
   const handleProjectClick = (url: string) => {
@@ -38,12 +43,7 @@ const WorkSection = () => {
                 {/* Project Image */}
                 <div className="flex-1 relative group cursor-pointer" onClick={() => handleProjectClick(project.url)}>
                   <div className="relative overflow-hidden rounded-2xl shadow-strong hover:shadow-intense transition-all duration-500 transform hover:scale-105">
-                    <WebsiteScreenshot 
-                      url={project.url}
-                      title={project.title}
-                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                      onClick={() => handleProjectClick(project.url)}
-                    />
+                    <img src={project.image} alt={project.title} className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110" />
                     {/* Overlay with click hint */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                       <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 dark:bg-black/90 px-6 py-3 rounded-full">
