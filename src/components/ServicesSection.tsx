@@ -269,6 +269,9 @@ const ServicesSection = () => {
                   </AccordionItem>
                 </Accordion>
                 
+                {/* Separator Line */}
+                <div className="border-t border-border"></div>
+                
                 {/* Pricing Section - Left Aligned */}
                 <div className="text-left pt-4">
                   <div className="text-xl font-bold text-accent mb-2">
