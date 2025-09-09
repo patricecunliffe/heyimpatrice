@@ -15,7 +15,7 @@ const AboutSection = () => {
     headline: "Stop losing customers to confusing websites",
     byline: "Clear, simple designs that make it obvious what you do and how to get started."
   }];
-  return <section id="about" className="py-24 bg-background">
+  return <section id="about" className="py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-4xl mx-auto">
           {/* Title */}
