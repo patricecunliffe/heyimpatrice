@@ -13,9 +13,9 @@ const ServicesSection = () => {
   const [dragX, setDragX] = useState(0);
   const TOUCH_THRESHOLD = 40;
   const services = [{
-    title: "Quick Launch Package",
+    title: "Quick Launch",
     headline: "Launch Fast, Convert Immediately",
-    description: "Perfect for new businesses or anyone who needs a professional online presence that starts working from day one.",
+    description: "Professional landing page with clear CTAs and automated lead capture. Perfect for getting your business online fast and start converting visitors immediately.",
     icon: Rocket,
     price: "From $300 + $89/month for ongoing management",
     careNote: "Includes hosting, security updates, monthly analytics reports, and technical support.",
@@ -26,7 +26,7 @@ const ServicesSection = () => {
   }, {
     title: "Growth Package",
     headline: "Built to Scale Your Client Base",
-    description: "The sweet spot for most businesses — everything you need to establish credibility and systematically capture more leads.",
+    description: "Multi-page website with integrated social hub and weekly optimization. The sweet spot for most businesses ready to systematically capture more leads.",
     icon: TrendingUp,
     price: "From $800 + $149/month for ongoing management",
     careNote: "Includes hosting, weekly performance monitoring, monthly updates, and priority support.",
@@ -37,7 +37,7 @@ const ServicesSection = () => {
   }, {
     title: "Complete Build",
     headline: "Your Full Client Acquisition System",
-    description: "A comprehensive website designed to attract, qualify, and convert your ideal clients with advanced automation and assessment tools.",
+    description: "Comprehensive website with advanced automations, assessments, and multi-step funnels. Complete system designed to attract, qualify, and convert your ideal clients.",
     icon: Layers,
     price: "From $1,250 + $229/month for comprehensive management",
     careNote: "Includes everything above plus ongoing optimization, content support, and advanced analytics.",
