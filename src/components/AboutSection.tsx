@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
 const AboutSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const statements = [{
@@ -24,22 +23,9 @@ const AboutSection = () => {
           </h2>
           
           {/* Blurb text */}
-          <div className="space-y-4 text-muted-foreground text-base leading-relaxed mb-8">
-            <p>
-              I'm a website developer passionate about creating systems that actually get you more clients. Too many business owners are juggling multiple subscriptions — website hosting, form builders, email automation, assessment tools, link management, analytics dashboards — all while their website sits there looking pretty but not converting.
-            </p>
-            <p>
-              My solution? One functional website that replaces most of your tech stack. Instead of managing five different platforms and monthly bills, you get a streamlined system designed to capture leads, nurture prospects, and convert visitors into paying customers.
-            </p>
-            <p>
-              I believe websites should be simple, effective, and work 24/7 to grow your business — not create more complexity in your life.
-            </p>
-          </div>
-
-          {/* Arrow connector */}
-          <div className="flex justify-center mb-8">
-            <ChevronDown className="h-8 w-8 text-muted-foreground animate-bounce" />
-          </div>
+          <p className="text-muted-foreground text-base leading-relaxed mb-16 max-w-2xl mx-auto">
+            I'm a developer passionate about creating systems that help you get more clients without the complexity of managing logins and subscriptions daily.
+          </p>
 
           {/* Interactive statements - 2x2 grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
