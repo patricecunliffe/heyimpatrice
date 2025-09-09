@@ -99,14 +99,18 @@ const ServicesSection = () => {
               return <div key={index} className={`service-card cursor-pointer transition-all duration-500 hover:scale-110 hover:z-50 animate-fade-in ${index === 1 ? 'z-20 scale-105' : 'z-10'} ${rotationClasses[index]} w-full`} style={{
                 animationDelay: `${index * 0.2}s`
               }} onClick={() => setSelectedService(index)}>
-                    <div className="bg-card border border-border rounded-2xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-full max-w-sm mx-auto min-h-[18rem] w-80 h-80 flex flex-col text-left">
-                      <div className="flex justify-start mb-6">
+                    <div className="bg-card border border-border rounded-2xl p-8 shadow-strong hover:shadow-intense transition-all duration-300 w-full max-w-sm mx-auto min-h-[22rem] w-80 h-96 flex flex-col text-left">
+                      <div className="flex justify-start mb-4">
                         <Icon className="w-12 h-12 text-accent" />
                       </div>
                       
-                      <h3 className="mb-4 text-foreground text-4xl font-normal">
+                      <h3 className="mb-2 text-foreground text-4xl font-normal">
                         {service.title}
                       </h3>
+                      
+                      <h4 className="mb-4 text-accent text-lg font-medium">
+                        {service.headline}
+                      </h4>
                       
                       <p className="text-muted-foreground leading-relaxed flex-grow text-base">
                         {service.description}
@@ -181,14 +185,18 @@ const ServicesSection = () => {
                       }
                     }}
                   >
-                    <div className="bg-card border border-border rounded-2xl p-6 shadow-strong transition-all duration-300 w-full h-[280px] flex flex-col text-left">
-                      <div className="flex justify-start mb-4">
+                    <div className="bg-card border border-border rounded-2xl p-6 shadow-strong transition-all duration-300 w-full h-[340px] flex flex-col text-left">
+                      <div className="flex justify-start mb-3">
                         <Icon className="w-10 h-10 text-accent" />
                       </div>
 
-                      <h3 className="mb-3 text-foreground text-3xl font-normal">
+                      <h3 className="mb-2 text-foreground text-3xl font-normal">
                         {service.title}
                       </h3>
+
+                      <h4 className="mb-3 text-accent text-base font-medium">
+                        {service.headline}
+                      </h4>
 
                       <p className="text-muted-foreground leading-relaxed flex-grow text-sm">
                         {service.description}
