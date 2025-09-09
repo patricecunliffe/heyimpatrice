@@ -17,7 +17,7 @@ const WorkSection = () => {
   }, {
     title: "inherhands",
     description: "Artist website for managing a portfolio with the ability feature and personally manage ongoing for sale and sold works.",
-    url: "strategicpartners.com.au",
+    url: "inherhands.com.au",
     image: portfolioCorporate,
     technologies: ["React", "TypeScript", "Framer Motion"]
   }];
