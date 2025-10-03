@@ -1,34 +1,71 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, FileText, MessageSquare, Palette, Instagram, AtSign } from "lucide-react";
+import { Home, FileText, MessageSquare, Instagram, AtSign } from "lucide-react";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
 import ContactForm from "@/components/ContactForm";
+import ProductCard from "@/components/ProductCard";
+import productIconicPeople from "@/assets/product-iconic-people.png";
+import productIconicPlaces from "@/assets/product-iconic-places.png";
 const LinksPage = () => {
   const [contactOpen, setContactOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
-  const links = [{
-    title: "My Website",
-    url: "/",
-    icon: Home,
-    description: "Explore my web design work and services"
-  }, {
-    title: "Wallpapers",
-    url: "https://heyimpatrice.gumroad.com",
-    icon: Palette,
-    description: "Wallpapers for your devices",
-    external: true
-  }, {
-    title: "Notion",
-    url: "https://www.notion.so/@heyimpatrice",
-    icon: FileText,
-    description: "Get all my templates",
-    external: true
-  }, {
-    title: "Get a Free Quote",
-    url: "#",
-    icon: MessageSquare,
-    description: "Start your next web design project!"
-  }];
+
+  const products = [
+    {
+      id: "iconic-people",
+      title: "Iconic People Collection",
+      price: "$0.99",
+      image: productIconicPeople,
+      productUrl: "https://heyimpatrice.gumroad.com/l/iconic-people",
+      category: "wallpapers" as const
+    },
+    {
+      id: "iconic-places",
+      title: "Iconic Places Collection",
+      price: "$0.99",
+      image: productIconicPlaces,
+      productUrl: "https://heyimpatrice.gumroad.com/l/iconic-places",
+      category: "wallpapers" as const
+    },
+    {
+      id: "formula-1",
+      title: "Formula 1 Collection",
+      price: "$0.99",
+      image: productIconicPeople,
+      productUrl: "https://heyimpatrice.gumroad.com/l/formula-1",
+      category: "wallpapers" as const
+    },
+    {
+      id: "bible",
+      title: "Bible Collection",
+      price: "$0.99",
+      image: productIconicPlaces,
+      productUrl: "https://heyimpatrice.gumroad.com/l/bible",
+      category: "wallpapers" as const
+    }
+  ];
+
+  const links = [
+    {
+      title: "My Website",
+      url: "/",
+      icon: Home,
+      description: "Explore my web design work and services"
+    },
+    {
+      title: "Notion",
+      url: "https://www.notion.so/@heyimpatrice",
+      icon: FileText,
+      description: "Get all my templates",
+      external: true
+    },
+    {
+      title: "Get a Free Quote",
+      url: "#",
+      icon: MessageSquare,
+      description: "Start your next web design project!"
+    }
+  ];
   const handleLinkClick = (url: string, external?: boolean) => {
     if (external) {
       window.open(url, "_blank", "noopener,noreferrer");
@@ -43,56 +80,66 @@ const LinksPage = () => {
           <img src="/lovable-uploads/e95d8ab0-4eb5-4b29-9b31-33c4bfb5ad5d.png" alt="Patrice Profile" loading="lazy" className="w-full h-full object-cover" />
         </div>
 
-        <h1 className="text-2xl font-bold mb-2 animate-fade-in animation-delay-200 font-dmsans ">heyimpatrice</h1>
+        <h1 className="text-2xl font-bold mb-3 animate-fade-in animation-delay-200 font-dmsans">heyimpatrice</h1>
 
-        <p className="text-muted-foreground text-center max-w-xs animate-fade-in animation-delay-300 text-base font-medium">Web designer, Notion connoisseur and digital minimalist</p>
+        <p className="text-foreground text-center max-w-md animate-fade-in animation-delay-300 text-lg mb-6 px-4">
+          I create minimalist wallpapers and notion templates to simplify your life
+        </p>
+
+        {/* Contact Button - Prominent CTA */}
+        <Button 
+          onClick={() => setContactOpen(true)} 
+          className="w-full max-w-md h-14 rounded-2xl font-dmsans font-bold text-base shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] animate-fade-in animation-delay-400 bg-foreground text-background hover:bg-foreground/90"
+        >
+          Contact Me
+        </Button>
       </div>
 
       {/* Links Section */}
-      <div className="max-w-md mx-auto px-6 pb-16">
-        <div className="space-y-4">
-          {/* Contact Me - inverted style */}
-          <Button onClick={() => setContactOpen(true)} className="w-full h-16 rounded-2xl justify-start text-left p-6 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-foreground text-background hover:bg-[#F4F4F4] hover:text-foreground border border-border">
-            <div className="flex items-center space-x-4 w-full">
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between py-0">
-                  <div>
-                    <h3 className="transition-colors font-dmsans font-bold text-lg group-hover:text-foreground">
-                      Contact Me
-                    </h3>
-                    <p className="mt-0.5 py-0 text-xs font-thin opacity-80 group-hover:opacity-100 group-hover:text-foreground">
-                      Reach out directly via the form
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Button>
-
-          {links.map((link, index) => <Button key={link.title} onClick={() => {
-          if (link.title === "Get a Free Quote") {
-            setQuoteOpen(true);
-            return;
-          }
-          handleLinkClick(link.url, link.external);
-        }} variant="outline" style={{
-          animationDelay: `${(index + 4) * 100}ms`
-        }} className="w-full h-16 rounded-2xl justify-start text-left p-6 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-card hover:bg-[#F4F4F4] border-border py-[40px]">
-              <div className="flex items-center space-x-4 w-full">
+      <div className="max-w-md mx-auto px-6 pb-8">
+        <div className="space-y-3">
+          {links.map((link, index) => (
+            <Button 
+              key={link.title} 
+              onClick={() => {
+                if (link.title === "Get a Free Quote") {
+                  setQuoteOpen(true);
+                  return;
+                }
+                handleLinkClick(link.url, link.external);
+              }} 
+              variant="outline" 
+              style={{
+                animationDelay: `${(index + 5) * 100}ms`
+              }} 
+              className="w-full h-14 rounded-2xl justify-start text-left px-5 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-card hover:bg-accent border-border"
+            >
+              <div className="flex items-center gap-3 w-full">
+                <link.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between py-0">
-                    <div>
-                      <h3 className="text-foreground group-hover:text-primary transition-colors font-dmsans font-bold text-lg">
-                        {link.title}
-                      </h3>
-                      <p className="text-muted-foreground mt-0.5 py-0 text-xs font-thin group-hover:text-foreground transition-colors">
-                        {link.description}
-                      </p>
-                    </div>
-                  </div>
+                  <h3 className="text-foreground group-hover:text-primary transition-colors font-dmsans font-semibold text-base">
+                    {link.title}
+                  </h3>
                 </div>
               </div>
-            </Button>)}
+            </Button>
+          ))}
+        </div>
+      </div>
+
+      {/* Products Section */}
+      <div className="max-w-6xl mx-auto px-6 pb-16">
+        <h2 className="text-2xl font-bold font-dmsans mb-6 text-center">Shop</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              title={product.title}
+              price={product.price}
+              image={product.image}
+              productUrl={product.productUrl}
+            />
+          ))}
         </div>
       </div>
 
