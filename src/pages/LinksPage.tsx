@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, FileText, MessageSquare, Instagram, AtSign } from "lucide-react";
+import { FileText, Instagram, AtSign } from "lucide-react";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
 import ContactForm from "@/components/ContactForm";
 import ProductCard from "@/components/ProductCard";
@@ -47,23 +47,11 @@ const LinksPage = () => {
 
   const links = [
     {
-      title: "My Website",
-      url: "/",
-      icon: Home,
-      description: "Explore my web design work and services"
-    },
-    {
       title: "Notion",
       url: "https://www.notion.so/@heyimpatrice",
       icon: FileText,
       description: "Get all my templates",
       external: true
-    },
-    {
-      title: "Get a Free Quote",
-      url: "#",
-      icon: MessageSquare,
-      description: "Start your next web design project!"
     }
   ];
   const handleLinkClick = (url: string, external?: boolean) => {
@@ -101,13 +89,7 @@ const LinksPage = () => {
           {links.map((link, index) => (
             <Button 
               key={link.title} 
-              onClick={() => {
-                if (link.title === "Get a Free Quote") {
-                  setQuoteOpen(true);
-                  return;
-                }
-                handleLinkClick(link.url, link.external);
-              }} 
+              onClick={() => handleLinkClick(link.url, link.external)} 
               variant="outline" 
               style={{
                 animationDelay: `${(index + 5) * 100}ms`
@@ -129,7 +111,6 @@ const LinksPage = () => {
 
       {/* Products Section */}
       <div className="max-w-6xl mx-auto px-6 pb-16">
-        <h2 className="text-2xl font-bold font-dmsans mb-6 text-center">Shop</h2>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {products.map((product) => (
             <ProductCard
