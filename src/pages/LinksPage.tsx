@@ -4,7 +4,7 @@ import { FileText, Instagram, AtSign } from "lucide-react";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
 import ContactForm from "@/components/ContactForm";
 import ProductCard from "@/components/ProductCard";
-import productIconicPeople from "@/assets/product-iconic-people.png";
+import productIconicPeople from "@/assets/product-people.png";
 import productIconicPlaces from "@/assets/product-places.png";
 import productMusicians from "@/assets/product-musicians.png";
 import productSportsPeople from "@/assets/product-sports-people.png";
@@ -20,7 +20,7 @@ const LinksPage = () => {
       title: "Iconic People Collection",
       price: "$0.99",
       image: productIconicPeople,
-      productUrl: "https://heyimpatrice.gumroad.com/l/iconic-people",
+      productUrl: "https://heyimpatrice.gumroad.com/l/iconic-people-collection",
       category: "wallpapers" as const
     },
     {
