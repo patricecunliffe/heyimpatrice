@@ -5,7 +5,7 @@ import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } f
 import ContactForm from "@/components/ContactForm";
 import ProductCard from "@/components/ProductCard";
 import productIconicPeople from "@/assets/product-iconic-people.png";
-import productIconicPlaces from "@/assets/product-iconic-places.png";
+import productIconicPlaces from "@/assets/product-places.png";
 import productMusicians from "@/assets/product-musicians.png";
 import productSportsPeople from "@/assets/product-sports-people.png";
 import productFormula1 from "@/assets/product-formula-1.png";
@@ -28,7 +28,7 @@ const LinksPage = () => {
       title: "Iconic Places Collection",
       price: "$0.99",
       image: productIconicPlaces,
-      productUrl: "https://heyimpatrice.gumroad.com/l/iconic-places",
+      productUrl: "https://heyimpatrice.gumroad.com/l/places-collection",
       category: "wallpapers" as const
     },
     {
