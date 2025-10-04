@@ -65,22 +65,6 @@ const LinksPage = () => {
     }
   ];
 
-  const links = [
-    {
-      title: "Notion",
-      url: "https://www.notion.so/@heyimpatrice",
-      icon: FileText,
-      description: "Get all my templates",
-      external: true
-    }
-  ];
-  const handleLinkClick = (url: string, external?: boolean) => {
-    if (external) {
-      window.open(url, "_blank", "noopener,noreferrer");
-    } else {
-      window.location.href = url;
-    }
-  };
   return <main className="min-h-screen bg-background text-foreground">
       {/* Profile Section */}
       <div className="flex flex-col items-center pt-16 pb-8 px-6">
@@ -94,40 +78,28 @@ const LinksPage = () => {
           I create minimalist wallpapers and notion templates to simplify your life
         </p>
 
+        {/* Social Media Icons */}
+        <div className="flex items-center justify-center gap-6 mb-6 animate-fade-in animation-delay-400">
+          <a href="https://instagram.com/heyimpatrice" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram">
+            <Instagram className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground hover:text-foreground transition-colors" />
+          </a>
+          <a href="https://www.threads.net/@heyimpatrice" target="_blank" rel="noopener noreferrer" aria-label="Visit Threads">
+            <AtSign className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground hover:text-foreground transition-colors" />
+          </a>
+          <a href="https://www.notion.so/@heyimpatrice" target="_blank" rel="noopener noreferrer" aria-label="Visit Notion">
+            <FileText className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground hover:text-foreground transition-colors" />
+          </a>
+        </div>
+
         {/* Contact Button - Prominent CTA */}
         <Button 
           onClick={() => setContactOpen(true)} 
-          className="w-full max-w-md h-14 rounded-2xl font-dmsans font-bold text-base shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] animate-fade-in animation-delay-400 bg-foreground text-background hover:bg-foreground/90"
+          className="w-full max-w-md h-14 rounded-2xl font-dmsans font-bold text-base shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] animate-fade-in animation-delay-500 bg-foreground text-background hover:bg-foreground/90"
         >
           Contact Me
         </Button>
       </div>
 
-      {/* Links Section */}
-      <div className="max-w-md mx-auto px-6 pb-8">
-        <div className="space-y-3">
-          {links.map((link, index) => (
-            <Button 
-              key={link.title} 
-              onClick={() => handleLinkClick(link.url, link.external)} 
-              variant="outline" 
-              style={{
-                animationDelay: `${(index + 5) * 100}ms`
-              }} 
-              className="w-full h-14 rounded-2xl justify-start text-left px-5 shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-[1.02] group animate-fade-in bg-card hover:bg-accent border-border"
-            >
-              <div className="flex items-center gap-3 w-full">
-                <link.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-foreground group-hover:text-primary transition-colors font-dmsans font-semibold text-base">
-                    {link.title}
-                  </h3>
-                </div>
-              </div>
-            </Button>
-          ))}
-        </div>
-      </div>
 
       {/* Products Section */}
       <div className="max-w-6xl mx-auto px-6 pb-16">
@@ -172,14 +144,6 @@ const LinksPage = () => {
 
       {/* Footer */}
       <div className="text-center pb-8 px-6">
-        <div className="flex items-center justify-center gap-6 mt-3 mb-6">
-          <a href="https://instagram.com/heyimpatrice" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram">
-            <Instagram className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground hover:text-foreground transition-colors" />
-          </a>
-          <a href="https://www.threads.net/@heyimpatrice" target="_blank" rel="noopener noreferrer" aria-label="Visit Threads">
-            <AtSign className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground hover:text-foreground transition-colors" />
-          </a>
-        </div>
         <p className="text-xs text-muted-foreground">Built with love in Australia 🇦🇺</p>
       </div>
     </main>;
