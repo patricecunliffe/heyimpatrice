@@ -9,6 +9,7 @@ import productIconicPlaces from "@/assets/product-iconic-places.png";
 import productMusicians from "@/assets/product-musicians.png";
 import productSportsPeople from "@/assets/product-sports-people.png";
 import productFormula1 from "@/assets/product-formula-1.png";
+import productBible from "@/assets/product-bible.png";
 const LinksPage = () => {
   const [contactOpen, setContactOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -58,8 +59,8 @@ const LinksPage = () => {
       id: "bible",
       title: "Bible Collection",
       price: "$0.99",
-      image: productIconicPlaces,
-      productUrl: "https://heyimpatrice.gumroad.com/l/bible",
+      image: productBible,
+      productUrl: "https://heyimpatrice.gumroad.com/l/bible-collection",
       category: "wallpapers" as const
     }
   ];
