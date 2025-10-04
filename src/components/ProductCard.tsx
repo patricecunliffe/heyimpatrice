@@ -20,7 +20,7 @@ export default function ProductCard({ title, price, image, productUrl, rating }:
       className="group relative w-full border border-foreground bg-background overflow-hidden hover:shadow-strong transition-all duration-300 text-left"
     >
       {/* Image Container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
+      <div className="relative aspect-square w-full overflow-hidden bg-muted">
         <img
           src={image}
           alt={title}
