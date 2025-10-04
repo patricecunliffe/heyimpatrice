@@ -8,6 +8,7 @@ import productIconicPeople from "@/assets/product-iconic-people.png";
 import productIconicPlaces from "@/assets/product-iconic-places.png";
 import productMusicians from "@/assets/product-musicians.png";
 import productSportsPeople from "@/assets/product-sports-people.png";
+import productFormula1 from "@/assets/product-formula-1.png";
 const LinksPage = () => {
   const [contactOpen, setContactOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -49,8 +50,8 @@ const LinksPage = () => {
       id: "formula-1",
       title: "Formula 1 Collection",
       price: "$0.99",
-      image: productIconicPeople,
-      productUrl: "https://heyimpatrice.gumroad.com/l/formula-1",
+      image: productFormula1,
+      productUrl: "https://heyimpatrice.gumroad.com/l/formula1-collection",
       category: "wallpapers" as const
     },
     {
