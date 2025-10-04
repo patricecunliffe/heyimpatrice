@@ -7,6 +7,7 @@ import ProductCard from "@/components/ProductCard";
 import productIconicPeople from "@/assets/product-iconic-people.png";
 import productIconicPlaces from "@/assets/product-iconic-places.png";
 import productMusicians from "@/assets/product-musicians.png";
+import productSportsPeople from "@/assets/product-sports-people.png";
 const LinksPage = () => {
   const [contactOpen, setContactOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -34,6 +35,14 @@ const LinksPage = () => {
       price: "$0.99",
       image: productMusicians,
       productUrl: "https://heyimpatrice.gumroad.com/l/musicians-collection",
+      category: "wallpapers" as const
+    },
+    {
+      id: "sports-people",
+      title: "Sports People Collection",
+      price: "$0.99",
+      image: productSportsPeople,
+      productUrl: "https://heyimpatrice.gumroad.com/l/sports-people",
       category: "wallpapers" as const
     },
     {
