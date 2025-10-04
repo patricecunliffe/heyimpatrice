@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText, Instagram, AtSign } from "lucide-react";
+import { Instagram, AtSign } from "lucide-react";
+import { SiNotion } from "react-icons/si";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
 import ContactForm from "@/components/ContactForm";
 import ProductCard from "@/components/ProductCard";
@@ -87,7 +88,7 @@ const LinksPage = () => {
             <AtSign className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground hover:text-foreground transition-colors" />
           </a>
           <a href="https://www.notion.so/@heyimpatrice" target="_blank" rel="noopener noreferrer" aria-label="Visit Notion">
-            <FileText className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground hover:text-foreground transition-colors" />
+            <SiNotion className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground hover:text-foreground transition-colors" />
           </a>
         </div>
 
