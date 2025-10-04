@@ -41,8 +41,8 @@ export default function ProductCard({ title, price, image, productUrl, rating }:
             <span>({rating.count})</span>
           </div>
         )}
-        {/* Price Ghost Button */}
-        <div className="inline-block border border-foreground bg-transparent text-foreground px-4 py-2 rounded-full font-bold text-base hover:bg-foreground hover:text-background transition-colors">
+        {/* Price Button */}
+        <div className="inline-block bg-foreground text-background px-4 py-2 font-bold text-sm">
           {price}
         </div>
       </div>
