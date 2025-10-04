@@ -6,6 +6,7 @@ import ContactForm from "@/components/ContactForm";
 import ProductCard from "@/components/ProductCard";
 import productIconicPeople from "@/assets/product-iconic-people.png";
 import productIconicPlaces from "@/assets/product-iconic-places.png";
+import productMusicians from "@/assets/product-musicians.png";
 const LinksPage = () => {
   const [contactOpen, setContactOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -25,6 +26,14 @@ const LinksPage = () => {
       price: "$0.99",
       image: productIconicPlaces,
       productUrl: "https://heyimpatrice.gumroad.com/l/iconic-places",
+      category: "wallpapers" as const
+    },
+    {
+      id: "musicians",
+      title: "Musicians Collection",
+      price: "$0.99",
+      image: productMusicians,
+      productUrl: "https://heyimpatrice.gumroad.com/l/musicians-collection",
       category: "wallpapers" as const
     },
     {
