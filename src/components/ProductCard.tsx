@@ -17,7 +17,7 @@ export default function ProductCard({ title, price, image, productUrl, rating }:
   return (
     <button
       onClick={handleClick}
-      className="group relative w-full rounded-xl border-2 border-foreground bg-background overflow-hidden hover:shadow-strong transition-all duration-300 text-left"
+      className="group relative w-full border border-foreground bg-background overflow-hidden hover:shadow-strong transition-all duration-300 text-left"
     >
       {/* Image Container */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
@@ -30,7 +30,7 @@ export default function ProductCard({ title, price, image, productUrl, rating }:
       </div>
 
       {/* Content */}
-      <div className="p-4 border-t-2 border-foreground">
+      <div className="p-4 border-t border-foreground">
         <h3 className="font-dmsans font-bold text-base text-foreground mb-3">
           {title}
         </h3>
@@ -42,7 +42,7 @@ export default function ProductCard({ title, price, image, productUrl, rating }:
           </div>
         )}
         {/* Price Ghost Button */}
-        <div className="inline-block border-2 border-foreground bg-transparent text-foreground px-4 py-2 rounded-full font-bold text-base hover:bg-foreground hover:text-background transition-colors">
+        <div className="inline-block border border-foreground bg-transparent text-foreground px-4 py-2 rounded-full font-bold text-base hover:bg-foreground hover:text-background transition-colors">
           {price}
         </div>
       </div>
