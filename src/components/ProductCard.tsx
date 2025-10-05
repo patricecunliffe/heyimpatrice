@@ -25,7 +25,7 @@ export default function ProductCard({ title, price, image, productUrl, rating }:
           src={image}
           alt={title}
           loading="lazy"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
       </div>
 
