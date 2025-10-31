@@ -42,7 +42,7 @@ const Index = () => {
       <main className="container max-w-3xl mx-auto px-4 py-16 md:py-24">
         {/* Header Section */}
         <div className="text-center mb-16 md:mb-20">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-inter font-bold mb-8 leading-tight">
             I create minimalist wallpapers, Notion templates and websites to simplify your life
           </h1>
 
@@ -64,22 +64,24 @@ const Index = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
+        <div className="flex flex-col gap-6">
           {featureCards.map((card) => (
             <Card
               key={card.title}
-              className="p-8 flex flex-col border-2 border-foreground bg-background rounded-2xl hover:shadow-lg transition-all duration-300"
+              className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6 bg-[#F4F4F4] dark:bg-[#F4F4F4] border-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <h2 className="text-xl md:text-2xl font-bold mb-3">
-                {card.title}
-              </h2>
-              <p className="text-xs md:text-sm text-muted-foreground mb-6 flex-grow leading-relaxed">
-                {card.description}
-              </p>
+              <div className="flex-grow">
+                <h2 className="text-xl md:text-2xl font-inter font-bold mb-3 text-black">
+                  {card.title}
+                </h2>
+                <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+                  {card.description}
+                </p>
+              </div>
               <Button
                 onClick={card.action}
                 variant="ghost"
-                className="w-full border border-foreground hover:bg-foreground hover:text-background font-semibold"
+                className="w-full md:w-auto md:min-w-[140px] border border-black hover:bg-black hover:text-white font-inter font-semibold text-black"
                 size="lg"
               >
                 {card.buttonText}
