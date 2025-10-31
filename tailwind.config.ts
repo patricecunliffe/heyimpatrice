@@ -18,15 +18,16 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				'montserrat': ['Montserrat', 'sans-serif'],
-				'opensans': ['Open Sans', 'sans-serif'],
-				'sans': ['Open Sans', 'sans-serif'],
-				'heading': ['Montserrat', 'sans-serif'],
-				'anton': ['Anton', 'sans-serif'],
-				'instrument': ['Instrument Serif', 'serif'],
-				'dmsans': ['DM Sans', 'sans-serif'],
-			},
+		fontFamily: {
+			'montserrat': ['Montserrat', 'sans-serif'],
+			'opensans': ['Open Sans', 'sans-serif'],
+			'sans': ['Open Sans', 'sans-serif'],
+			'heading': ['Montserrat', 'sans-serif'],
+			'anton': ['Anton', 'sans-serif'],
+			'instrument': ['Instrument Serif', 'serif'],
+			'dmsans': ['DM Sans', 'sans-serif'],
+			'inter': ['Inter', 'sans-serif'],
+		},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

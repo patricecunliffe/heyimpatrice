@@ -2,7 +2,6 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { FaInstagram, FaThreads } from 'react-icons/fa6';
 import { SiNotion, SiGumroad, SiMedium } from 'react-icons/si';
-import { ExternalLink, Download } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
 
 const Index = () => {
@@ -18,16 +17,14 @@ const Index = () => {
     {
       title: 'My Wallpaper & Notion Shop',
       description: 'My one stop shop powered by shopify where you can purchase all my wallpaper collections and exclusive Notion templates.',
-      buttonText: 'VISIT SHOP',
+      buttonText: 'VISIT',
       action: () => window.open('https://shop.heyimpatrice.com', '_blank'),
-      icon: ExternalLink,
     },
     {
       title: 'Work With Me',
       description: 'Learn more about what I have to offer when it comes to web design and funnel building that turns customers into clients, not just viewers.',
-      buttonText: 'LEARN MORE',
+      buttonText: 'JOIN',
       action: () => window.location.href = '/workwithme',
-      icon: ExternalLink,
     },
     {
       title: 'FREE Wallpaper Pack',
@@ -37,15 +34,14 @@ const Index = () => {
         // Placeholder for PDF download - will be implemented when PDF is provided
         console.log('Download PDF');
       },
-      icon: Download,
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <main className="container max-w-4xl mx-auto px-4 py-16 md:py-24">
+    <div className="min-h-screen bg-background font-inter">
+      <main className="container max-w-3xl mx-auto px-4 py-16 md:py-24">
         {/* Header Section */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-16 md:mb-20">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
             I create minimalist wallpapers, Notion templates and websites to simplify your life
           </h1>
@@ -68,25 +64,25 @@ const Index = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
           {featureCards.map((card) => (
             <Card
               key={card.title}
-              className="p-6 md:p-8 flex flex-col border-2 border-foreground bg-background hover:shadow-lg transition-all duration-300"
+              className="p-8 flex flex-col border-2 border-foreground bg-background rounded-2xl hover:shadow-lg transition-all duration-300"
             >
-              <h2 className="text-xl md:text-2xl font-bold mb-4">
+              <h2 className="text-xl md:text-2xl font-bold mb-3">
                 {card.title}
               </h2>
-              <p className="text-sm md:text-base text-muted-foreground mb-6 flex-grow leading-relaxed">
+              <p className="text-xs md:text-sm text-muted-foreground mb-6 flex-grow leading-relaxed">
                 {card.description}
               </p>
               <Button
                 onClick={card.action}
-                className="w-full bg-foreground text-background hover:bg-foreground/90 font-semibold"
+                variant="ghost"
+                className="w-full border border-foreground hover:bg-foreground hover:text-background font-semibold"
                 size="lg"
               >
                 {card.buttonText}
-                <card.icon className="w-4 h-4 ml-2" />
               </Button>
             </Card>
           ))}
