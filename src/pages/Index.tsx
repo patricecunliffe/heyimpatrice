@@ -38,16 +38,16 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background font-inter">
+    <div className="min-h-screen bg-[#F4F4F4] font-inter">
       <main className="container max-w-3xl mx-auto px-4 py-16 md:py-24">
         {/* Header Section */}
-        <div className="text-center mb-16 md:mb-20">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-inter font-bold mb-8 leading-tight">
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-inter font-bold mb-12 md:mb-16 leading-tight text-black">
             I create minimalist wallpapers, Notion templates and websites to simplify your life
           </h1>
 
           {/* Social Media Icons */}
-          <div className="flex justify-center items-center gap-6 md:gap-8">
+          <div className="flex justify-center items-center gap-6 md:gap-8 mb-8 md:mb-10">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
@@ -55,7 +55,7 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="text-foreground hover:text-foreground/70 transition-colors"
+                className="text-black hover:text-black/70 transition-colors"
               >
                 <social.icon className="w-6 h-6 md:w-7 md:h-7" />
               </a>
@@ -68,10 +68,10 @@ const Index = () => {
           {featureCards.map((card) => (
             <Card
               key={card.title}
-              className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6 bg-[#F4F4F4] dark:bg-[#F4F4F4] border-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6 bg-white border-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="flex-grow">
-                <h2 className="text-xl md:text-2xl font-inter font-bold mb-3 text-black">
+                <h2 className="text-lg md:text-xl font-inter font-bold mb-3 text-black">
                   {card.title}
                 </h2>
                 <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
