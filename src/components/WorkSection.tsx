@@ -15,11 +15,11 @@ const WorkSection = () => {
     image: portfolioEcommerce,
     technologies: ["Next.js", "Shopify", "TailwindCSS"]
   }, {
-    title: "inherhands",
-    description: "Artist website for managing a portfolio with the ability feature and personally manage ongoing for sale and sold works.",
-    url: "inherhands.com.au",
+    title: "Elijah Delporte",
+    description: "A conversion-focused website designed to turn YouTube viewers into paying clients with UTM tracking and measurable results.",
+    url: "elijahdelporte.com",
     image: portfolioCorporate,
-    technologies: ["React", "TypeScript", "Framer Motion"]
+    technologies: ["React", "TypeScript", "Analytics"]
   }];
   const handleProjectClick = (url: string) => {
     window.open(`https://${url}`, '_blank');
