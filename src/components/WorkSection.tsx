@@ -1,4 +1,4 @@
-import portfolioKingdomPurpose from '@/assets/portfolio-kingdom-purpose.jpg';
+import portfolioKingdomPurpose from '@/assets/portfolio-kingdom-purpose-new.png';
 import portfolioEmpowerLeader from '@/assets/portfolio-empower-leader.png';
 import portfolioElijah from '@/assets/portfolio-elijah.png';
 const WorkSection = () => {
