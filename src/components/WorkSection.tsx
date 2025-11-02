@@ -1,5 +1,5 @@
 import portfolioKingdomPurpose from '@/assets/portfolio-kingdom-purpose.jpg';
-import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
+import portfolioEmpowerLeader from '@/assets/portfolio-empower-leader.png';
 import portfolioElijah from '@/assets/portfolio-elijah.png';
 const WorkSection = () => {
   const projects = [{
@@ -12,7 +12,7 @@ const WorkSection = () => {
     title: "Empower Leader",
     description: "Coaching services website optimised for generating leads, resourcing pastors with log ins for current clients for quick access to content.",
     url: "empowerleader.org",
-    image: portfolioEcommerce,
+    image: portfolioEmpowerLeader,
     technologies: ["Next.js", "Shopify", "TailwindCSS"]
   }, {
     title: "Elijah Delporte",
