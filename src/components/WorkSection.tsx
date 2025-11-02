@@ -1,6 +1,6 @@
 import portfolioKingdomPurpose from '@/assets/portfolio-kingdom-purpose.jpg';
 import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
-import portfolioCorporate from '@/assets/portfolio-corporate.jpg';
+import portfolioElijah from '@/assets/portfolio-elijah.png';
 const WorkSection = () => {
   const projects = [{
     title: "Kingdom Purpose",
@@ -18,7 +18,7 @@ const WorkSection = () => {
     title: "Elijah Delporte",
     description: "A conversion-focused website designed to turn YouTube viewers into paying clients with UTM tracking and measurable results.",
     url: "elijahdelporte.com",
-    image: portfolioCorporate,
+    image: portfolioElijah,
     technologies: ["React", "TypeScript", "Analytics"]
   }];
   const handleProjectClick = (url: string) => {
