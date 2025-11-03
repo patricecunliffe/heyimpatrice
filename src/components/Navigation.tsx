@@ -15,8 +15,18 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const scrollToSection = (sectionId: string) => {
-    // If we're not on the home page, navigate to home first
-    if (location.pathname !== '/') {
+    // If we're on workwithme or home page, just scroll within the current page
+    if (location.pathname === '/workwithme' || location.pathname === '/') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offsetTop = element.offsetTop - 80;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // For all other routes, navigate to home first
       navigate('/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
@@ -28,19 +38,10 @@ const Navigation = () => {
           });
         }
       }, 100);
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        const offsetTop = element.offsetTop - 80;
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
-      }
     }
   };
   const handleLogoClick = () => {
-    if (location.pathname === '/') {
+    if (location.pathname === '/' || location.pathname === '/workwithme') {
       scrollToSection('home');
     } else {
       navigate('/');
@@ -99,6 +100,10 @@ const Navigation = () => {
               Stories
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
+            <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group">
+              FAQ
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </button>
           </div>
           
           {/* Social Media and Contact */}
@@ -147,6 +152,9 @@ const Navigation = () => {
             </button>
             <button onClick={() => handleMobileMenuClick('testimonials')} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
               Stories
+            </button>
+            <button onClick={() => handleMobileMenuClick('faq')} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
+              FAQ
             </button>
             <button onClick={() => handleMobileMenuClick('contact')} className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300">
               Get Started
