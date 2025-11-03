@@ -31,8 +31,12 @@ const Index = () => {
       description: 'If you have just discovered my wallpapers then start here, with a free download of 20 curated wallpapers for your iPhone to get started.',
       buttonText: 'DOWNLOAD',
       action: () => {
-        // Placeholder for PDF download - will be implemented when PDF is provided
-        console.log('Download PDF');
+        const link = document.createElement('a');
+        link.href = '/FREE-Sample-Setup-Guide.pdf';
+        link.download = 'FREE-Sample-Setup-Guide.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
       },
     },
   ];
