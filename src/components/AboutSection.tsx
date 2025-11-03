@@ -1,6 +1,43 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+
 const AboutSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [centeredIndex, setCenteredIndex] = useState<number | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth >= 768) return; // Only for mobile
+      
+      const viewportCenter = window.innerHeight / 2 + window.scrollY;
+      let closestIndex = null;
+      let closestDistance = Infinity;
+
+      cardRefs.current.forEach((card, index) => {
+        if (!card) return;
+        
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + window.scrollY + rect.height / 2;
+        const distance = Math.abs(viewportCenter - cardCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setCenteredIndex(closestIndex);
+    };
+
+    handleScroll(); // Initial check
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
   const statements = [{
     headline: "Build genuine connections with every visitor",
     byline: "Websites that feel personal and guide people naturally toward working with you."
@@ -29,19 +66,33 @@ const AboutSection = () => {
 
           {/* Interactive statements - 2x2 grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {statements.map((statement, index) => <div key={index} className={`
-                  bg-card border border-border rounded-lg p-6 shadow-soft 
-                  transition-all duration-300 cursor-pointer
-                  hover:shadow-medium hover:border-accent/20
-                  ${hoveredIndex !== null && hoveredIndex !== index ? 'blur-sm opacity-50' : 'blur-none opacity-100'}
-                `} onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)}>
-                <h3 className="text-foreground font-medium leading-relaxed mb-3 text-2xl">
-                  {statement.headline}
-                </h3>
-                <p className="text-muted-foreground text-base leading-relaxed">
-                  {statement.byline}
-                </p>
-              </div>)}
+            {statements.map((statement, index) => {
+              const isBlurred = window.innerWidth < 768 
+                ? centeredIndex !== null && centeredIndex !== index
+                : hoveredIndex !== null && hoveredIndex !== index;
+              
+              return (
+                <div 
+                  key={index}
+                  ref={(el) => (cardRefs.current[index] = el)}
+                  className={`
+                    bg-card border border-border rounded-lg p-6 shadow-soft 
+                    transition-all duration-300
+                    md:cursor-pointer md:hover:shadow-medium md:hover:border-accent/20
+                    ${isBlurred ? 'blur-sm opacity-50' : 'blur-none opacity-100'}
+                  `} 
+                  onMouseEnter={() => setHoveredIndex(index)} 
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <h3 className="text-foreground font-medium leading-relaxed mb-3 text-2xl">
+                    {statement.headline}
+                  </h3>
+                  <p className="text-muted-foreground text-base leading-relaxed">
+                    {statement.byline}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
