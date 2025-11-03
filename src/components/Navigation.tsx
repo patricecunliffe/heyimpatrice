@@ -7,6 +7,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
@@ -14,6 +15,18 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
   const scrollToSection = (sectionId: string) => {
     // If we're on workwithme or home page, just scroll within the current page
     if (location.pathname === '/workwithme' || location.pathname === '/') {
@@ -128,7 +141,7 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && <div className="md:hidden fixed inset-0 top-0 bg-background/95 backdrop-blur-md z-40">
+      {isMobileMenuOpen && <div className="md:hidden fixed inset-0 top-0 bg-background z-40 overflow-y-auto">
           {/* Close button in top right */}
           <button onClick={() => setIsMobileMenuOpen(false)} className="absolute top-4 right-6 p-2 text-foreground hover:text-primary transition-colors duration-300">
             <X size={24} />
