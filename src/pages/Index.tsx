@@ -42,7 +42,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F4F4F4] dark:bg-gray-900 font-inter transition-colors">
+    <div className="min-h-screen bg-[#F4F4F4] dark:bg-background font-inter transition-colors">
       <main className="container max-w-3xl mx-auto px-4 py-16 md:py-24">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-12">
@@ -72,13 +72,13 @@ const Index = () => {
           {featureCards.map((card) => (
             <Card
               key={card.title}
-              className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6 bg-white dark:bg-gray-800 border-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6 bg-white dark:bg-card border-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="flex-grow">
                 <h2 className="text-lg md:text-xl font-inter font-bold mb-3 text-black dark:text-white transition-colors">
                   {card.title}
                 </h2>
-                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 leading-relaxed transition-colors">
+                <p className="text-xs md:text-sm text-gray-600 dark:text-muted-foreground leading-relaxed transition-colors">
                   {card.description}
                 </p>
               </div>
