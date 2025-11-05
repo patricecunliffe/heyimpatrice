@@ -97,9 +97,11 @@ const Index = () => {
 
         {/* Mobile Drawer */}
         {isMobile && <Drawer open={isModalOpen} onOpenChange={setIsModalOpen}>
-            <DrawerContent>
-              
-              <div className="overflow-y-auto max-h-[70vh] px-4 pb-8">
+            <DrawerContent className="max-h-[90vh]">
+              <DrawerHeader>
+                <DrawerTitle>Get Your FREE Wallpaper Pack</DrawerTitle>
+              </DrawerHeader>
+              <div className="overflow-y-auto flex-1 px-4 pb-8">
                 <iframe src="https://tally.so/embed/rjyAjN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="600" frameBorder="0" marginHeight={0} marginWidth={0} title="FREE Wallpaper Pack Form" className="w-full" />
               </div>
             </DrawerContent>
