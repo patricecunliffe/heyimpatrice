@@ -86,9 +86,7 @@ const Index = () => {
         {/* Desktop Modal */}
         {!isMobile && <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
             <DialogContent className="max-w-2xl max-h-[80vh] overflow-hidden">
-              <DialogHeader>
-                <DialogTitle>Get Your FREE Wallpaper Pack</DialogTitle>
-              </DialogHeader>
+              
               <div className="overflow-y-auto max-h-[calc(80vh-100px)]">
                 <iframe src="https://tally.so/embed/rjyAjN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="600" frameBorder="0" marginHeight={0} marginWidth={0} title="FREE Wallpaper Pack Form" className="w-full" />
               </div>
