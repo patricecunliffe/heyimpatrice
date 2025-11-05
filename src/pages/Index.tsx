@@ -1,10 +1,17 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer';
 import { FaInstagram, FaThreads } from 'react-icons/fa6';
 import { SiNotion, SiGumroad, SiMedium } from 'react-icons/si';
 import ThemeToggle from '@/components/ThemeToggle';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const isMobile = useIsMobile();
+
   const socialLinks = [
     { icon: FaInstagram, url: 'https://www.instagram.com/heyimpatrice/', label: 'Instagram' },
     { icon: FaThreads, url: 'https://www.threads.net/@heyimpatrice', label: 'Threads' },
@@ -15,29 +22,25 @@ const Index = () => {
 
   const featureCards = [
     {
+      title: 'FREE Wallpaper Pack',
+      description: 'If you have just discovered my wallpapers then start here, with a free download of 20 curated wallpapers for your iPhone to get started.',
+      buttonText: 'DOWNLOAD',
+      action: () => setIsModalOpen(true),
+      isClickable: true,
+    },
+    {
       title: 'My Wallpaper & Notion Shop',
       description: 'My one stop shop powered by shopify where you can purchase all my wallpaper collections and exclusive Notion templates.',
       buttonText: 'VISIT',
       action: () => window.open('https://shop.heyimpatrice.com', '_blank'),
+      isClickable: false,
     },
     {
       title: 'Work With Me',
       description: 'Learn more about what I have to offer when it comes to web design and funnel building that turns customers into clients, not just viewers.',
       buttonText: 'JOIN',
       action: () => window.location.href = '/workwithme',
-    },
-    {
-      title: 'FREE Wallpaper Pack',
-      description: 'If you have just discovered my wallpapers then start here, with a free download of 20 curated wallpapers for your iPhone to get started.',
-      buttonText: 'DOWNLOAD',
-      action: () => {
-        const link = document.createElement('a');
-        link.href = '/FREE-Sample-Setup-Guide.pdf';
-        link.download = 'FREE-Sample-Setup-Guide.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      },
+      isClickable: false,
     },
   ];
 
@@ -72,7 +75,8 @@ const Index = () => {
           {featureCards.map((card) => (
             <Card
               key={card.title}
-              className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6 bg-white dark:bg-card border-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={card.isClickable ? card.action : undefined}
+              className={`p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6 bg-white dark:bg-card border-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${card.isClickable ? 'cursor-pointer' : ''}`}
             >
               <div className="flex-grow">
                 <h2 className="text-lg md:text-xl font-inter font-bold mb-3 text-black dark:text-white transition-colors">
@@ -93,6 +97,52 @@ const Index = () => {
             </Card>
           ))}
         </div>
+
+        {/* Desktop Modal */}
+        {!isMobile && (
+          <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+            <DialogContent className="max-w-2xl max-h-[80vh] overflow-hidden">
+              <DialogHeader>
+                <DialogTitle>Get Your FREE Wallpaper Pack</DialogTitle>
+              </DialogHeader>
+              <div className="overflow-y-auto max-h-[calc(80vh-100px)]">
+                <iframe
+                  src="https://tally.so/embed/rjyAjN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                  width="100%"
+                  height="600"
+                  frameBorder="0"
+                  marginHeight={0}
+                  marginWidth={0}
+                  title="FREE Wallpaper Pack Form"
+                  className="w-full"
+                />
+              </div>
+            </DialogContent>
+          </Dialog>
+        )}
+
+        {/* Mobile Drawer */}
+        {isMobile && (
+          <Drawer open={isModalOpen} onOpenChange={setIsModalOpen}>
+            <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle>Get Your FREE Wallpaper Pack</DrawerTitle>
+              </DrawerHeader>
+              <div className="overflow-y-auto max-h-[70vh] px-4 pb-8">
+                <iframe
+                  src="https://tally.so/embed/rjyAjN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                  width="100%"
+                  height="600"
+                  frameBorder="0"
+                  marginHeight={0}
+                  marginWidth={0}
+                  title="FREE Wallpaper Pack Form"
+                  className="w-full"
+                />
+              </div>
+            </DrawerContent>
+          </Drawer>
+        )}
       </main>
 
       <ThemeToggle />
