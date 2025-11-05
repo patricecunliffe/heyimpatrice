@@ -42,13 +42,13 @@ const Index = () => {
     description: 'My one stop shop powered by shopify where you can purchase all my wallpaper collections and exclusive Notion templates.',
     buttonText: 'VISIT',
     action: () => window.open('https://shop.heyimpatrice.com', '_blank'),
-    isClickable: false
+    isClickable: true
   }, {
     title: 'Work With Me',
     description: 'Learn more about what I have to offer when it comes to web design and funnel building that turns customers into clients, not just viewers.',
     buttonText: 'JOIN',
     action: () => window.location.href = '/workwithme',
-    isClickable: false
+    isClickable: true
   }];
   return <div className="min-h-screen bg-[#F4F4F4] dark:bg-background font-inter transition-colors">
       <main className="container max-w-3xl mx-auto px-4 py-16 md:py-24">
